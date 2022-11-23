@@ -1,0 +1,9 @@
+import MyComponent from '../../../../slices/CalloutWithImage';
+
+export default {
+  title: 'slices/CalloutWithImage'
+}
+
+
+export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{}],"primary":{"image":{"dimensions":{"width":900,"height":500},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1498050108023-c5249f4df085"},"title":[{"type":"heading1","text":"Stopped","spans":[]}],"description":[{"type":"paragraph","text":"Velit esse commodo in laborum ullamco qui aliqua et consequat anim qui. Non aliqua tempor excepteur dolore nostrud.","spans":[]}],"button":"shoot"},"slice_type":"callout_with_image","id":"_Default"}} />
+_Default.storyName = ''

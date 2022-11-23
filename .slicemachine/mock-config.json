@@ -4,7 +4,14 @@
     "page": {}
   },
   "slices": {
-    "HeroSlice": {},
-    "ImageGrid": {}
+    "HeroSlice": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "ImageGrid": {},
+    "CalloutWithImage": {},
+    "Descriptions": {}
   }
 }

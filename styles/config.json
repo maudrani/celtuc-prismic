@@ -1,0 +1,16 @@
+{
+  "colors": {
+    "main": "#111821",
+    "second": "#fff",
+    "third": "#28ABC9",
+    "white": "#FFF",
+    "black": "#111821"
+  },
+  "sizes": {
+    "core": 16,
+    "multiplier": 1.721,
+    "list": ["xxs", "xs", "sm", "smx", "md", "mdx", "lg", "xl", "xlx"],
+    "defaultSize": "smx"
+  },
+  "wireframeMode": false
+}

@@ -29,6 +29,12 @@
             },
             "image_grid": {
               "type": "SharedSlice"
+            },
+            "callout_with_image": {
+              "type": "SharedSlice"
+            },
+            "descriptions": {
+              "type": "SharedSlice"
             }
           }
         }

@@ -1,0 +1,9 @@
+import MyComponent from '../../../../slices/Descriptions';
+
+export default {
+  title: 'slices/Descriptions'
+}
+
+
+export const _Default = () => <MyComponent slice={{"variation":"default","version":"sktwi1xtmkfgx8626","items":[{}],"primary":{"title":[{"type":"heading1","text":"Anyone","spans":[]}],"description":[{"type":"paragraph","text":"In dolor amet aliquip ipsum excepteur mollit nisi mollit esse eu. Ad fugiat veniam ullamco aliquip non.","spans":[]}],"image1":{"dimensions":{"width":900,"height":500},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1499951360447-b19be8fe80f5"},"image2":{"dimensions":{"width":900,"height":500},"alt":null,"copyright":null,"url":"https://images.unsplash.com/photo-1606248897732-2c5ffe759c04"},"button":"judge"},"slice_type":"descriptions","id":"_Default"}} />
+_Default.storyName = ''

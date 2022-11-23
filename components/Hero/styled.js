@@ -1,34 +1,49 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const HeroWrapper = styled.section`
   :root {
-    /*  HERO FIGCAPTION STYLES */
     --hero-text-color: white;
     --hero-text-h2-size: 5vw;
     --hero-text-h3-size: 3vw;
     --hero-text-h2-mobile-size: 10vw;
     --hero-text-h3-mobile-size: 6vw;
-
-    /*  HERO FIGCAPTION BACKGROUND COLOR
-     Background color with transparency to soften video amd focus on title  */
     --hero-figcaption-background-color: rgba(0, 0, 0, 0.15);
-  }
-
-  /*  SMOOTH SCROLLING 
-    Great read on scroll behavior here:
-    https://css-tricks.com/almanac/properties/s/scroll-behavior/ */
-
-  html {
-    scroll-behavior: smooth;
   }
 
   .hero-wrapper {
     position: relative;
     width: 100%;
-    height: 100vh;
     overflow: hidden;
     margin: 0;
+
+    ::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      background: radial-gradient(
+        circle,
+        rgba(25, 33, 43, 0) 37%,
+        rgba(10, 10, 10, 0.8916610589548319) 100%
+      );
+    }
+
+    height: ${({ size }) => `${size || 100}vh`};
+    background-image: url(${({ backgroundImage }) => backgroundImage});
+    background-size: cover;
+    background-position: center;
   }
+
+  .hero-logo {
+    max-width: 200px;
+    filter: drop-shadow(-10px 10px 25px rgba(0, 0, 0, 0.55));
+
+    @media (max-width: 1000px) {
+      max-width: 30vw;
+    }
+  }
+
   .hero-wrapper figcaption {
     position: absolute;
     top: 0;
@@ -42,17 +57,47 @@ export const HeroWrapper = styled.section`
     background: var(--hero-figcaption-background-color);
   }
 
+  .hero-caption {
+    z-index: 20;
+    gap: 70px;
+    color: white;
+
+    h2 {
+      font-size: 100px;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      filter: drop-shadow(-5px 10px 17px rgba(0, 0, 0, 0.4));
+    }
+
+    p {
+      font-size: 20px;
+      max-width: 900px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .hero-disclaimer {
+      font-size: 17px;
+      font-weight: 300;
+      opacity: 0.7;
+      position: absolute;
+      bottom: 5%;
+
+      @media (max-width: 1000px) {
+      font-size: 12px;
+    }
+    }
+  }
+
   figcaption h2,
   figcaption h3 {
     color: var(--hero-text-color);
-    opacity: 0.8;
     line-height: 1;
     margin: 0;
     letter-spacing: 2px;
-    text-shadow: 2px 0 0 rgba(0, 0, 0, 0.5), 0 2px 0 rgba(0, 0, 0, 0.5),
-      -2px 0 0 rgba(0, 0, 0, 0.5), 0 -2px 0 rgba(0, 0, 0, 0.5);
-    text-rendering: optimizeLegibility;
-    font-smoothing: antialiased;
+    text-shadow: 2px 0 0 rgba(0, 0, 0, 0.1), 0 2px 0 rgba(0, 0, 0, 0.1),
+      -2px 0 0 rgba(0, 0, 0, 0.1), 0 -2px 0 rgba(0, 0, 0, 0.1);
     -webkit-font-smoothing: antialiased;
     -moz-osx-fon-smoothing: grayscale;
   }
@@ -110,131 +155,11 @@ export const HeroWrapper = styled.section`
   .shade-effect {
     position: absolute;
     top: 0;
-    z-index: 999;
+    z-index: 10;
 
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
     opacity: 0;
     background: rgba(0, 0, 0, 0.8);
-  }
-
-  /*  SCROLL DOWN ICON
-    Forked from Thomas Nägele
-    https://codepen.io/xonic/pen/KWMaqe​  
-    Love the way this looks.  Unobtrusive.
-
-*/
-
-  .scroll-down {
-    position: absolute;
-    z-index: 999;
-    font-weight: 800;
-    color: white;
-    bottom: 20px;
-    left: 50%;
-    z-index: 2;
-    display: inline-block;
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    text-decoration: none;
-    letter-spacing: 2px;
-    cursor: pointer;
-  }
-
-  .scroll-down .chevron {
-    position: absolute;
-    width: 28px;
-    height: 8px;
-    opacity: 0;
-    transform: scale3d(0.5, 0.5, 0.5);
-    animation: move 3s ease-out infinite;
-  }
-
-  .scroll-down .chevron:first-child {
-    animation: move 3s ease-out 1s infinite;
-  }
-
-  .scroll-down .chevron:nth-child(2) {
-    animation: move 3s ease-out 2s infinite;
-  }
-
-  .scroll-down .chevron:before,
-  .scroll-down .chevron:after {
-    content: ' ';
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 51%;
-    background: #fff;
-  }
-
-  .scroll-down:hover .chevron:before,
-  .scroll-down:hover .chevron:after {
-    background: red;
-  }
-
-  .scroll-down .chevron:before {
-    left: 0;
-    transform: skew(0deg, 30deg);
-  }
-
-  .scroll-down .chevron:after {
-    right: 0;
-    width: 50%;
-    transform: skew(0deg, -30deg);
-  }
-
-  @keyframes move {
-    25% {
-      opacity: 1;
-    }
-    33% {
-      opacity: 1;
-      transform: translateY(30px);
-    }
-    67% {
-      opacity: 1;
-      transform: translateY(40px);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
-    }
-  }
-
-  .scroll-down .text {
-    display: block;
-    margin-top: 75px;
-    margin-left: -30px;
-    font-family: 'Hontserrat', sans-serif;
-    font-size: 12px;
-    color: #fff;
-    text-transform: uppercase;
-    white-space: nowrap;
-    opacity: 0.25;
-    animation: pulse 2s linear alternate infinite;
-  }
-
-  .scroll-down:hover .text {
-    color: red;
-  }
-
-  @keyframes pulse {
-    to {
-      opacity: 1;
-    }
-  }
-
-  /*  mark-up for demo  */
-
-  body {
-    background: #292929;
-    color: white;
-  }
-  article {
-    height: 100vh;
-    text-align: center;
-    padding: 35px;
-    font-size: 5vw;
   }
 `;
