@@ -6,9 +6,9 @@ import Footer from "./Footer";
 function Layout(props) {
   return (
     <LayoutWrapper>
-      <Header />
+      {/* <Header /> */}
       {props.children}
-      <Footer />
+      {/* <Footer /> */}
     </LayoutWrapper>
   );
 }

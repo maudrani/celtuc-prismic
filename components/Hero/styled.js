@@ -82,7 +82,7 @@ export const HeroWrapper = styled.section`
       font-weight: 300;
       opacity: 0.7;
       position: absolute;
-      bottom: 5%;
+      top: 5%;
 
       @media (max-width: 1000px) {
       font-size: 12px;

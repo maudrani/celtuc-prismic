@@ -6,8 +6,6 @@ import { AboutWrapper } from "./styled";
 function Descriptions({ data }) {
   const { title, description, image1, image2, button } = data;
 
-  console.log(data)
-
   return (
     <AboutWrapper>
       <div className="content">
