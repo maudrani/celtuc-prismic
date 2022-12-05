@@ -3,9 +3,11 @@ import { PrismicRichText, PrismicText } from '@prismicio/react';
 import { HeroWrapper } from './styled';
 import { GetYoutubeId } from 'helpers/youtube';
 import { DateDMY } from 'helpers/date';
+import useMobile from 'utils/hooks/useMobile';
 
 const Hero = ({ data }) => {
   const { image, video_link, title, description, size } = data;
+  const isMobile = useMobile();
 
   const videoURl = () => {
     const id = GetYoutubeId(video_link);
@@ -16,28 +18,32 @@ const Hero = ({ data }) => {
   useEffect(() => {
     if (!document) return;
 
-    const shadePanel = document.querySelector('.shade-effect');
+    function ShadePanelEffect() {
+      const shadePanel = document.querySelector('.shade-effect');
 
-    document.addEventListener('scroll', () => {
-      const scrollAdvance = Math.round(window.pageYOffset / 10) / 60;
-      shadePanel.style.opacity = scrollAdvance;
-    });
+      document.addEventListener('scroll', () => {
+        const scrollAdvance = Math.round(window.pageYOffset / 10) / 60;
+        shadePanel.style.opacity = scrollAdvance;
+      });
+    }
+
+    ShadePanelEffect();
   }, []);
 
   return (
-    <HeroWrapper backgroundImage={image?.url} size={size}>
+    <HeroWrapper backgroundImage={image?.url || '/img/photos/photo-1.webp'} size={size}>
       <figure className='hero-wrapper'>
         <div className='shade-effect' />
         <div className='video-hero-wrapper'>
           <div className='overflow-wrapper'>
-            {video_link && !image?.url && (
+            {video_link && !image?.url && !isMobile && (
               <iframe
                 src={videoURl()}
                 title='YouTube video player'
                 frameBorder='0'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                 allowFullScreen
-              ></iframe>
+              />
             )}
           </div>
 
