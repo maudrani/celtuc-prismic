@@ -1,11 +1,14 @@
-import useTheme from 'hooks/useTheme';
 import { useEffect, useState } from 'react';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import YouTube from 'react-youtube';
 import { getYoutubeId } from './adapters';
-import React from 'react';
-
-import styles from './VideoPlayer.module.scss';
+import {
+  PlayerButton,
+  TranscriptContainer,
+  VideoPlayerContainer,
+} from './styled';
+import { BsPlay } from 'react-icons/bs';
+import { AiOutlinePause } from 'react-icons/ai';
 
 export default function VideoPlayer({
   videoEmbedUrl,
@@ -88,25 +91,23 @@ export default function VideoPlayer({
   };
 
   return (
-    <section
-      className={`${styles.VideoPreview} ${
-        showControls && styles.showControls
-      } ${className}`}
+    <VideoPlayerContainer
+      className={`${showControls && `showControls`} ${className}`}
       data-component="VideoPreview"
       id={id ? id : ''}
     >
       {videoEmbedUrl && (
-        <div className={`${styles.videoSection}`}>
+        <div className={`videoSection`}>
           <div
-            className={`${styles.videoWrapper} ${
-              videoStarted ? styles.showingVideo : styles.notShowingVideo
+            className={`${'videoWrapper'} ${
+              videoStarted ? 'showingVideo' : 'notShowingVideo'
             } ${videoClassname}`}
           >
             {!videoStarted && (
-              <img className={styles.videoPoster} src={thumb || videoThumb} />
+              <img className={'videoPoster'} src={thumb || videoThumb} />
             )}
 
-            <div className={`${styles.calloutVideoContainer}`}>
+            <div className={`${'calloutVideoContainer'}`}>
               <YouTube
                 videoId={videoId}
                 opts={youtubeOptions}
@@ -114,7 +115,7 @@ export default function VideoPlayer({
                 onEnd={videoEvents._onEnd}
                 onPause={videoEvents.handleVideoPauseClick}
                 onPlay={videoEvents.handleVideoPlayClick}
-                className={!showControls ? styles.avoidYoutubeClick : ''}
+                className={!showControls ? 'avoidYoutubeClick' : ''}
               />
             </div>
           </div>
@@ -131,37 +132,13 @@ export default function VideoPlayer({
       )}
 
       {!videoEmbedUrl && (
-        <img className={styles.videoPoster} src={thumb || videoThumb} />
+        <img className={'videoPoster'} src={thumb || videoThumb} />
       )}
 
       {transcript && !hideTranscript && (
         <TranscriptPanel transcript={transcript} />
       )}
-    </section>
-  );
-}
-
-export function PauseButton({ onClick }) {
-  const theme = useTheme();
-
-  return (
-    <img
-      className={styles.pauseButton}
-      src={`/static/img/${theme === 'trojan' ? 'trojan' : 'cd'}-icon-pause.svg`}
-      onClick={onClick}
-    />
-  );
-}
-
-export function PlayButton({ onClick }) {
-  const theme = useTheme();
-
-  return (
-    <img
-      className={styles.pausePlay}
-      src={`/static/img/${theme === 'trojan' ? 'trojan' : 'cd'}-icon-play.svg`}
-      onClick={onClick}
-    />
+    </VideoPlayerContainer>
   );
 }
 
@@ -172,15 +149,15 @@ export function VideoPlayerButton({
   className,
 }) {
   return (
-    <div
-      className={`${styles.PlayerButton} ${
-        isVideoPlaying ? styles.hideButton : ''
+    <PlayerButton
+      className={`PlayerButton ${
+        isVideoPlaying ? 'hideButton' : ''
       } ${className}`}
     >
       {isVideoPlaying
-        ? onPause && <PauseButton onClick={onPause} />
-        : onPlay && <PlayButton onClick={onPlay} />}
-    </div>
+        ? onPause && <AiOutlinePause onClick={onPause} />
+        : onPlay && <BsPlay onClick={onPlay} className="playButton" />}
+    </PlayerButton>
   );
 }
 
@@ -192,7 +169,6 @@ export function TranscriptPanel({
   showTranscript,
 }) {
   const [toggleTranscript, setToggleTranscript] = useState(showTranscript);
-  const theme = useTheme();
 
   const onViewTranscriptClick = () => {
     onClick && onClick({ toggled: !toggleTranscript });
@@ -204,15 +180,15 @@ export function TranscriptPanel({
   }, [showTranscript]);
 
   return (
-    <div
-      className={`${styles.transcriptWrapper} ${
-        (transcript === '' || !transcript) && styles.disabled
-      } ${styles[theme]} ${className}`}
+    <TranscriptContainer
+      className={`${
+        (transcript === '' || !transcript) && 'disabled'
+      }  ${className}`}
     >
       <span
         onClick={onViewTranscriptClick}
         className={`${
-          toggleTranscript ? styles.transcriptOpen : ''
+          toggleTranscript ? 'transcriptOpen' : ''
         } transcriptButton `}
       >
         {toggleTranscript ? 'Hide' : 'Show'} transcript
@@ -224,6 +200,6 @@ export function TranscriptPanel({
           {transcript}
         </ReactMarkdown>
       )}
-    </div>
+    </TranscriptContainer>
   );
 }
