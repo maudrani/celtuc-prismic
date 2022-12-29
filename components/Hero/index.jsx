@@ -3,11 +3,11 @@ import { PrismicRichText, PrismicText } from '@prismicio/react';
 import { HeroWrapper } from './styled';
 import { GetYoutubeId } from 'helpers/youtube';
 import { DateDMY } from 'helpers/date';
-import useMobile from 'utils/hooks/useMobile';
+import useBreakpoint from 'utils/hooks/useBreakpoint';
 
 const Hero = ({ data }) => {
   const { image, video_link, title, description, size } = data;
-  const isMobile = useMobile();
+  const isMobile = useBreakpoint();
 
   const videoURl = () => {
     const id = GetYoutubeId(video_link);
@@ -61,10 +61,9 @@ const Hero = ({ data }) => {
               <PrismicRichText field={description} />
             ) : (
               <p className='hero-disclaimer'>
-                Natural Anglers {/* {DateDMY()} */}
+                Natural Anglers {DateDMY()}
               </p>
             )}
-            <p style={{ fontWeight: '400' }}>Proximamente...</p>
           </figcaption>
         </div>
       </figure>

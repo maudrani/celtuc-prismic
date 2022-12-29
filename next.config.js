@@ -2,7 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: { domains: ['images.prismic.io'], formats: ['image/avif', 'image/webp'], }, 
-}
+  images: {
+    domains: ['images.prismic.io', 'images.unsplash.com'],
+    formats: ['image/avif', 'image/webp'],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

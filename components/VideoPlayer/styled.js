@@ -1,8 +1,10 @@
+import { query } from '@/styles/theme/data/breakpoints';
 import styled from 'styled-components';
 
 export const VideoPlayerContainer = styled.div`
   display: block;
   position: relative;
+  width: 100%;
 
   /* Disable pointer events for YT */
   .avoidYoutubeClick {
@@ -16,40 +18,6 @@ export const VideoPlayerContainer = styled.div`
     position: relative;
   }
 
-  .calloutContent {
-    text-align: center;
-
-    @include breakpoint(tablet-p) {
-      position: absolute;
-      top: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    @include breakpoint(tablet-l) {
-      padding: rem-calc(60) rem-calc(30);
-      max-width: rem-calc(480);
-    }
-
-    h2 {
-      @include breakpoint(tablet-l) {
-        margin-bottom: rem-calc(35);
-      }
-
-      &::before {
-        height: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        top: -60px;
-        background-color: $brown-light;
-        content: '';
-        display: block;
-        position: absolute;
-      }
-    }
-  }
-
   .videoSection {
     position: relative;
   }
@@ -57,15 +25,6 @@ export const VideoPlayerContainer = styled.div`
   .videoWrapper {
     position: relative;
     overflow: hidden;
-    @include breakpoint(laptop) {
-      max-height: 580px;
-    }
-    @include breakpoint(tablet-l only) {
-      max-height: 444px;
-    }
-    @include breakpoint(tablet-p only) {
-      max-height: 300px;
-    }
 
     .videoPoster {
       width: 100%;
@@ -128,7 +87,7 @@ export const PlayerButton = styled.div`
   top: 50%;
   bottom: 50%;
   left: 50%;
-  z-index: 100;
+  z-index: 10;
 
   max-width: 125px;
   max-height: 125px;
@@ -169,15 +128,15 @@ export const TranscriptContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
-  gap: rem-calc(18);
+  gap: 18px;
 
   cursor: pointer;
 
-  @include breakpoint(tablet-p down) {
+  ${query.down('md')} {
     padding: 0 12px;
   }
 
-  @include breakpoint(tablet-l down) {
+  ${query.down(1024)} {
     align-items: center;
   }
 
@@ -186,7 +145,7 @@ export const TranscriptContainer = styled.div`
     align-items: center;
     justify-content: flex-end;
     gap: 12px;
-    padding-top: rem-calc(18);
+    padding-top: 18px;
     cursor: pointer;
 
     text-align: center;

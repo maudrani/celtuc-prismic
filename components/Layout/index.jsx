@@ -1,7 +1,6 @@
-import Header from "./Header";
-import { LayoutWrapper } from "./styled";
-
-import Footer from "./Footer";
+import Header from './Header';
+import Footer from './Footer';
+import { LayoutWrapper } from './styled';
 
 function Layout(props) {
   return (

@@ -25,6 +25,7 @@ export default function VideoPlayer({
   onReady,
   playVideo,
   hideTranscript,
+  transcriptClassname,
 }) {
   const [video, setVideo] = useState(null);
   const [videoPlaying, setVideoPlaying] = useState(!!playVideo);
@@ -136,7 +137,10 @@ export default function VideoPlayer({
       )}
 
       {transcript && !hideTranscript && (
-        <TranscriptPanel transcript={transcript} />
+        <TranscriptPanel
+          transcript={transcript}
+          className={transcriptClassname}
+        />
       )}
     </VideoPlayerContainer>
   );

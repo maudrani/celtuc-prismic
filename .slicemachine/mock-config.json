@@ -6,12 +6,53 @@
   "slices": {
     "HeroSlice": {
       "default": {
-        "primary": {},
+        "primary": {
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        },
         "items": {}
       }
     },
     "ImageGrid": {},
     "CalloutWithImage": {},
-    "Descriptions": {}
+    "Descriptions": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "ImageWithText": {
+      "default": {
+        "primary": {
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    },
+    "VideoWithDescription": {
+      "default": {
+        "primary": {
+          "video_transcript": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          },
+          "description": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    }
   }
 }

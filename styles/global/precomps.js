@@ -1,9 +1,9 @@
-import { css } from "styled-components";
+import { css } from 'styled-components';
 
 const Precomps = css`
   .gradient {
     ::after {
-      content: "";
+      content: '';
       position: absolute;
       width: 100%;
       top: 0;
@@ -21,7 +21,7 @@ const Precomps = css`
 
   .gradient-50 {
     ::after {
-      content: "";
+      content: '';
       position: absolute;
       width: 100%;
       top: 0;
@@ -39,7 +39,7 @@ const Precomps = css`
 
   .gradient-left {
     ::after {
-      content: "";
+      content: '';
       position: absolute;
       width: 100%;
       top: 0;
@@ -57,7 +57,7 @@ const Precomps = css`
 
   .gradient-circular {
     ::after {
-      content: "";
+      content: '';
       position: absolute;
       width: 100%;
       top: 0;
@@ -71,6 +71,13 @@ const Precomps = css`
         rgba(17, 24, 33, 1) 100%
       );
     }
+  }
+
+  .uContainContent {
+    width: 100%;
+    padding: 0 20px;
+    max-width: ${({ theme }) => theme.limits.pageWidth};
+    margin: 0 auto;
   }
 `;
 

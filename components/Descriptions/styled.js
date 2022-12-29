@@ -17,7 +17,6 @@ export const AboutWrapper = styled.section`
   .content {
     width: 100%;
     min-height: 85vh;
-    max-width: ${({ theme }) => theme.limits.pageWidth};
     padding: 7vh 0 7vh 0;
 
     border-top: 2px solid ${({ theme }) => theme.colors.white};

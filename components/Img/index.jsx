@@ -7,7 +7,6 @@ function Img(props) {
         position: 'relative',
         width: '100%',
         height: '100%',
-        paddingBottom: '20%',
       }}
       {...props.containerProps}
       className={props.className}

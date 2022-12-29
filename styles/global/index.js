@@ -1,10 +1,10 @@
-import CONFIG from "../config.json";
-import { createGlobalStyle, css } from "styled-components";
-import CssReset from "./css-reset";
-import FontStyles from "./fonts";
-import Precomps from "./precomps";
-import Sizes from "./sizes";
-import ScrollbarStyles from "./scrollbar";
+import CONFIG from '../config.json';
+import { createGlobalStyle, css } from 'styled-components';
+import CssReset from './css-reset';
+import FontStyles from './fonts';
+import Precomps from './precomps';
+import Sizes from './sizes';
+import ScrollbarStyles from './scrollbar';
 
 const WireframeMode = css`
   body {
@@ -27,6 +27,10 @@ export const GlobalStyles = createGlobalStyle`
   body {
     background: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.main};
+
+    #__next {
+      height: 100%;
+    }
   }
 
   p {
