@@ -23,8 +23,6 @@ const ImageWithText = ({ data = {} }) => {
 
   const isTablet = useBreakpoint(768);
 
-  console.log(theme)
-
   if (isEmpty(data)) return null;
 
   return (

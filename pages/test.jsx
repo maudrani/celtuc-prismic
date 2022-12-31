@@ -3,6 +3,7 @@ import VideoPlayer from '@/components/VideoPlayer';
 import React from 'react';
 import VideoWithDescription from '@/components/VideoWithDescription';
 import RichText from '@/components/RichText';
+import VideoWithText from '@/components/VideoWithText';
 
 const Test = () => {
   return (
@@ -28,7 +29,10 @@ const Test = () => {
       <ImageWithText {...ImageWithText.exampleProps} />
 
       {/* Video with description */}
-      <VideoWithDescription {...VideoWithDescription.exampleProps} />
+      {/* <VideoWithDescription {...VideoWithDescription.exampleProps} /> */}
+
+      {/* Video with text */}
+      <VideoWithText {...VideoWithText.exampleProps} />
 
       {/* RICH TEXT */}
       <RichText />

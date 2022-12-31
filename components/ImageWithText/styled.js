@@ -1,7 +1,7 @@
 import { query } from '@/styles/theme/data/breakpoints';
 import styled from 'styled-components';
 import { fluid } from 'utils/styles/fluid';
-import { ORIENTATION_NAMES, THEME_NAMES as _th } from 'constants/styles';
+import { DIRECTION_NAMES, THEME_NAMES as _th } from 'constants/styles';
 
 const themeVariables = (theme, themeName) => ({
   backgroundColor: {
@@ -27,7 +27,7 @@ const themeVariables = (theme, themeName) => ({
 });
 
 const orientationVariables = (orientationName) => {
-  const isRight = orientationName === ORIENTATION_NAMES.right;
+  const isRight = orientationName === DIRECTION_NAMES.right;
 
   return {
     imageGridCol: isRight ? 1 : 2,

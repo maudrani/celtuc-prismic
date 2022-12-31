@@ -1,4 +1,4 @@
-import { ORIENTATION_NAMES, THEME_NAMES } from 'constants/styles';
+import { DIRECTION_NAMES, THEME_NAMES } from 'constants/styles';
 
 const hasText = (data = {}) =>
   data.top_text || data.title || data.description?.text || data.bottom_text;
@@ -13,9 +13,9 @@ const parseTheme = (theme) =>
 
 const parseOrientation = (orientation) =>
   ({
-    right: ORIENTATION_NAMES.right,
-    left: ORIENTATION_NAMES.left,
-  }[orientation] || ORIENTATION_NAMES.right);
+    right: DIRECTION_NAMES.right,
+    left: DIRECTION_NAMES.left,
+  }[orientation] || DIRECTION_NAMES.right);
 
 export const parseProps = (data = {}) => ({
   size: data.size,

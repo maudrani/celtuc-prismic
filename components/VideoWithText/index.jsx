@@ -4,9 +4,9 @@ import React from 'react';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import VideoPlayer from '../VideoPlayer';
 import { imgUrlByBreakpoint, parseProps } from './adapters';
-import { TextContainer, VideoWithDescriptionContainer } from './styled';
+import { VideoWithTextContainer } from './styled';
 
-const VideoWithDescription = ({ data = {} }) => {
+const VideoWithText = ({ data = {} }) => {
   const {
     videoData,
     title,
@@ -23,40 +23,32 @@ const VideoWithDescription = ({ data = {} }) => {
   if (isEmpty(data)) return null;
 
   return (
-    <VideoWithDescriptionContainer
-      size={size}
-      themeName={theme}
-      direction={'left'}
-    >
-      <div className="content uContainContent">
-        {showVideo && (
-          <div className="video-container">
-            <VideoPlayer
-              videoEmbedUrl={videoData.url}
-              showControls={videoData.showControls}
-              transcript={videoData.transcript}
-              transcriptClassname="video-transcript"
-              thumb={imgUrlByBreakpoint(videoData?.thumb, 'mobile', isTablet)}
-            />
-          </div>
-        )}
+    <VideoWithTextContainer size={size} themeName={theme} direction={direction}>
+      {showVideo && (
+        <div className="video-container">
+          <VideoPlayer
+            videoEmbedUrl={videoData.url}
+            showControls={videoData.showControls}
+            transcript={videoData.transcript}
+            transcriptClassname="video-transcript"
+            thumb={imgUrlByBreakpoint(videoData?.thumb, 'mobile', isTablet)}
+          />
+        </div>
+      )}
 
-        {showText && (
-          <TextContainer className="text-container" themeName={theme} size={size}>
-            <div className="main-texts">
-              {title && <h4>{title}</h4>}
-              {description && <PrismicRichText field={description} />}
-            </div>
-          </TextContainer>
-        )}
-      </div>
-    </VideoWithDescriptionContainer>
+      {showText && (
+        <div className="text-container">
+          {title && <h4>{title}</h4>}
+          {description && <PrismicRichText field={description} />}
+        </div>
+      )}
+    </VideoWithTextContainer>
   );
 };
 
-export default VideoWithDescription;
+export default VideoWithText;
 
-VideoWithDescription.exampleProps = {
+VideoWithText.exampleProps = {
   data: {
     title: 'This is Natural Anglers',
     description: [
@@ -119,5 +111,6 @@ VideoWithDescription.exampleProps = {
         url: 'https://images.prismic.io/natural-anglers/2b0f5892-482e-4869-84ba-1f1c02a74612_090A0451.webp?auto=compress,format&rect=0,0,1328,885&w=450&h=300',
       },
     },
+    size: 'xxl',
   },
 };
