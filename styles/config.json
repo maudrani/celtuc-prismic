@@ -5,7 +5,11 @@
     "third": "#28ABC9",
     "white": "#FFF",
     "mid-light": "#F7F7F4",
-    "black": "#111821"
+    "black": "#111821",
+    "borders": {
+      "white": "rgba(255, 255, 255, 0.3)",
+      "black": "rgba(17, 24, 33, 0.3)"
+    }
   },
   "sizes": {
     "core": 16,

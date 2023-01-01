@@ -21,7 +21,8 @@ export const GlobalStyles = createGlobalStyle`
   ${ScrollbarStyles}
   ${FontStyles}
   ${Precomps}
-  ${Sizes}
+  // ${Sizes}  
+  // DISABLED UNTIL WE WORK IT BETTER
   ${CONFIG.wireframeMode && WireframeMode}
 
   body {
@@ -31,9 +32,5 @@ export const GlobalStyles = createGlobalStyle`
     #__next {
       height: 100%;
     }
-  }
-
-  p {
-    font-size: ${({ theme }) => theme.sizes.smx};
   }
 `;

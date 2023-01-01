@@ -8,7 +8,6 @@ import Layout from "@/components/Layout";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "styles/global";
 import theme from "@/styles/theme";
-import '../styles/globals.css'
 
 export default function App({ Component, pageProps }) {
   return (

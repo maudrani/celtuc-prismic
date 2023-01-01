@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import Button from "@/components/Button";
-import Img from "@/components/Img";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { HeaderWrapper, MenuPanel, HeaderBar, MenuPanelLink } from "./styled";
+import Button from '@/components/Base/Button';
+import Img from '@/components/Base/Img';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { HeaderWrapper, MenuPanel, HeaderBar, MenuPanelLink } from './styled';
 
 function Header(props) {
   const [openMenu, setOpenMenu] = useState(false);
@@ -20,16 +20,16 @@ function Header(props) {
       setIsPageTop(window.scrollY <= 700);
     };
 
-    window.addEventListener("scroll", handlePageTop);
+    window.addEventListener('scroll', handlePageTop);
 
     return () => {
-      window.removeEventListener("scroll", handlePageTop);
+      window.removeEventListener('scroll', handlePageTop);
     };
   }, []);
 
   useEffect(() => {
     if (!document) return;
-    document.body.style.overflow = openMenu ? "hidden" : "auto";
+    document.body.style.overflow = openMenu ? 'hidden' : 'auto';
   }, [openMenu]);
 
   return (
@@ -97,7 +97,7 @@ function Header(props) {
         </ul>
 
         <div className="bg-img gradient-left">
-          <Img src={"/img/img (5).webp"} objectFit="cover" />
+          <Img src={'/img/img (5).webp'} objectFit="cover" />
         </div>
       </MenuPanel>
     </HeaderWrapper>

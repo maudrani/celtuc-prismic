@@ -1,7 +1,7 @@
 import { DIRECTION_NAMES, THEME_NAMES } from 'constants/styles';
 
 const hasText = (data = {}) =>
-  data.top_text || data.title || data.description?.text || data.bottom_text;
+  data.top_text || data.title || data.description[0]?.text || data.bottom_text;
 const hasImage = (image) => image?.url;
 
 const parseTheme = (theme) =>

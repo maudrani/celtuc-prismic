@@ -1,8 +1,8 @@
 import ImageWithText from '@/components/ImageWithText';
-import VideoPlayer from '@/components/VideoPlayer';
+import VideoPlayer from '@/components/Base/VideoPlayer';
 import React from 'react';
 import VideoWithDescription from '@/components/VideoWithDescription';
-import RichText from '@/components/RichText';
+import RichText from '@/components/Base/RichText';
 import VideoWithText from '@/components/VideoWithText';
 
 const Test = () => {
@@ -35,7 +35,7 @@ const Test = () => {
       <VideoWithText {...VideoWithText.exampleProps} />
 
       {/* RICH TEXT */}
-      <RichText />
+      <RichText {...RichText.exampleProps} />
     </div>
   );
 };

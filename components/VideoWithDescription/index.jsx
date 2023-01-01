@@ -2,7 +2,7 @@ import { PrismicRichText } from '@prismicio/react';
 import { isEmpty } from 'lodash';
 import React from 'react';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
-import VideoPlayer from '../VideoPlayer';
+import VideoPlayer from '../Base/VideoPlayer';
 import { imgUrlByBreakpoint, parseProps } from './adapters';
 import { TextContainer, VideoWithDescriptionContainer } from './styled';
 

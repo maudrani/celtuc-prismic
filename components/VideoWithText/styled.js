@@ -102,7 +102,8 @@ const Directions = (size) => {
         justify-content: center;
         align-items: flex-start;
 
-        .text-container, .video-container {
+        .text-container,
+        .video-container {
           width: 100%;
         }
       `,
@@ -149,7 +150,7 @@ const Directions = (size) => {
       get [_dir.top]() {
         return css`
           ${this.y_styles}
-            flex-direction: column-reverse;
+          flex-direction: column-reverse;
         `;
       },
       get [_dir.bottom]() {
@@ -307,19 +308,6 @@ export const VideoWithTextContainer = styled.div`
       word-wrap: break-word;
       overflow-wrap: break-word;
       hyphens: auto;
-
-      text-indent: 12%;
-
-      :before {
-        content: '';
-        background-color: ${({ theme }) => theme.colors.black};
-        display: block;
-        width: 9%;
-        height: 0.5px;
-        left: 0;
-        top: 0.5em;
-        position: absolute;
-      }
     }
   }
 `;

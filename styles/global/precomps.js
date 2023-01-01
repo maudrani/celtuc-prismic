@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 
 const Precomps = css`
+  //Backgrounds
   .gradient {
     ::after {
       content: '';
@@ -73,11 +74,28 @@ const Precomps = css`
     }
   }
 
+  //Sections
   .uContainContent {
     width: 100%;
     padding: 0 20px;
     max-width: ${({ theme }) => theme.limits.pageWidth};
     margin: 0 auto;
+  }
+
+  //Fonts
+  .text-ident {
+    text-indent: 12%;
+
+    :before {
+      content: '';
+      background-color: ${({ theme }) => theme.colors.black};
+      display: block;
+      width: 9%;
+      height: 0.5px;
+      left: 0;
+      top: 0.5em;
+      position: absolute;
+    }
   }
 `;
 

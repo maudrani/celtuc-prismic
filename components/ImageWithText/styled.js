@@ -20,9 +20,9 @@ const themeVariables = (theme, themeName) => ({
     [_th['mid-light']]: 400,
   }[themeName],
   borderColor: {
-    [_th.dark]: 'rgba(255, 255, 255, 0.3)',
-    [_th.light]: 'rgba(0, 0, 0, 0.3)',
-    [_th['mid-light']]: 'rgba(0, 0, 0, 0.3)',
+    [_th.dark]: theme.colors.borders.white,
+    [_th.light]:  theme.colors.borders.black,
+    [_th['mid-light']]:  theme.colors.borders.black,
   }[themeName],
 });
 

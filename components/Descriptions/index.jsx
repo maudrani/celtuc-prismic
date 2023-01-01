@@ -1,6 +1,6 @@
 import { PrismicRichText } from '@prismicio/react';
-import Button from 'components/Button';
-import Img from 'components/Img';
+import Button from '@/components/Base/Button';
+import Img from '@/components/Base/Img';
 import { AboutWrapper } from './styled';
 
 function Descriptions({ data }) {
