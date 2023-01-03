@@ -16,7 +16,7 @@ const RichText = ({ data, className }) => {
         remarkPlugins={[gfm, remarkBreaks, remarkParse, remarkFrontmatter]}
         rehypePlugins={[rehypeRaw]}
       >
-        {data.markdown}
+        {data?.markdown}
       </ReactMarkdown>
     </RichTextContainer>
   );

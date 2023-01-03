@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import YouTube from 'react-youtube';
-import { getYoutubeId } from './adapters';
+
 import {
   PlayerButton,
   TranscriptContainer,
@@ -9,6 +9,7 @@ import {
 } from './styled';
 import { BsPlay } from 'react-icons/bs';
 import { AiOutlinePause } from 'react-icons/ai';
+import { GetYoutubeId } from 'utils/helpers/youtube';
 
 export default function VideoPlayer({
   videoEmbedUrl,
@@ -38,7 +39,7 @@ export default function VideoPlayer({
     setVideo(null);
   }, [videoEmbedUrl]);
 
-  const videoId = videoEmbedUrl ? getYoutubeId(videoEmbedUrl) : '';
+  const videoId = videoEmbedUrl ? GetYoutubeId(videoEmbedUrl) : '';
   const videoThumb = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
 
   const videoEvents = {

@@ -5,7 +5,7 @@
     "primary": {
       "align": {
         "__TYPE__": "FieldContent",
-        "value": "Left",
+        "value": "Right",
         "type": "Select"
       },
       "theme": {
@@ -15,12 +15,12 @@
       },
       "size": {
         "__TYPE__": "FieldContent",
-        "value": "xxl",
+        "value": "xl",
         "type": "Select"
       },
       "width": {
         "__TYPE__": "FieldContent",
-        "value": "sm",
+        "value": "md",
         "type": "Select"
       },
       "separation_gap": {
@@ -30,7 +30,7 @@
       },
       "spacing": {
         "__TYPE__": "FieldContent",
-        "value": "md",
+        "value": "lg",
         "type": "Select"
       }
     },
@@ -46,7 +46,7 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Ut minim nostrud ipsum est qui esse adipisicing exercitation id proident tempor. In proident aliqua consequat fugiat."
+                    "text": "Consectetur culpa voluptate velit cupidatat ea cupidatat sit."
                   }
                 }
               ]

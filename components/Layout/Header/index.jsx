@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Button from '@/components/Base/Button';
 import Img from '@/components/Base/Img';
 import Link from 'next/link';
