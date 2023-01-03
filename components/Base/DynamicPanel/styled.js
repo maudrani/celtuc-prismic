@@ -7,6 +7,11 @@ const THEME_CSS = css`
 
   color: ${({ theme, themeName }) => GetThemeValue(theme, themeName).fontColor};
 
+  p {
+    font-weight: ${({ theme, themeName }) =>
+      GetThemeValue(theme, themeName).fontWeight};
+  }
+
   &,
   * {
     border-color: ${({ theme, themeName }) =>

@@ -76,11 +76,7 @@ const GENERAL = css`
 
 const PARAGRAPH = css`
   p {
-    word-wrap: break-word;
-    overflow-wrap: break-word;
     hyphens: auto;
-    white-space: pre-wrap;
-    word-break: normal;
 
     margin-bottom: 1.5em;
   }
