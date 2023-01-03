@@ -17,7 +17,9 @@ export default SliceSimulatorPage
 
 // Only include this page in development
 export const getStaticProps = async () => {
-  if (process.env.NODE_ENV === 'production') {
+  const environment = 'not production' // process.env.NODE_ENV
+
+  if (environment === 'production') {
     return { notFound: true }
   } else {
     return { props: {} }
