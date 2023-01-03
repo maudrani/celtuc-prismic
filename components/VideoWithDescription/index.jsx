@@ -26,7 +26,7 @@ const VideoWithDescription = ({ data = {} }) => {
     <VideoWithDescriptionContainer
       size={size}
       themeName={theme}
-      direction={'left'}
+      direction={direction}
     >
       <div className="content uContainContent">
         {showVideo && (

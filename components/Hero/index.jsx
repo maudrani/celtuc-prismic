@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { PrismicRichText, PrismicText } from '@prismicio/react';
 import { HeroWrapper } from './styled';
-import { GetYoutubeId } from 'helpers/youtube';
-import { DateDMY } from 'helpers/date';
+import { GetYoutubeId } from 'utils/helpers/youtube';
+import { DateDMY } from 'utils/helpers/date';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 
 const Hero = ({ data }) => {

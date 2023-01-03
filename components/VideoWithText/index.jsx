@@ -111,6 +111,6 @@ VideoWithText.exampleProps = {
         url: 'https://images.prismic.io/natural-anglers/2b0f5892-482e-4869-84ba-1f1c02a74612_090A0451.webp?auto=compress,format&rect=0,0,1328,885&w=450&h=300',
       },
     },
-    size: 'xxl',
+    size: 'xs',
   },
 };

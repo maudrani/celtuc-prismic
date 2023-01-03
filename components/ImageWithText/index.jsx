@@ -1,9 +1,9 @@
-import { PrismicRichText } from '@prismicio/react';
 import { isEmpty } from 'lodash';
 import Image from 'next/image';
 import React from 'react';
 import useBreakpoint from 'utils/hooks/useBreakpoint';
 import getShimmerPath from 'utils/images/blur';
+import RichText from '../Base/RichText';
 import { imgUrlByBreakpoint, parseProps } from './adapters';
 import { ImageWithTextContainer, TextContainer } from './styled';
 
@@ -39,7 +39,10 @@ const ImageWithText = ({ data = {} }) => {
             layout="fill"
             objectFit="cover"
             placeholder="blur"
-            blurDataURL={getShimmerPath(image?.dimensions?.width, image?.dimensions?.height)}
+            blurDataURL={getShimmerPath(
+              image?.dimensions?.width,
+              image?.dimensions?.height
+            )}
           />
         </div>
       )}
@@ -49,7 +52,7 @@ const ImageWithText = ({ data = {} }) => {
           {top_text && <span className="top-text">{top_text}</span>}
           <div className="main-texts">
             {title && <h4>{title}</h4>}
-            {description && <PrismicRichText field={description} />}
+            {description && <RichText data={{ markdown: description }} />}
           </div>
           {bottom_text && <span className="bottom-text">{bottom_text}</span>}
         </TextContainer>

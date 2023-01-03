@@ -1,0 +1,108 @@
+{
+  "id": "text_block",
+  "type": "SharedSlice",
+  "name": "TextBlock",
+  "description": "TextBlock",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "TextBlock",
+      "primary": {
+        "align": {
+          "type": "Select",
+          "config": {
+            "label": "Align",
+            "placeholder": "Default: Left",
+            "options": [
+              "Left",
+              "Center",
+              "Right"
+            ],
+            "default_value": "Left"
+          }
+        },
+        "theme": {
+          "type": "Select",
+          "config": {
+            "label": "Theme",
+            "placeholder": "Default: Light",
+            "options": [
+              "Light",
+              "Mid-Light",
+              "Dark"
+            ],
+            "default_value": "Light"
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "Default (md)",
+            "options": [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "xxl"
+            ]
+          }
+        },
+        "width": {
+          "type": "Select",
+          "config": {
+            "label": "Width",
+            "placeholder": "Default (md)",
+            "options": [
+              "sm",
+              "md",
+              "lg"
+            ]
+          }
+        },
+        "separation_gap": {
+          "type": "Select",
+          "config": {
+            "label": "Separation Gap",
+            "placeholder": "Default (lg)",
+            "options": [
+              "sm",
+              "md",
+              "lg",
+              "none"
+            ]
+          }
+        },
+        "spacing": {
+          "type": "Select",
+          "config": {
+            "label": "Spacing",
+            "placeholder": "Default (md)",
+            "options": [
+              "sm",
+              "md",
+              "lg",
+              "none"
+            ]
+          }
+        }
+      },
+      "items": {
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "Markdown content...",
+            "allowTargetBlank": true,
+            "multi": "preformatted"
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

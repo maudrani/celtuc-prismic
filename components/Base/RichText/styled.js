@@ -80,7 +80,14 @@ const PARAGRAPH = css`
     overflow-wrap: break-word;
     hyphens: auto;
     white-space: pre-wrap;
+    word-break: normal;
 
+    margin-bottom: 1.5em;
+  }
+`;
+
+const BOLD_ITALIC = css`
+  * {
     strong {
       font-weight: 700;
     }
@@ -135,44 +142,51 @@ const LISTS = css`
 `;
 
 const HEADINGS = css`
-  h1 h1,
+  h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
+    font-weight: 300;
   }
 
   h1 {
-    font-size: 4em;
+    font-size: 3.5em;
   }
   h2 {
-    font-size: 3.4em;
-  }
-  h3 {
     font-size: 2.8em;
   }
-  h4 {
+  h3 {
     font-size: 2.2em;
   }
+  h4 {
+    font-size: 1.7em;
+  }
   h5 {
-    font-size: 1.6em;
+    font-size: 1.3em;
   }
   h6 {
     font-size: 1em;
   }
+
+  h1,
+  h2,
+  h3 {
+    border-bottom: 2px solid ${({ theme }) => theme.colors['mid-light']};
+    margin-bottom: 0.25em;
+    padding-bottom: 0.3em;
+    line-height: 1.14;
+  }
+
+  h4,
+  h5,
+  h6 {
+    line-height: 1.4;
+  }
 `;
 
-export const RichTextContainer = styled.div`
-  font-size: 20px; //FLUID CONTROL
-
-  ${PRINT}
-  ${GENERAL}
-  ${PARAGRAPH}
-  ${ANCHOR}
-  ${LISTS}
-  ${HEADINGS}
-
+const QUOTES = css`
   blockquote {
     position: relative;
 
@@ -180,8 +194,8 @@ export const RichTextContainer = styled.div`
     padding: 1.5em 1em;
     margin: 1em 0;
 
-    background-color: ${({theme}) => theme.colors['mid-light']}00;
-    border-left: 8px solid ${({theme}) => theme.colors['black']}10;
+    background-color: ${({ theme }) => theme.colors['mid-light']}00;
+    border-left: 8px solid ${({ theme }) => theme.colors['black']}10;
 
     blockquote {
       margin-top: 1.5em;
@@ -192,224 +206,105 @@ export const RichTextContainer = styled.div`
   }
 `;
 
-const CSS = css`
-  @media print {
-    *,
-    *:before,
-    *:after {
-      background: transparent !important;
-      color: #000 !important;
-      box-shadow: none !important;
-      text-shadow: none !important;
-    }
-
-    a,
-    a:visited {
-      text-decoration: underline;
-    }
-
-    a[href]:after {
-      content: ' (' attr(href) ')';
-    }
-
-    abbr[title]:after {
-      content: ' (' attr(title) ')';
-    }
-
-    a[href^='#']:after,
-    a[href^='javascript:']:after {
-      content: '';
-    }
-
-    pre,
-    blockquote {
-      border: 1px solid #999;
-      page-break-inside: avoid;
-    }
-
-    thead {
-      display: table-header-group;
-    }
-
-    tr,
-    img {
-      page-break-inside: avoid;
-    }
-
-    img {
-      max-width: 100% !important;
-    }
-
-    p,
-    h2,
-    h3 {
-      orphans: 3;
-      widows: 3;
-    }
-
-    h2,
-    h3 {
-      page-break-after: avoid;
-    }
-  }
-
+const CODE = css`
   pre,
   code {
-    font-family: Menlo, Monaco, 'Courier New', monospace;
+    font-family: 'Montserrat';
   }
 
   pre {
-    padding: 0.5rem;
-    line-height: 1.25;
-    overflow-x: scroll;
-  }
-
-  a,
-  a:visited {
-    color: #3498db;
-  }
-
-  a:hover,
-  a:focus,
-  a:active {
-    color: #2980b9;
-  }
-
-  .modest-no-decoration {
-    text-decoration: none;
-  }
-
-  html {
-    font-size: 12px;
-  }
-
-  @media screen and (min-width: 32rem) and (max-width: 48rem) {
-    html {
-      font-size: 15px;
-    }
-  }
-
-  @media screen and (min-width: 48rem) {
-    html {
-      font-size: 16px;
-    }
-  }
-
-  body {
-    line-height: 1.85;
-  }
-
-  p,
-  .modest-p {
-    font-size: 1rem;
-    margin-bottom: 1.3rem;
-  }
-
-  h1,
-  .modest-h1,
-  h2,
-  .modest-h2,
-  h3,
-  .modest-h3,
-  h4,
-  .modest-h4 {
-    margin: 1.414rem 0 0.5rem;
-    font-weight: inherit;
-    line-height: 1.42;
-  }
-
-  h1,
-  .modest-h1 {
-    margin-top: 0;
-    font-size: 3.998rem;
-  }
-
-  h2,
-  .modest-h2 {
-    font-size: 2.827rem;
-  }
-
-  h3,
-  .modest-h3 {
-    font-size: 1.999rem;
-  }
-
-  h4,
-  .modest-h4 {
-    font-size: 1.414rem;
-  }
-
-  h5,
-  .modest-h5 {
-    font-size: 1.121rem;
-  }
-
-  h6,
-  .modest-h6 {
-    font-size: 0.88rem;
-  }
-
-  small,
-  .modest-small {
-    font-size: 0.707em;
-  }
-
-  /* https://github.com/mrmrs/fluidity */
-
-  img,
-  canvas,
-  iframe,
-  video,
-  svg,
-  select,
-  textarea {
-    max-width: 100%;
-  }
-
-  @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
-
-  @import url(http://fonts.googleapis.com/css?family=Arimo:700,700italic);
-
-  html {
-    font-size: 18px;
-    max-width: 100%;
-  }
-
-  body {
-    color: #444;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: 300;
-    margin: 0 auto;
-    max-width: 48rem;
+    background-color: ${({ theme }) => theme.colors['mid-light']};
+    font-size: 85%;
     line-height: 1.45;
-    padding: 0.25rem;
+    margin-bottom: 16px;
+    margin-top: 0;
+    overflow: auto;
+    padding: 16px;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: Arimo, Helvetica, sans-serif;
+  code {
+    background-color: ${({ theme }) => theme.colors['mid-light']};
   }
 
-  h1,
-  h2,
-  h3 {
-    border-bottom: 2px solid #fafafa;
-    margin-bottom: 1.15rem;
-    padding-bottom: 0.5rem;
-    text-align: center;
+  code,
+  pre {
+    border-radius: 3px;
+    font-weight: inherit;
   }
 
-  blockquote {
-    border-left: 8px solid #fafafa;
-    padding: 1rem;
+  pre > code {
+    background-position: 0 0;
+    font-size: 100%;
+    white-space: pre;
+    word-break: normal;
   }
 
   pre,
-  code {
-    background-color: #fafafa;
+  pre code {
+    overflow-wrap: normal;
   }
+
+  pre code {
+    background-color: initial;
+    border-style: initial;
+    border-width: 0;
+    display: inline;
+    line-height: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+  }
+
+  > :first-child {
+    margin-top: 0 !important;
+  }
+
+  > :last-child {
+    margin-bottom: 0 !important;
+  }
+`;
+
+const TABLE = css`
+  table {
+    -webkit-border-horizontal-spacing: 0;
+    -webkit-border-vertical-spacing: 0;
+    border-collapse: collapse;
+    display: block;
+    margin-bottom: 16px;
+    margin-top: 0;
+    overflow: auto;
+    width: 100%;
+  }
+
+  table th {
+    font-weight: 600;
+  }
+
+  table td,
+  table th {
+    border: 1px solid ${({ theme }) => theme.colors['black']}20;
+    padding: 6px 13px;
+  }
+
+  table tr {
+    background-color: transparent;
+    border-top: 1px solid ${({ theme }) => theme.colors['black']}20;
+  }
+
+  table tr:nth-child(2n) {
+    background-color: ${({ theme }) => theme.colors['black']}20;
+  }
+`;
+
+export const RichTextContainer = styled.div`
+  ${PRINT}
+  ${GENERAL}
+  ${PARAGRAPH}
+  ${BOLD_ITALIC}
+  ${ANCHOR}
+  ${LISTS}
+  ${HEADINGS}
+  ${QUOTES}
+  ${CODE}
+  ${TABLE}
 `;

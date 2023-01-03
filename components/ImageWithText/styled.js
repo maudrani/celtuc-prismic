@@ -1,7 +1,7 @@
+import { DIRECTION_NAMES, THEME_NAMES as _th } from '@/constants/styles';
 import { query } from '@/styles/theme/data/breakpoints';
 import styled from 'styled-components';
 import { fluid } from 'utils/styles/fluid';
-import { DIRECTION_NAMES, THEME_NAMES as _th } from 'constants/styles';
 
 const themeVariables = (theme, themeName) => ({
   backgroundColor: {

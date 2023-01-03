@@ -1,0 +1,59 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "align": {
+        "__TYPE__": "FieldContent",
+        "value": "Left",
+        "type": "Select"
+      },
+      "theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Light",
+        "type": "Select"
+      },
+      "size": {
+        "__TYPE__": "FieldContent",
+        "value": "xxl",
+        "type": "Select"
+      },
+      "width": {
+        "__TYPE__": "FieldContent",
+        "value": "sm",
+        "type": "Select"
+      },
+      "separation_gap": {
+        "__TYPE__": "FieldContent",
+        "value": "none",
+        "type": "Select"
+      },
+      "spacing": {
+        "__TYPE__": "FieldContent",
+        "value": "md",
+        "type": "Select"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "content",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Ut minim nostrud ipsum est qui esse adipisicing exercitation id proident tempor. In proident aliqua consequat fugiat."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

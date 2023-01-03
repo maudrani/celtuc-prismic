@@ -2,16 +2,19 @@
 
 import HeroSlice from './HeroSlice';
 import ImageWithText from './ImageWithText';
+import TextBlock from './TextBlock';
 import VideoWithDescription from './VideoWithDescription';
 
 export {
 	HeroSlice,
 	ImageWithText,
+	TextBlock,
 	VideoWithDescription,
 };
 
 export const components = {
 	hero_slice: HeroSlice,
 	image_with_text: ImageWithText,
+	text_block: TextBlock,
 	video_with_description: VideoWithDescription,
 };

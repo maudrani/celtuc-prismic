@@ -21,7 +21,7 @@ export const parseProps = (data = {}) => ({
   size: data.size,
   top_text: data.top_text,
   title: data.title,
-  description: data.description,
+  description: data.description?.length && data.description[0].text,
   image: data.image,
   bottom_text: data.bottom_text,
   theme: parseTheme(data.theme),
