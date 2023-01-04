@@ -10,16 +10,15 @@ const shimmer = (w, h) => `
   <rect width="${w}" height="${h}" fill="#333" />
   <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
   <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-</svg>`;
+</svg>`
 
-const toBase64 = (str) => {
-  return typeof window === 'undefined'
+const toBase64 = (str) =>
+  typeof window === 'undefined'
     ? Buffer.from(str).toString('base64')
-    : window.btoa(str);
-};
+    : window.btoa(str)
 
 const getShimmerPath = (w, h) => {
-  return `data:image/svg+xml;base64,${toBase64(shimmer(w, h))}`;
-};
+    return `data:image/svg+xml;base64,${toBase64(shimmer(w, h))}`;
+}
 
 export default getShimmerPath;

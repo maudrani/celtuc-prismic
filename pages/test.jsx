@@ -4,6 +4,7 @@ import React from 'react';
 import VideoWithDescription from '@/components/VideoWithDescription';
 import RichText from '@/components/Base/RichText';
 import VideoWithText from '@/components/VideoWithText';
+import Img from '@/components/Base/Img';
 
 const Test = () => {
   return (
@@ -36,6 +37,24 @@ const Test = () => {
 
       {/* RICH TEXT */}
       <RichText {...RichText.exampleProps} />
+
+      {/* IMAGE */}
+      <div
+        style={{
+          width: '100%',
+          height: '750px',
+        }}
+      >
+        <Img src={'/img/photos/test-image.webp'} />
+      </div>
+      <div
+        style={{
+          width: '100%',
+          height: '750px',
+        }}
+      >
+        <Img src={'/img/photos/test-image.jpg'} />
+      </div>
     </div>
   );
 };
