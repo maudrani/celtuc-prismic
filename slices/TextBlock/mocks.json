@@ -5,7 +5,7 @@
     "primary": {
       "align": {
         "__TYPE__": "FieldContent",
-        "value": "Right",
+        "value": "Left",
         "type": "Select"
       },
       "theme": {
@@ -15,22 +15,22 @@
       },
       "size": {
         "__TYPE__": "FieldContent",
-        "value": "xl",
+        "value": "lg",
         "type": "Select"
       },
       "width": {
         "__TYPE__": "FieldContent",
-        "value": "md",
+        "value": "lg",
         "type": "Select"
       },
       "separation_gap": {
         "__TYPE__": "FieldContent",
-        "value": "none",
+        "value": "sm",
         "type": "Select"
       },
       "spacing": {
         "__TYPE__": "FieldContent",
-        "value": "lg",
+        "value": "md",
         "type": "Select"
       }
     },
@@ -46,7 +46,7 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Consectetur culpa voluptate velit cupidatat ea cupidatat sit."
+                    "text": "Officia velit ullamco est aute cillum est amet nostrud id officia est. Tempor voluptate magna irure proident."
                   }
                 }
               ]

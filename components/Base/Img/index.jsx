@@ -2,57 +2,47 @@ import Image from 'next/image';
 import { CustomDynamicPanel, ImageContainer } from './styled';
 import { useCallback, useState } from 'react';
 import { GetImageMeta } from 'utils/images/data';
-import { GetNewSizeByContainer } from './adapters';
-import getShimmerPath from 'utils/images/blur';
+import {
+  GetBlurProps,
+  GetContainerSizeObj,
+  GetResizedData,
+  GetSizeProps,
+  no_image_url,
+  ParseImgProps,
+} from './adapters';
 
 function Img(props) {
-  const [imgData, setImgData] = useState({
-    src: props.src || '/img/photos/test-image.webp',
-    alt: props.alt || 'Img',
-    width: 1,
-    height: 1,
-    blurPlaceholder: {
-      width: 1,
-      height: 1,
-    },
-  });
+  const [imgData, setImgData] = useState(ParseImgProps(props));
 
-  const imageContainerRef = useCallback((node) => {
-    if (node !== null) {
-      GetImageMeta(imgData.src).then((imageData) => {
-        const containerObj = {
-          width: node.offsetWidth,
-          height: node.offsetHeight,
-        };
+  const imageContainerRef = useCallback((containerNode) => {
+    if (containerNode !== null) {
+      const GetImageData = async () => {
+        const containerSize = GetContainerSizeObj(containerNode);
+        const imgMeta = await GetImageMeta(imgData.src);
 
-        const newImgSize = GetNewSizeByContainer(imageData, containerObj);
+        if (!imgMeta) {
+          setImgData((prev) => ({
+            ...prev,
+            src: no_image_url,
+            ...GetSizeProps(containerSize),
+            ...GetBlurProps(containerSize),
+          }));
 
-        const blurPlaceholderSize = GetNewSizeByContainer(
-          imageData,
-          containerObj,
-          true
-        );
+          return;
+        }
 
-        setImgData({
-          ...imgData,
-          ...newImgSize,
-          blurPlaceholder: { ...blurPlaceholderSize },
-        });
-      });
+        const { img, blur } = GetResizedData(imgMeta, containerSize);
+        setImgData((prev) => ({ ...prev, ...img, ...GetBlurProps(blur) }));
+      };
+
+      GetImageData();
     }
   }, []);
 
   return (
     <CustomDynamicPanel forwardedAs={'div'}>
       <ImageContainer ref={imageContainerRef}>
-        <Image
-          {...imgData}
-          placeholder="blur"
-          blurDataURL={getShimmerPath(
-            imgData.blurPlaceholder.width,
-            imgData.blurPlaceholder.height
-          )}
-        />
+        <Image {...imgData} />
       </ImageContainer>
     </CustomDynamicPanel>
   );

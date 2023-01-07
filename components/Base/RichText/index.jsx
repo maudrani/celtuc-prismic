@@ -8,6 +8,7 @@ import remarkParse from 'remark-parse';
 import remarkFrontmatter from 'remark-frontmatter';
 
 import { RichTextContainer } from './styled';
+import { MarkdownComponentsToReplace } from './adapters/react-markdown';
 
 const RichText = ({ data, className }) => {
   return (
@@ -15,6 +16,7 @@ const RichText = ({ data, className }) => {
       <ReactMarkdown
         remarkPlugins={[gfm, remarkBreaks, remarkParse, remarkFrontmatter]}
         rehypePlugins={[rehypeRaw]}
+        components={MarkdownComponentsToReplace}
       >
         {data?.markdown}
       </ReactMarkdown>

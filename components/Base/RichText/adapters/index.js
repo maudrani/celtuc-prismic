@@ -2,10 +2,10 @@
 // Will be turned off until there are more rules
 
 export const TEXT_RULES = {
-  '!jump!': '&nbsp;', 
+  '!jump!': '&nbsp;',
 };
 
-export const replaceRulesOnTextText = (text = '') => {
+export const replaceRulesOnText = (text = '') => {
   let parsedText = text;
 
   Object.keys(TEXT_RULES).forEach((rule) => {

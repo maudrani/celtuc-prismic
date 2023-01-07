@@ -14,46 +14,23 @@ const Test = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '400px',
       }}
     >
-      {/* VIDEO PLAYER */}
-      <div style={{ width: '100%', maxWidth: '700px', height: '100%' }}>
-        <VideoPlayer
-          videoEmbedUrl={
-            'https://www.youtube.com/watch?v=GgQInYQ0rg0&ab_channel=NoticiasdelFutbol'
-          }
-        />
-      </div>
-
-      {/* IMAGE WITH TEXT */}
       <ImageWithText {...ImageWithText.exampleProps} />
 
-      {/* Video with description */}
-      {/* <VideoWithDescription {...VideoWithDescription.exampleProps} /> */}
-
-      {/* Video with text */}
       <VideoWithText {...VideoWithText.exampleProps} />
 
-      {/* RICH TEXT */}
-      <RichText {...RichText.exampleProps} />
-
-      {/* IMAGE */}
       <div
         style={{
           width: '100%',
-          height: '750px',
+          height: '100%',
         }}
       >
-        <Img src={'/img/photos/test-image.webp'} />
-      </div>
-      <div
-        style={{
-          width: '100%',
-          height: '750px',
-        }}
-      >
-        <Img src={'/img/photos/test-image.jpg'} />
+        <Img
+          src={
+            'https://images.unsplash.com/photo-1542856391-010fb87dcfed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80'
+          }
+        />
       </div>
     </div>
   );
