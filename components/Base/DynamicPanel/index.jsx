@@ -3,7 +3,9 @@ import { parseDataProp } from './adapters';
 import { DynamicPanelContainer } from './styled';
 
 const DynamicPanel = (props) => {
-  const { theme, width, size, align, height } = parseDataProp(props.data);
+  const { theme, width, size, align, height, background_type, content_direction } = parseDataProp(
+    props.data
+  );
 
   return (
     <DynamicPanelContainer
@@ -12,6 +14,8 @@ const DynamicPanel = (props) => {
       height={height}
       size={size}
       align={align}
+      background_type={background_type}
+      content_direction={content_direction}
       {...props}
     >
       {props.children}

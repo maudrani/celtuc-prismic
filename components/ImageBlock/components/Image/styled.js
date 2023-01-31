@@ -40,6 +40,10 @@ const AbsolutePosition = (value) =>
     Right: css`
       right: 0;
     `,
+    Center: css`
+      top: 0;
+      bottom: 0;
+    `,
   }[value]);
 
 const yAlign = (value) =>
@@ -68,7 +72,6 @@ const xAlign = (value) =>
     `,
   }[value]);
 
-
 export const CustomDynamicPanel = styled(DynamicPanel)`
   display: flex;
   padding: 20px;
@@ -79,26 +82,30 @@ export const CustomDynamicPanel = styled(DynamicPanel)`
     !content_outside_image &&
     css`
       position: absolute;
-      background-color: transparent;
       z-index: 2;
     `}
-
 
     ${({ position }) => AbsolutePosition(position)}
 `;
 
 export const WidthLimiter = styled.div`
+  margin: 0 auto;
+  width: 100%;
+
+  // min-width: ${({ minWidth }) => minWidth}px;  MAKES IT USELESS
   max-width: ${({ width }) => width} !important;
 `;
 
-export const ImageContainer = styled.div`
+export const ImageBlockImage = styled.div`
   height: 100%;
+  max-height: ${({maxHeight}) => maxHeight};
+`;
+
+export const ImageContainer = styled.div`
+  height: ${({ height }) => height}%;
+  min-height: ${({ minHeight }) => minHeight}px;
   width: 100%;
   position: relative;
-
-  .imageblock-image {
-    height: 100%;
-  }
 
   ${({ position, content_outside_image }) =>
     content_outside_image && Position(position)}

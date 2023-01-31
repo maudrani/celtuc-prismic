@@ -34,7 +34,7 @@ export const getDataProps = (dataObj = {}) => ({
   image: dataObj.image,
   content: dataObj.content,
   theme: dataObj.theme,
-  theme_background: dataObj.theme_background,
+  background_type: dataObj.background_type,
   size: dataObj.size,
   text_align: dataObj.text_align,
   align_x: dataObj.align_x,
@@ -44,4 +44,5 @@ export const getDataProps = (dataObj = {}) => ({
   content_outside_image: dataObj.content_outside_image,
   gap: getTextBlockGapValue(dataObj.gap, dataObj.variant),
   width: getTextBlockWidthValue(dataObj.width),
+  height: dataObj.height || 100,
 });

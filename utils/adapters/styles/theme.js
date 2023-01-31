@@ -1,5 +1,6 @@
-import { THEME_NAMES as _th} from 'constants/styles';
+import { THEME_NAMES as _th } from 'constants/styles';
 import { NormalizeValue } from 'utils/helpers/values';
+import { hexToRgbA } from './colors';
 
 export const GetThemeByName = (themeName, defaultTheme = _th.dark) =>
   ({
@@ -8,11 +9,20 @@ export const GetThemeByName = (themeName, defaultTheme = _th.dark) =>
     'mid-light': _th['mid-light'],
   }[NormalizeValue(themeName)] || defaultTheme);
 
-export const GetThemeValue = (theme, themeName) => ({
+export const GetThemeValue = (theme, themeName, backgroundType = 'solid') => ({
   backgroundColor: {
-    [_th.dark]: theme.colors.black,
-    [_th.light]: theme.colors.white,
-    [_th['mid-light']]: theme.colors['mid-light'],
+    [_th.dark]: {
+      solid: theme.colors.black,
+      translucent: hexToRgbA(theme.colors.black, 0.9),
+    }[backgroundType],
+    [_th.light]: {
+      solid: theme.colors.white,
+      translucent: hexToRgbA(theme.colors.white, 0.7),
+    }[backgroundType],
+    [_th['mid-light']]: {
+      solid: theme.colors['mid-light'],
+      translucent: hexToRgbA(theme.colors['mid-light'], 0.7),
+    }[backgroundType],
   }[themeName],
   fontColor: {
     [_th.dark]: theme.colors.white,

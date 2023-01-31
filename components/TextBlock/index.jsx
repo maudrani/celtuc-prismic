@@ -3,11 +3,17 @@ import RichText from '../Base/RichText';
 import { getDataProps, getRepeatedContents } from './adapters';
 import { CustomDynamicPanel, TextBlockContainer } from './styled';
 
-export const TextBlockRaw = ({ data, }) => {
-  const { items, align, width, gap, spacing } = getDataProps(data);
+export const TextBlockRaw = (props) => {
+  const { items, align, width, gap, spacing } = getDataProps(props.data);
 
   return (
-    <TextBlockContainer align={align} width={width} gap={gap} spacing={spacing}>
+    <TextBlockContainer
+      align={align}
+      width={width}
+      gap={gap}
+      spacing={spacing}
+      {...props}
+    >
       {getRepeatedContents(items).map((text, idx) => (
         <RichText key={`rich-text-${idx}`} data={{ markdown: text }} />
       ))}

@@ -5,10 +5,11 @@ import { NormalizeValue } from 'utils/helpers/values';
 // PROPS ON DEFAULT VARIANT
 const getDefaultWidthValue = (sizeName = _sm.md) =>
   ({
+    full: '100%',
     [_sm.lg]: theme.limits.pageWidth_int,
-    [_sm.md]: 1270,
-    [_sm.sm]: 970,
-    [_sm.xs]: 630,
+    [_sm.md]: '1270px',
+    [_sm.sm]: '970px',
+    [_sm.xs]: '630px',
   }[NormalizeValue(sizeName) || _sm.md]);
 
 const getDefaultGapValue = (sizeName = _sm.lg) =>
@@ -30,7 +31,7 @@ const getDefaultPaddingValue = (sizeName = _sm.md) =>
 //PROPS ON VARIANTS
 const getTextBlockWidthValue = (value, variant) => {
   if (variant === 'default') {
-    return `${getDefaultWidthValue(value)}px`;
+    return `${getDefaultWidthValue(value)}`;
   }
 
   if (variant === 'free-width') {
@@ -69,6 +70,7 @@ export const getDataProps = (dataObj = {}) => ({
   content_outside_image: dataObj.data.content_outside_image,
   height: dataObj.data.height,
   width: getTextBlockWidthValue(dataObj.data.width, dataObj.variant),
+  isFullWidth: dataObj.data.width === 'full',
   gap: getTextBlockGapValue(dataObj.data.separation_gap, dataObj.variant),
   spacing: getTextBlockPaddingValue(dataObj.data.spacing, dataObj.variant),
 });

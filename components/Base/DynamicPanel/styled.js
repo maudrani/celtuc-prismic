@@ -1,9 +1,51 @@
 import styled, { css } from 'styled-components';
-import { GetSizeValue, GetThemeValue } from 'utils/adapters';
+import { GetSizeValue, GetThemeValue, hexToRgbA } from 'utils/adapters';
 
 const THEME_CSS = css`
-  background-color: ${({ theme, themeName }) =>
-    GetThemeValue(theme, themeName).backgroundColor};
+  ${({ theme, themeName, background_type, content_direction }) => {
+    if (background_type === 'none') return;
+
+    if (background_type === 'gradient') {
+      const gradient_direction = {
+        Top: ['10%', '100%'],
+        Bottom: ['10%', '100%'],
+        Center: ['10%', '150%'],
+        Left: ['10%', '100%'],
+        Roght: ['10%', '100%'],
+      }[content_direction];
+
+      const gradient_opacity = {
+        Top: [0, 0.8],
+        Bottom: [0.8, 0],
+        Center: [0.9, 0.1],
+        Left: [0.8, 0],
+        Roght: [0.8, 0],
+      }[content_direction];
+
+      console.log(content_direction, gradient_direction);
+
+      return css`
+        background: linear-gradient(
+          0deg,
+          ${hexToRgbA(
+              GetThemeValue(theme, themeName).backgroundColor,
+              gradient_opacity[0]
+            )}
+            ${gradient_direction[0]},
+          ${hexToRgbA(
+              GetThemeValue(theme, themeName).backgroundColor,
+              gradient_opacity[1]
+            )}
+            ${gradient_direction[1]}
+        );
+      `;
+    }
+
+    return css`
+      background: ${GetThemeValue(theme, themeName, background_type)
+        .backgroundColor};
+    `;
+  }};
 
   color: ${({ theme, themeName }) => GetThemeValue(theme, themeName).fontColor};
 

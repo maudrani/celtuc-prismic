@@ -42,7 +42,8 @@
               "xs",
               "sm",
               "md",
-              "lg"
+              "lg",
+              "full"
             ]
           }
         },
@@ -75,8 +76,8 @@
         "height": {
           "type": "Number",
           "config": {
-            "label": "Height",
-            "placeholder": "% of the viewport height"
+            "label": "Custom Height",
+            "placeholder": "% viewport height (0 for auto)"
           }
         }
       },
@@ -111,13 +112,106 @@
             "default_value": "Light"
           }
         },
-        "theme_background": {
-          "type": "Boolean",
+        "background_type": {
+          "type": "Select",
           "config": {
-            "label": "Theme background",
-            "placeholder_false": "false",
-            "placeholder_true": "true",
-            "default_value": true
+            "label": "Background Type",
+            "placeholder": "",
+            "options": [
+              "solid",
+              "translucent",
+              "gradient",
+              "none"
+            ],
+            "default_value": "solid"
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "Default: md",
+            "options": [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "xxl"
+            ]
+          }
+        },
+        "width": {
+          "type": "Select",
+          "config": {
+            "label": "Content width",
+            "placeholder": "Default: lg",
+            "options": [
+              "sm",
+              "md",
+              "lg"
+            ]
+          }
+        },
+        "height": {
+          "type": "Number",
+          "config": {
+            "label": "Height",
+            "placeholder": "% of the size of container"
+          }
+        },
+        "text_align": {
+          "type": "Select",
+          "config": {
+            "label": "Text Align",
+            "placeholder": "Default: Left",
+            "options": [
+              "Left",
+              "Center",
+              "Right"
+            ],
+            "default_value": "Left"
+          }
+        },
+        "position": {
+          "type": "Select",
+          "config": {
+            "label": "Position",
+            "placeholder": "Default: Top",
+            "options": [
+              "Top",
+              "Bottom",
+              "Left",
+              "Right",
+              "Center"
+            ],
+            "default_value": "Top"
+          }
+        },
+        "gap": {
+          "type": "Select",
+          "config": {
+            "label": "Gap",
+            "placeholder": "Default: none",
+            "options": [
+              "sm",
+              "md",
+              "lg",
+              "none"
+            ]
+          }
+        },
+        "spacing": {
+          "type": "Select",
+          "config": {
+            "label": "Spacing",
+            "placeholder": "Default: none",
+            "options": [
+              "sm",
+              "md",
+              "lg",
+              "none"
+            ]
           }
         },
         "align_x": {
@@ -144,86 +238,6 @@
               "Bottom"
             ],
             "default_value": "Top"
-          }
-        },
-        "position": {
-          "type": "Select",
-          "config": {
-            "label": "Position",
-            "placeholder": "Default: Top",
-            "options": [
-              "Top",
-              "Bottom",
-              "Left",
-              "Right"
-            ],
-            "default_value": "Top"
-          }
-        },
-        "size": {
-          "type": "Select",
-          "config": {
-            "label": "Size",
-            "placeholder": "Default: md",
-            "options": [
-              "xs",
-              "sm",
-              "md",
-              "lg",
-              "xl",
-              "xxl"
-            ]
-          }
-        },
-        "spacing": {
-          "type": "Select",
-          "config": {
-            "label": "Spacing",
-            "placeholder": "Default: none",
-            "options": [
-              "sm",
-              "md",
-              "lg",
-              "none"
-            ]
-          }
-        },
-        "width": {
-          "type": "Select",
-          "config": {
-            "label": "Width",
-            "placeholder": "Default: lg",
-            "options": [
-              "sm",
-              "md",
-              "lg"
-            ]
-          }
-        },
-        "text_align": {
-          "type": "Select",
-          "config": {
-            "label": "Text Align",
-            "placeholder": "Default: Left",
-            "options": [
-              "Left",
-              "Center",
-              "Right"
-            ],
-            "default_value": "Left"
-          }
-        },
-        "gap": {
-          "type": "Select",
-          "config": {
-            "label": "Gap",
-            "placeholder": "Default: none",
-            "options": [
-              "sm",
-              "md",
-              "lg",
-              "none"
-            ]
           }
         }
       },
