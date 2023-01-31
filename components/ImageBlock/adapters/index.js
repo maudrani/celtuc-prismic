@@ -1,14 +1,14 @@
 import { SIZE_NAMES as _sm } from '@/constants/styles';
 import theme from '@/styles/theme';
-import { GetRichTextContent } from 'utils/adapters';
 import { NormalizeValue } from 'utils/helpers/values';
 
 // PROPS ON DEFAULT VARIANT
 const getDefaultWidthValue = (sizeName = _sm.md) =>
   ({
     [_sm.lg]: theme.limits.pageWidth_int,
-    [_sm.md]: 970,
-    [_sm.sm]: 540,
+    [_sm.md]: 1270,
+    [_sm.sm]: 970,
+    [_sm.xs]: 630,
   }[NormalizeValue(sizeName) || _sm.md]);
 
 const getDefaultGapValue = (sizeName = _sm.lg) =>
@@ -49,21 +49,25 @@ const getTextBlockGapValue = (value, variant) => {
 };
 
 const getTextBlockPaddingValue = (value, variant) => {
+  if (variant === 'default') {
+    return `${getDefaultPaddingValue(value)}em`;
+  }
+
   if (variant === 'free-width') {
     return `${value * 0.3}em`;
   }
-
-  return `${getDefaultPaddingValue(value)}em`;
 };
 
 export const getRepeatedContents = (contentsList = []) =>
-  contentsList.map((item) => GetRichTextContent(item.content));
+  contentsList.map((item) => item);
 
 export const getDataProps = (dataObj = {}) => ({
   items: dataObj.items,
   theme: dataObj.data.theme,
-  align: dataObj.data.align,
   size: dataObj.data.size,
+  variant: dataObj.variant,
+  content_outside_image: dataObj.data.content_outside_image,
+  height: dataObj.data.height,
   width: getTextBlockWidthValue(dataObj.data.width, dataObj.variant),
   gap: getTextBlockGapValue(dataObj.data.separation_gap, dataObj.variant),
   spacing: getTextBlockPaddingValue(dataObj.data.spacing, dataObj.variant),

@@ -28,6 +28,8 @@ export const DynamicPanelContainer = styled.section`
   min-width: fit-content;
   max-width: ${({ width }) => width}%;
 
+  min-height: ${({ height }) => height}vh;
+
   ${THEME_CSS}
   ${SIZE_CSS}
 `;

@@ -41,7 +41,7 @@
           "type": "Select",
           "config": {
             "label": "Size",
-            "placeholder": "Default (md)",
+            "placeholder": "Default: md",
             "options": [
               "xs",
               "sm",
@@ -56,7 +56,7 @@
           "type": "Select",
           "config": {
             "label": "Width",
-            "placeholder": "Default (md)",
+            "placeholder": "Default: md",
             "options": [
               "sm",
               "md",
@@ -68,7 +68,7 @@
           "type": "Select",
           "config": {
             "label": "Separation Gap",
-            "placeholder": "Default (lg)",
+            "placeholder": "Default: lg",
             "options": [
               "sm",
               "md",

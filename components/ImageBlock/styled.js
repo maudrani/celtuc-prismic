@@ -2,20 +2,28 @@ import styled from 'styled-components';
 import { fluid } from 'utils/styles/fluid';
 import DynamicPanel from '../Base/DynamicPanel';
 
-export const CustomDynamicPanel = styled(DynamicPanel)``;
+export const CustomDynamicPanel = styled(DynamicPanel)`
+  display: grid;
+`;
 
-export const TextBlockContainer = styled.div`
+export const WidthLimiter = styled.div`
+  width: 100%;
   max-width: ${({ width }) => width} !important;
-  text-align: ${({ align }) => align};
+  height: 100%;
 
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
+`;
+
+export const ImagesContainer = styled.div`
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: ${({ gap }) => gap};
 
   padding-top: ${({ spacing }) => spacing} !important;
   padding-bottom: ${({ spacing }) => spacing} !important;
 
   // Mobile
-  ${fluid('font-size', '%', [{ 1200: 90 }, { 768: 80 }])};
+  ${fluid('font-size', '%', [{ 1200: 70 }, { 768: 40 }])};
 `;
