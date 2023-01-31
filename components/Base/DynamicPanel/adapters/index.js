@@ -7,6 +7,7 @@ const defaultData = {
   align: ALIGN_NAMES.left,
   size: SIZE_NAMES.md,
   width: 100,
+  height: 1, //vh
 };
 
 export const parseDataProp = (data = {}) => ({
@@ -14,4 +15,5 @@ export const parseDataProp = (data = {}) => ({
   align: GetAlignByName(data.align, defaultData.align),
   size: GetSizeByName(data.size, defaultData.size),
   width: data.width || defaultData.width,
+  height: data.height || defaultData.height,
 });

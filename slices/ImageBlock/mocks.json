@@ -1,0 +1,163 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "content_outside_image": {
+        "__TYPE__": "BooleanContent",
+        "value": false
+      },
+      "theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Light",
+        "type": "Select"
+      },
+      "width": {
+        "__TYPE__": "FieldContent",
+        "value": "lg",
+        "type": "Select"
+      },
+      "separation_gap": {
+        "__TYPE__": "FieldContent",
+        "value": "sm",
+        "type": "Select"
+      },
+      "spacing": {
+        "__TYPE__": "FieldContent",
+        "value": "sm",
+        "type": "Select"
+      },
+      "height": {
+        "__TYPE__": "FieldContent",
+        "value": "76",
+        "type": "Number"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+                "width": 4076,
+                "height": 2712
+              },
+              "url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+              "width": 4076,
+              "height": 2712,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "content",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Anim qui elit do ad aute non nostrud. Ipsum elit pariatur cupidatat velit ex."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "theme",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Light",
+              "type": "Select"
+            }
+          ],
+          [
+            "theme_background",
+            {
+              "__TYPE__": "BooleanContent",
+              "value": true
+            }
+          ],
+          [
+            "align_x",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Left",
+              "type": "Select"
+            }
+          ],
+          [
+            "size",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "xs",
+              "type": "Select"
+            }
+          ],
+          [
+            "spacing",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "lg",
+              "type": "Select"
+            }
+          ],
+          [
+            "position",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Top",
+              "type": "Select"
+            }
+          ],
+          [
+            "align_y",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Bottom",
+              "type": "Select"
+            }
+          ],
+          [
+            "width",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "sm",
+              "type": "Select"
+            }
+          ],
+          [
+            "text_align",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Left",
+              "type": "Select"
+            }
+          ],
+          [
+            "gap",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "lg",
+              "type": "Select"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

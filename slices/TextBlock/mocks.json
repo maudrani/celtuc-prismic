@@ -15,7 +15,7 @@
       },
       "size": {
         "__TYPE__": "FieldContent",
-        "value": "lg",
+        "value": "xxl",
         "type": "Select"
       },
       "width": {
@@ -25,12 +25,12 @@
       },
       "separation_gap": {
         "__TYPE__": "FieldContent",
-        "value": "sm",
+        "value": "lg",
         "type": "Select"
       },
       "spacing": {
         "__TYPE__": "FieldContent",
-        "value": "md",
+        "value": "sm",
         "type": "Select"
       }
     },
@@ -46,7 +46,7 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Officia velit ullamco est aute cillum est amet nostrud id officia est. Tempor voluptate magna irure proident."
+                    "text": "Labore enim non aute laborum aliquip reprehenderit in fugiat qui ex aliqua voluptate sunt magna tempor. Veniam culpa eu nisi ad occaecat incididunt."
                   }
                 }
               ]
