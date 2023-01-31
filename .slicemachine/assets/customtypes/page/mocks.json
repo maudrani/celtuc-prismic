@@ -1,43 +1,372 @@
 {
   "title": {
     "__TYPE__": "FieldContent",
-    "value": "busy",
+    "value": "bush",
     "type": "Text"
   },
   "uid": {
     "__TYPE__": "UIDContent",
-    "value": "star"
+    "value": "crowd"
   },
   "slices": {
     "__TYPE__": "SliceContentType",
     "value": [
       {
-        "key": "text_block$a261d007-36da-44f0-9925-a6aa0ac08a97",
+        "key": "text_block$298cd6d3-bf0d-404e-9cd4-d0d69adde32d",
         "name": "text_block",
         "widget": {
           "__TYPE__": "SharedSliceContent",
           "variation": "default",
           "primary": {
-            "content": {
+            "align": {
+              "__TYPE__": "FieldContent",
+              "value": "Left",
+              "type": "Select"
+            },
+            "theme": {
+              "__TYPE__": "FieldContent",
+              "value": "Mid-Light",
+              "type": "Select"
+            },
+            "size": {
+              "__TYPE__": "FieldContent",
+              "value": "sm",
+              "type": "Select"
+            },
+            "width": {
+              "__TYPE__": "FieldContent",
+              "value": "lg",
+              "type": "Select"
+            },
+            "separation_gap": {
+              "__TYPE__": "FieldContent",
+              "value": "sm",
+              "type": "Select"
+            },
+            "spacing": {
+              "__TYPE__": "FieldContent",
+              "value": "sm",
+              "type": "Select"
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "content",
+                  {
+                    "__TYPE__": "StructuredTextContent",
+                    "value": [
+                      {
+                        "type": "paragraph",
+                        "content": {
+                          "text": "Irure tempor consequat amet non non. Esse anim nostrud ullamco aute aliqua in do minim deserunt minim ex dolor sit eiusmod cillum. Lorem ipsum culpa deserunt magna est dolore cillum nulla fugiat."
+                        }
+                      }
+                    ]
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "key": "hero_slice$a25f54b6-ccca-471b-bce9-f42770d2d61d",
+        "name": "hero_slice",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "title": {
+              "__TYPE__": "FieldContent",
+              "value": "court",
+              "type": "Text"
+            },
+            "description": {
               "__TYPE__": "StructuredTextContent",
               "value": [
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Deserunt consequat magna excepteur irure aute commodo excepteur cupidatat eiusmod. Culpa aute non deserunt ea et duis eu in do."
+                    "text": "Cupidatat aliqua sunt est anim Lorem tempor qui proident duis tempor cupidatat cupidatat veniam laboris ad. Et ut veniam aliquip ullamco nulla sunt elit sunt elit quis elit incididunt tempor quis laborum. Laborum reprehenderit aliquip velit esse excepteur labore in cupidatat pariatur esse."
                   }
                 }
               ]
             },
+            "image": {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
+                "width": 3500,
+                "height": 2338
+              },
+              "url": "https://images.unsplash.com/photo-1448932223592-d1fc686e76ea",
+              "width": 3500,
+              "height": 2338,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {}
+            },
+            "video_link": {
+              "__TYPE__": "FieldContent",
+              "value": "activity",
+              "type": "Text"
+            },
             "size": {
               "__TYPE__": "FieldContent",
-              "value": "2",
+              "value": "99",
+              "type": "Number"
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "image_with_text$95668674-ccf7-4795-ab37-3391a8cf0cd6",
+        "name": "image_with_text",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "image": {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+                "width": 3456,
+                "height": 3456
+              },
+              "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+              "width": 3456,
+              "height": 3456,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {
+                "tablet": {
+                  "origin": {
+                    "id": "tablet",
+                    "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
+                    "width": 3958,
+                    "height": 3958
+                  },
+                  "url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb?rect=0%2C0%2C3958%2C3958&w=768&h=768",
+                  "width": 768,
+                  "height": 768,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "background": "transparent"
+                  }
+                }
+              }
+            },
+            "top_text": {
+              "__TYPE__": "FieldContent",
+              "value": "moment",
+              "type": "Text"
+            },
+            "title": {
+              "__TYPE__": "FieldContent",
+              "value": "sink",
+              "type": "Text"
+            },
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Proident ex consectetur magna. Aute nostrud ullamco magna nostrud cillum nostrud id nostrud cupidatat sint reprehenderit veniam consectetur duis eiusmod. Ad eiusmod commodo occaecat."
+                  }
+                }
+              ]
+            },
+            "bottom_text": {
+              "__TYPE__": "FieldContent",
+              "value": "hand",
+              "type": "Text"
+            },
+            "size": {
+              "__TYPE__": "FieldContent",
+              "value": "89",
+              "type": "Number"
+            },
+            "theme": {
+              "__TYPE__": "FieldContent",
+              "value": "dark",
+              "type": "Select"
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      },
+      {
+        "key": "video_with_description$86ac8c9f-99be-48f2-a54f-3dde92a8fa79",
+        "name": "video_with_description",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "title": {
+              "__TYPE__": "FieldContent",
+              "value": "remarkable",
+              "type": "Text"
+            },
+            "description": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Magna id sint consectetur minim elit anim eiusmod et reprehenderit officia reprehenderit."
+                  }
+                }
+              ]
+            },
+            "video_url": {
+              "embed_url": "https://twitter.com/prismicio/status/1356293316158095361",
+              "author_name": "Prismic",
+              "author_url": "https://twitter.com/prismicio",
+              "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Gatsby is a popular choice for Prismic users and we work hard on delivering a CMS that plays to its strengths.<br><br>But, what makes <a href=\"https://twitter.com/GatsbyJS?ref_src=twsrc%5Etfw\">@GatsbyJS</a> so popular?<br><br>Here are some of <a href=\"https://twitter.com/mxstbr?ref_src=twsrc%5Etfw\">@mxstbr</a>&#39;s thoughts on Gatsby&#39;s success and how they&#39;re improving developer experience.<a href=\"https://t.co/ZjCPvsWWUD\">https://t.co/ZjCPvsWWUD</a> <a href=\"https://t.co/EQqzJpeNKl\">pic.twitter.com/EQqzJpeNKl</a></p>&mdash; Prismic (@prismicio) <a href=\"https://twitter.com/prismicio/status/1356293316158095361?ref_src=twsrc%5Etfw\">February 1, 2021</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+              "width": 550,
+              "height": null,
+              "type": "rich",
+              "cache_age": "3153600000",
+              "provider_name": "Twitter",
+              "provider_url": "http://www.twitter.com/",
+              "version": "1.0",
+              "all": {
+                "embed_url": "https://twitter.com/prismicio/status/1356293316158095361",
+                "author_name": "Prismic",
+                "author_url": "https://twitter.com/prismicio",
+                "html": "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">Gatsby is a popular choice for Prismic users and we work hard on delivering a CMS that plays to its strengths.<br><br>But, what makes <a href=\"https://twitter.com/GatsbyJS?ref_src=twsrc%5Etfw\">@GatsbyJS</a> so popular?<br><br>Here are some of <a href=\"https://twitter.com/mxstbr?ref_src=twsrc%5Etfw\">@mxstbr</a>&#39;s thoughts on Gatsby&#39;s success and how they&#39;re improving developer experience.<a href=\"https://t.co/ZjCPvsWWUD\">https://t.co/ZjCPvsWWUD</a> <a href=\"https://t.co/EQqzJpeNKl\">pic.twitter.com/EQqzJpeNKl</a></p>&mdash; Prismic (@prismicio) <a href=\"https://twitter.com/prismicio/status/1356293316158095361?ref_src=twsrc%5Etfw\">February 1, 2021</a></blockquote>\n<script async src=\"https://platform.twitter.com/widgets.js\" charset=\"utf-8\"></script>\n",
+                "width": 550,
+                "height": null,
+                "type": "rich",
+                "cache_age": "3153600000",
+                "provider_name": "Twitter",
+                "provider_url": "http://www.twitter.com/",
+                "version": "1.0"
+              },
+              "__TYPE__": "EmbedContent"
+            },
+            "video_transcript": {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Tempor reprehenderit ullamco exercitation non quis sit et laboris irure do id magna deserunt. Velit Lorem ullamco esse ex ea eu quis laboris cillum id occaecat ut cillum cillum laboris."
+                  }
+                }
+              ]
+            },
+            "show_video_controls": {
+              "__TYPE__": "BooleanContent",
+              "value": false
+            },
+            "video_preview_image": {
+              "__TYPE__": "ImageContent",
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117",
+                "width": 3810,
+                "height": 5715
+              },
+              "url": "https://images.unsplash.com/photo-1587614295999-6c1c13675117",
+              "width": 3810,
+              "height": 5715,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "thumbnails": {
+                "tablet": {
+                  "origin": {
+                    "id": "tablet",
+                    "url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
+                    "width": 4076,
+                    "height": 2712
+                  },
+                  "url": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?rect=66%2C0%2C3945%2C2712&w=800&h=550",
+                  "width": 800,
+                  "height": 550,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 66,
+                      "y": 0
+                    },
+                    "background": "transparent"
+                  }
+                },
+                "mobile": {
+                  "origin": {
+                    "id": "mobile",
+                    "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+                    "width": 12288,
+                    "height": 16384
+                  },
+                  "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab?rect=0%2C4096%2C12288%2C8192&w=450&h=300",
+                  "width": 450,
+                  "height": 300,
+                  "edit": {
+                    "zoom": 1,
+                    "crop": {
+                      "x": 0,
+                      "y": 4096
+                    },
+                    "background": "transparent"
+                  }
+                }
+              }
+            },
+            "direction": {
+              "__TYPE__": "FieldContent",
+              "value": "right",
               "type": "Select"
             },
             "theme": {
               "__TYPE__": "FieldContent",
-              "value": "2",
+              "value": "dark",
               "type": "Select"
+            },
+            "size": {
+              "__TYPE__": "FieldContent",
+              "value": "94",
+              "type": "Number"
             }
           },
           "items": [
