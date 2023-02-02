@@ -1,5 +1,5 @@
 import React from 'react'
-import Component from '@/components/ImageBlock';
+import Component from '@/components/ImageBlock2';
 import { ParseSliceData } from 'utils/adapters/prismic/slice';
 
 /**

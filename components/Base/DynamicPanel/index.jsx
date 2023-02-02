@@ -3,9 +3,15 @@ import { parseDataProp } from './adapters';
 import { DynamicPanelContainer } from './styled';
 
 const DynamicPanel = (props) => {
-  const { theme, width, size, align, height, background_type, content_direction } = parseDataProp(
-    props.data
-  );
+  const {
+    theme,
+    width,
+    size,
+    align,
+    height,
+    background_type,
+    content_direction,
+  } = parseDataProp(props.data);
 
   return (
     <DynamicPanelContainer

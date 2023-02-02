@@ -3,10 +3,6 @@
     "__TYPE__": "SharedSliceContent",
     "variation": "default",
     "primary": {
-      "content_outside_image": {
-        "__TYPE__": "BooleanContent",
-        "value": false
-      },
       "theme": {
         "__TYPE__": "FieldContent",
         "value": "Light",
@@ -19,7 +15,7 @@
       },
       "separation_gap": {
         "__TYPE__": "FieldContent",
-        "value": "md",
+        "value": "none",
         "type": "Select"
       },
       "spacing": {
@@ -40,7 +36,6 @@
           [
             "image",
             {
-              "__TYPE__": "ImageContent",
               "origin": {
                 "id": "main",
                 "url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
@@ -58,6 +53,9 @@
                 },
                 "background": "transparent"
               },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
               "thumbnails": {}
             }
           ],
@@ -111,7 +109,7 @@
             "height",
             {
               "__TYPE__": "FieldContent",
-              "value": "89",
+              "value": "52",
               "type": "Number"
             }
           ],
@@ -124,26 +122,10 @@
             }
           ],
           [
-            "position",
-            {
-              "__TYPE__": "FieldContent",
-              "value": "Top",
-              "type": "Select"
-            }
-          ],
-          [
-            "gap",
-            {
-              "__TYPE__": "FieldContent",
-              "value": "md",
-              "type": "Select"
-            }
-          ],
-          [
             "spacing",
             {
               "__TYPE__": "FieldContent",
-              "value": "lg",
+              "value": "sm",
               "type": "Select"
             }
           ],

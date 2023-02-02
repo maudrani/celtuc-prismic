@@ -42,8 +42,6 @@ const Image = ({ data }) => {
     }));
   }, []);
 
-  console.log(elementsData)
-
   return (
     <ImageContainer
       position={position}

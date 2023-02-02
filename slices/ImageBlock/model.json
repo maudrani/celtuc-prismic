@@ -11,15 +11,6 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "ImageBlock",
       "primary": {
-        "content_outside_image": {
-          "type": "Boolean",
-          "config": {
-            "label": "Content outside image",
-            "placeholder_false": "false",
-            "placeholder_true": "true",
-            "default_value": true
-          }
-        },
         "theme": {
           "type": "Select",
           "config": {
@@ -47,17 +38,11 @@
             ]
           }
         },
-        "separation_gap": {
-          "type": "Select",
+        "height": {
+          "type": "Number",
           "config": {
-            "label": "Separation Gap",
-            "placeholder": "Default: lg",
-            "options": [
-              "sm",
-              "md",
-              "lg",
-              "none"
-            ]
+            "label": "Custom Height",
+            "placeholder": "% viewport height (0 for auto)"
           }
         },
         "spacing": {
@@ -73,11 +58,18 @@
             ]
           }
         },
-        "height": {
-          "type": "Number",
+        "separation_gap": {
+          "type": "Select",
           "config": {
-            "label": "Custom Height",
-            "placeholder": "% viewport height (0 for auto)"
+            "label": "Separation Gap",
+            "placeholder": "Default: lg",
+            "options": [
+              "none",
+              "sm",
+              "md",
+              "lg"
+            ],
+            "default_value": "none"
           }
         }
       },
@@ -126,6 +118,45 @@
             "default_value": "solid"
           }
         },
+        "align_y": {
+          "type": "Select",
+          "config": {
+            "label": "Align Y",
+            "placeholder": "Default: Top",
+            "options": [
+              "Top",
+              "Center",
+              "Bottom"
+            ],
+            "default_value": "Top"
+          }
+        },
+        "align_x": {
+          "type": "Select",
+          "config": {
+            "label": "Align X",
+            "placeholder": "Default: Left",
+            "options": [
+              "Left",
+              "Center",
+              "Right"
+            ],
+            "default_value": "Left"
+          }
+        },
+        "text_align": {
+          "type": "Select",
+          "config": {
+            "label": "Text Align",
+            "placeholder": "Default: Left",
+            "options": [
+              "Left",
+              "Center",
+              "Right"
+            ],
+            "default_value": "Left"
+          }
+        },
         "size": {
           "type": "Select",
           "config": {
@@ -156,55 +187,14 @@
         "height": {
           "type": "Number",
           "config": {
-            "label": "Height",
+            "label": "Image Height",
             "placeholder": "% of the size of container"
-          }
-        },
-        "text_align": {
-          "type": "Select",
-          "config": {
-            "label": "Text Align",
-            "placeholder": "Default: Left",
-            "options": [
-              "Left",
-              "Center",
-              "Right"
-            ],
-            "default_value": "Left"
-          }
-        },
-        "position": {
-          "type": "Select",
-          "config": {
-            "label": "Position",
-            "placeholder": "Default: Top",
-            "options": [
-              "Top",
-              "Bottom",
-              "Left",
-              "Right",
-              "Center"
-            ],
-            "default_value": "Top"
-          }
-        },
-        "gap": {
-          "type": "Select",
-          "config": {
-            "label": "Gap",
-            "placeholder": "Default: none",
-            "options": [
-              "sm",
-              "md",
-              "lg",
-              "none"
-            ]
           }
         },
         "spacing": {
           "type": "Select",
           "config": {
-            "label": "Spacing",
+            "label": "Content Spacing",
             "placeholder": "Default: none",
             "options": [
               "sm",
@@ -212,32 +202,6 @@
               "lg",
               "none"
             ]
-          }
-        },
-        "align_x": {
-          "type": "Select",
-          "config": {
-            "label": "Align X",
-            "placeholder": "Default: Left",
-            "options": [
-              "Left",
-              "Center",
-              "Right"
-            ],
-            "default_value": "Left"
-          }
-        },
-        "align_y": {
-          "type": "Select",
-          "config": {
-            "label": "Align Y",
-            "placeholder": "Default: Top",
-            "options": [
-              "Top",
-              "Center",
-              "Bottom"
-            ],
-            "default_value": "Top"
           }
         }
       },
