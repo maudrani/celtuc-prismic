@@ -51,6 +51,14 @@
                 }
               ]
             }
+          ],
+          [
+            "animation",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "None",
+              "type": "Select"
+            }
           ]
         ]
       }

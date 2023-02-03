@@ -6,8 +6,7 @@ import RichText from '@/components/Base/RichText';
 import VideoWithText from '@/components/VideoWithText';
 import Img from '@/components/Base/Img';
 import styled from 'styled-components';
-import FadeInSection from '@/components/Base/Animations/components/FadeIn';
-
+import FadeInSection from '@/components/Base/Animation/components/FadeIn';
 
 const Test = () => {
   return (

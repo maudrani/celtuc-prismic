@@ -56,8 +56,18 @@ const getTextBlockPaddingValue = (value, variant) => {
   return `${getDefaultPaddingValue(value)}em`;
 };
 
+const getAnimation = (value) =>
+  ({
+    'Fade In': 'fade_in',
+    Typed: 'typed_text',
+    None: 'none',
+  }[value || 'None']);
+
 export const getRepeatedContents = (contentsList = []) =>
-  contentsList.map((item) => GetRichTextContent(item.content));
+  contentsList.map((item) => ({
+    text: GetRichTextContent(item.content),
+    animation: getAnimation(item.animation),
+  }));
 
 export const getDataProps = (dataObj = {}) => ({
   items: dataObj.items,

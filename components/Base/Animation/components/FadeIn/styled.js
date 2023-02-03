@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const FadeContainer = styled.section`
+  height: 100%;
   opacity: 0;
 
   @keyframes visible {

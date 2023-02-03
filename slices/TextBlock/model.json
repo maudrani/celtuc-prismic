@@ -100,6 +100,19 @@
             "allowTargetBlank": true,
             "multi": "preformatted"
           }
+        },
+        "animation": {
+          "type": "Select",
+          "config": {
+            "label": "Animation",
+            "placeholder": "",
+            "options": [
+              "None",
+              "Typed",
+              "Fade In"
+            ],
+            "default_value": "None"
+          }
         }
       },
       "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"

@@ -216,6 +216,31 @@
             "label": "Image Height",
             "placeholder": "% of the container height"
           }
+        },
+        "image_animation": {
+          "type": "Select",
+          "config": {
+            "label": "Image animation",
+            "placeholder": "",
+            "options": [
+              "None",
+              "Fade In"
+            ],
+            "default_value": "None"
+          }
+        },
+        "content_animation": {
+          "type": "Select",
+          "config": {
+            "label": "Content animation",
+            "placeholder": "",
+            "options": [
+              "None",
+              "Fade In",
+              "Typed"
+            ],
+            "default_value": "None"
+          }
         }
       },
       "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"

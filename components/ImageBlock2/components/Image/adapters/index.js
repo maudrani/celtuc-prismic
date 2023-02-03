@@ -31,10 +31,15 @@ const getImageHeight = (prismicHeight, containerHeight) => {
 
   if (containerHeight) return return_height.containerHeight;
 
-  
-
   return default_height;
 };
+
+const getAnimation = (value) =>
+  ({
+    'Fade In': 'fade_in',
+    Typed: 'typed_text',
+    None: 'none',
+  }[value || 'None']);
 
 export const getDataProps = (dataObj = {}) => ({
   image: dataObj.image,
@@ -49,5 +54,9 @@ export const getDataProps = (dataObj = {}) => ({
   spacing: dataObj.spacing || 'none',
   width: getTextBlockWidthValue(dataObj.width),
   image_height: getImageHeight(dataObj.image_height, dataObj.containerHeight),
-  containerHeight: dataObj.containerHeight
+  containerHeight: dataObj.containerHeight,
+  image_animation: getAnimation(dataObj.image_animation),
+  content_animation: dataObj.content_animation,
+  content_has_anim: dataObj.content_animation !== 'None',
+  image_has_anim: dataObj.image_animation !== 'None'
 });

@@ -1,12 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
-import { FadeContainer } from './styled';
+import { useEffect, useState } from 'react';
 
-const FadeInSection = ({ children }) => {
-  const domRef = useRef();
-
+export const useIsVisible = (
+  ref,
+  options = { threshold: 0.25, timeout: 300 }
+) => {
   const [isVisible, setVisible] = useState(false);
 
   useEffect(() => {
+    if (!ref.current) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         // In your case there's only one element to observe:
@@ -15,25 +17,19 @@ const FadeInSection = ({ children }) => {
 
           setTimeout(() => {
             setVisible(true);
-          }, 300);
+          }, options.timeout);
 
           // No need to keep observing:
-          observer.unobserve(domRef.current);
+          observer.unobserve(ref.current);
         }
       },
-      { threshold: 0.25 }
+      { threshold: options.threshold }
     );
 
-    observer.observe(domRef.current);
+    observer.observe(ref.current);
 
     return () => observer.disconnect();
   }, []);
 
-  return (
-    <FadeContainer ref={domRef} className={isVisible ? ' is-visible' : ''}>
-      {children}
-    </FadeContainer>
-  );
+  return isVisible;
 };
-
-export default FadeInSection;

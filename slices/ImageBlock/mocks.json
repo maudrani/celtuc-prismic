@@ -149,6 +149,22 @@
               "value": "90",
               "type": "Number"
             }
+          ],
+          [
+            "image_animation",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "None",
+              "type": "Select"
+            }
+          ],
+          [
+            "content_animation",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "None",
+              "type": "Select"
+            }
           ]
         ]
       }

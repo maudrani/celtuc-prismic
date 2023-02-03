@@ -1,4 +1,4 @@
-import FadeInSection from '@/components/Base/Animations/components/FadeIn';
+import Animation from '@/components/Base/Animation';
 import Img from '@/components/Base/Img';
 import { TextBlockRaw } from '@/components/TextBlock';
 import React, { useEffect, useRef, useState } from 'react';
@@ -23,10 +23,15 @@ const ImageWithInnerText = ({ data }) => {
     width,
     image_height,
     hasContent,
+    image_animation,
+    content_animation,
+    image_has_anim,
   } = getDataProps(data);
 
   const [minImageHeight, setMinImageHeight] = useState(0);
   const imageBlockRef = useRef(null);
+
+  const [imageAnimEnd, setImageAnimEnd] = useState(!image_has_anim);
 
   useEffect(() => {
     if (!document || !imageBlockRef.current) return;
@@ -47,33 +52,38 @@ const ImageWithInnerText = ({ data }) => {
   }, [image_height]);
 
   return (
-    <FadeInSection>
-      <div ref={imageBlockRef} style={{ height: '100%' }}>
-        <ImageWithInnerTextContainer height={minImageHeight}>
-          {hasContent && (
-            <TextBlockDynamicPanel
-              data={{ theme, size }}
-              align_y={align_y}
-              align_x={align_x}
-              className="imageblock-textblock"
-              background_type={background_type}
-              content_direction={align_y}
-              data-id={'image-block_text-block-container'}
-            >
-              <WidthLimiter width={width}>
+    <div ref={imageBlockRef} style={{ height: '100%' }}>
+      <ImageWithInnerTextContainer height={minImageHeight}>
+        {hasContent && (
+          <TextBlockDynamicPanel
+            data={{ theme, size }}
+            align_y={align_y}
+            align_x={align_x}
+            className="imageblock-textblock"
+            background_type={background_type}
+            content_direction={align_y}
+            data-id={'image-block_text-block-container'}
+          >
+            <WidthLimiter width={width}>
+              {imageAnimEnd && (
                 <TextBlockRaw
                   data={{
-                    items: [{ content }],
+                    items: [{ content, animation: content_animation }],
                     data: { spacing, align: text_align },
                   }}
                 />
-              </WidthLimiter>
-            </TextBlockDynamicPanel>
-          )}
+              )}
+            </WidthLimiter>
+          </TextBlockDynamicPanel>
+        )}
+        <Animation
+          data={{ type: image_animation }}
+          onAnimEnd={(e) => setImageAnimEnd(e)}
+        >
           <Img src={image.url} />
-        </ImageWithInnerTextContainer>
-      </div>
-    </FadeInSection>
+        </Animation>
+      </ImageWithInnerTextContainer>
+    </div>
   );
 };
 
