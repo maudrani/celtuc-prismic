@@ -1,5 +1,6 @@
-import React, { createContext, useEffect, useRef, useState } from 'react';
-import useWindowsWidth from 'utils/hooks/useWindowsWidth';
+import React, { useEffect, useRef, useState } from 'react';
+import useWindowSize from 'utils/hooks/useWindowsSize';
+
 import { getDataProps, getRepeatedContents } from './adapters';
 import ImageWithInnerText from './components/Image';
 import {
@@ -18,11 +19,11 @@ const ImageBlock2 = ({ data }) => {
     gap,
     spacing,
     variant,
-    height,
     align_y,
     align_x, // Deprecated
     break_height_trigger,
     grid_responsive_trigger,
+    raw_height,
   } = getDataProps(data);
 
   const [elementsData, setElementsData] = useState({
@@ -31,7 +32,8 @@ const ImageBlock2 = ({ data }) => {
   });
 
   const imageBlockRef = useRef(null);
-  const windowsWidth = useWindowsWidth();
+  const windowsWidth = useWindowSize();
+  const use_container_height = windowsWidth.width > break_height_trigger;
 
   useEffect(() => {
     if (!imageBlockRef.current) return;
@@ -43,29 +45,74 @@ const ImageBlock2 = ({ data }) => {
       },
     };
 
-    const styles = window.getComputedStyle(DOM_ELEMENTS.customDynamicPanel);
-    const ySpacing = Number(styles.paddingTop.replace('px', '')) * 2;
+    const getSpacingSize = () => {
+      const styles = window.getComputedStyle(DOM_ELEMENTS.customDynamicPanel);
+      return Number(styles.paddingTop.replace('px', '')) * 2;
+    };
+
+    const getMinHeightByText = () => {
+      const textsHeight = imageBlockRef.current.querySelectorAll(
+        '[data-id="image-block_text-block-container"]'
+      );
+
+      let minHeight = 0;
+
+      textsHeight.forEach((element) => {
+        if (element.offsetHeight > minHeight) {
+          minHeight = element.offsetHeight;
+        }
+      });
+
+      return minHeight;
+    };
+
+    const getTotalContainerHeight = () => {
+      return DOM_ELEMENTS.container?.offsetHeight;
+    };
+
+    const getUsableHeight = () => {
+      return (
+        use_container_height && getTotalContainerHeight() - getSpacingSize()
+      );
+    };
+
+    const getPrismicHeight = () => {
+      return window.innerHeight * (raw_height / 100);
+    };
 
     setElementsData((e) => ({
       ...e,
       container: {
-        spacing: ySpacing,
-        total_height: DOM_ELEMENTS.container?.offsetHeight,
-        usable_height: DOM_ELEMENTS.container?.offsetHeight - ySpacing,
+        spacing: getSpacingSize(),
+        total_height: getTotalContainerHeight(),
+        usable_height: getUsableHeight(),
+        min_height: getMinHeightByText(),
+        prismic_height: getPrismicHeight(),
       },
     }));
-  }, [windowsWidth]);
+  }, [windowsWidth.width]);
+
+  const minHeight = () => {
+    const { min_height, prismic_height } = elementsData.container;
+
+    if (!use_container_height) return '100%';
+
+    return min_height > prismic_height ? min_height : prismic_height;
+  };
 
   return (
     <div ref={imageBlockRef}>
       <CustomDynamicPanel
         spacing={spacing}
-        height={height}
+        height={!use_container_height ? '100%' : elementsData.total_height}
         data={{ theme, size, align_y, align_x }}
         elements_amount={items?.length}
         break_height_trigger={break_height_trigger}
       >
-        <div className={!isFullWidth ? 'uContainContent' : ''}>
+        <div
+          className={!isFullWidth ? 'uContainContent' : ''}
+          style={{ height: minHeight() }}
+        >
           <WidthLimiter width={width}>
             <ImageBlockContainer
               gap={gap}

@@ -1,4 +1,5 @@
 import React from 'react';
+import FadeInSection from '../Base/Animations/components/FadeIn';
 import RichText from '../Base/RichText';
 import { getDataProps, getRepeatedContents } from './adapters';
 import { CustomDynamicPanel, TextBlockContainer } from './styled';
@@ -15,7 +16,9 @@ export const TextBlockRaw = (props) => {
       {...props}
     >
       {getRepeatedContents(items).map((text, idx) => (
-        <RichText key={`rich-text-${idx}`} data={{ markdown: text }} />
+        <FadeInSection key={`rich-text-${idx}`}>
+          <RichText data={{ markdown: text }} />
+        </FadeInSection>
       ))}
     </TextBlockContainer>
   );

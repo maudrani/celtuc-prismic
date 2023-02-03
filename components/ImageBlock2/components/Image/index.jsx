@@ -1,3 +1,4 @@
+import FadeInSection from '@/components/Base/Animations/components/FadeIn';
 import Img from '@/components/Base/Img';
 import { TextBlockRaw } from '@/components/TextBlock';
 import React, { useEffect, useRef, useState } from 'react';
@@ -46,31 +47,33 @@ const ImageWithInnerText = ({ data }) => {
   }, [image_height]);
 
   return (
-    <div ref={imageBlockRef} style={{ height: '100%' }}>
-      <ImageWithInnerTextContainer height={minImageHeight}>
-        {hasContent && (
-          <TextBlockDynamicPanel
-            data={{ theme, size }}
-            align_y={align_y}
-            align_x={align_x}
-            className="imageblock-textblock"
-            background_type={background_type}
-            content_direction={align_y}
-            data-id={'image-block_text-block-container'}
-          >
-            <WidthLimiter width={width}>
-              <TextBlockRaw
-                data={{
-                  items: [{ content }],
-                  data: { spacing, align: text_align },
-                }}
-              />
-            </WidthLimiter>
-          </TextBlockDynamicPanel>
-        )}
-        <Img src={image.url} />
-      </ImageWithInnerTextContainer>
-    </div>
+    <FadeInSection>
+      <div ref={imageBlockRef} style={{ height: '100%' }}>
+        <ImageWithInnerTextContainer height={minImageHeight}>
+          {hasContent && (
+            <TextBlockDynamicPanel
+              data={{ theme, size }}
+              align_y={align_y}
+              align_x={align_x}
+              className="imageblock-textblock"
+              background_type={background_type}
+              content_direction={align_y}
+              data-id={'image-block_text-block-container'}
+            >
+              <WidthLimiter width={width}>
+                <TextBlockRaw
+                  data={{
+                    items: [{ content }],
+                    data: { spacing, align: text_align },
+                  }}
+                />
+              </WidthLimiter>
+            </TextBlockDynamicPanel>
+          )}
+          <Img src={image.url} />
+        </ImageWithInnerTextContainer>
+      </div>
+    </FadeInSection>
   );
 };
 

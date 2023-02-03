@@ -96,7 +96,7 @@ ImageWithText.exampleProps = {
       },
     },
     bottom_text: 'Bottom text',
-    size: 50,
+    size: 100,
     theme: 'dark',
   },
 };

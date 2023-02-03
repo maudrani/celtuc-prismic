@@ -76,6 +76,9 @@ export const getDataProps = (dataObj = {}) => ({
   variant: dataObj.variant,
   content_outside_image: dataObj.data.content_outside_image,
   height: getContainerHeightValue(dataObj.data.height),
+  get raw_height() {
+    return this.height.replace('vh', '').replace('%', '')
+  },
   width: getTextBlockWidthValue(dataObj.data.width, dataObj.variant),
   isFullWidth: dataObj.data.width === 'full',
   gap: getTextBlockGapValue(dataObj.data.separation_gap, dataObj.variant),
