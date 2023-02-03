@@ -11,6 +11,8 @@ const DynamicPanel = (props) => {
     height,
     background_type,
     content_direction,
+    align_y,
+    align_x,
   } = parseDataProp(props.data);
 
   return (
@@ -22,6 +24,8 @@ const DynamicPanel = (props) => {
       align={align}
       background_type={background_type}
       content_direction={content_direction}
+      align_y={align_y}
+      align_x={align_x}
       {...props}
     >
       {props.children}

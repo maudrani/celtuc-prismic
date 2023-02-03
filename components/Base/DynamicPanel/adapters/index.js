@@ -19,4 +19,6 @@ export const parseDataProp = (data = {}) => ({
   height: data.height || defaultData.height,
   background_type: data.background_type || defaultData.background_type,
   content_direction: data.content_direction || defaultData.content_direction,
+  align_y: data.align_y,
+  align_x: data.align_x,
 });

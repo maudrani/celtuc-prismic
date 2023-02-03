@@ -27,6 +27,11 @@
         "__TYPE__": "FieldContent",
         "value": "76",
         "type": "Number"
+      },
+      "align_y": {
+        "__TYPE__": "FieldContent",
+        "value": "Top",
+        "type": "Select"
       }
     },
     "items": [
@@ -85,7 +90,7 @@
             "background_type",
             {
               "__TYPE__": "FieldContent",
-              "value": "translucent",
+              "value": "none",
               "type": "Select"
             }
           ],
@@ -103,14 +108,6 @@
               "__TYPE__": "FieldContent",
               "value": "md",
               "type": "Select"
-            }
-          ],
-          [
-            "height",
-            {
-              "__TYPE__": "FieldContent",
-              "value": "52",
-              "type": "Number"
             }
           ],
           [
@@ -143,6 +140,14 @@
               "__TYPE__": "FieldContent",
               "value": "Top",
               "type": "Select"
+            }
+          ],
+          [
+            "image_height",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "90",
+              "type": "Number"
             }
           ]
         ]

@@ -64,6 +64,10 @@ const PRINT = css`
 `;
 
 const GENERAL = css`
+  * {
+    word-break: break-word;
+  }
+
   p,
   li {
     position: relative;

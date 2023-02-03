@@ -15,15 +15,31 @@ const getTextBlockWidthValue = (value) => {
 };
 
 const getImageHeight = (prismicHeight, containerHeight) => {
-  if (prismicHeight) return `${prismicHeight}%`;
-  if (containerHeight) return `${containerHeight}px`;
+  const prismicHeight_to_percentage = prismicHeight / 100;
+  const default_height = '100%';
 
-  return '100%';
+  const return_height = {
+    prismicHeight_and_containerHeight:
+      `${prismicHeight_to_percentage * containerHeight}px` || default_height,
+    containerHeight: `${containerHeight}px` || default_height,
+  };
+
+  if (prismicHeight > 100) return return_height.containerHeight;
+
+  if (prismicHeight && containerHeight)
+    return return_height.prismicHeight_and_containerHeight;
+
+  if (containerHeight) return return_height.containerHeight;
+
+  
+
+  return default_height;
 };
 
 export const getDataProps = (dataObj = {}) => ({
   image: dataObj.image,
   content: dataObj.content,
+  hasContent: !!dataObj.content.length && !!dataObj.content[0].text,
   theme: dataObj.theme,
   background_type: dataObj.background_type,
   size: dataObj.size,
@@ -32,5 +48,6 @@ export const getDataProps = (dataObj = {}) => ({
   align_y: dataObj.align_y,
   spacing: dataObj.spacing || 'none',
   width: getTextBlockWidthValue(dataObj.width),
-  height: getImageHeight(dataObj.height, dataObj.containerHeight),
+  image_height: getImageHeight(dataObj.image_height, dataObj.containerHeight),
+  containerHeight: dataObj.containerHeight
 });
