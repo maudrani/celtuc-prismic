@@ -8,8 +8,8 @@ import {
   WidthLimiter,
   TextBlockDynamicPanel,
   HeightLimiter,
+  ImageDynamicPanel,
 } from './styled';
-import DynamicPanel from '@/components/Base/DynamicPanel';
 
 const ImageWithInnerText = ({ data }) => {
   const {
@@ -19,10 +19,9 @@ const ImageWithInnerText = ({ data }) => {
     background_type,
     size,
     text_align,
-    align_x,
-    align_y,
+    content_align_x,
+    content_align_y,
     image_align_y,
-    image_align_x,
     spacing,
     width,
     hasContent,
@@ -31,19 +30,18 @@ const ImageWithInnerText = ({ data }) => {
     image_has_anim,
     position,
     image_height,
+    gap,
   } = getDataProps(data);
 
   const [imageAnimEnd, setImageAnimEnd] = useState(!image_has_anim);
 
   return (
-    <ImageWithInnerTextContainer position={position}>
+    <ImageWithInnerTextContainer position={position} gap={gap}>
       {hasContent && (
         <TextBlockDynamicPanel
-          data={{ theme, size, align_y, align_x }}
-          className="imageblock-textblock"
+          data={{ theme, size, align_y: content_align_y, align_x: content_align_x }}
           background_type={background_type}
-          content_direction={align_y}
-          data-id={'image-block_text-block-container'}
+          content_direction={content_align_y}
         >
           <WidthLimiter width={width}>
             {imageAnimEnd && (
@@ -62,13 +60,11 @@ const ImageWithInnerText = ({ data }) => {
         data={{ type: image_animation }}
         onAnimEnd={(e) => setImageAnimEnd(e)}
       >
-        <DynamicPanel
-          data={{ theme, align_x: image_align_x, align_y: image_align_y }}
-        >
+        <ImageDynamicPanel data={{ theme, align_y: image_align_y }}>
           <HeightLimiter height={image_height}>
             <Img src={image.url} />
           </HeightLimiter>
-        </DynamicPanel>
+        </ImageDynamicPanel>
       </Animation>
     </ImageWithInnerTextContainer>
   );

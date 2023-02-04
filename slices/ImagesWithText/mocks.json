@@ -5,28 +5,33 @@
     "primary": {
       "theme": {
         "__TYPE__": "FieldContent",
-        "value": "Mid-Light",
+        "value": "Light",
         "type": "Select"
       },
       "width": {
         "__TYPE__": "FieldContent",
-        "value": "full",
+        "value": "xs",
         "type": "Select"
       },
       "custom_height": {
         "__TYPE__": "FieldContent",
-        "value": "71",
+        "value": "79",
         "type": "Number"
       },
       "spacing": {
         "__TYPE__": "FieldContent",
-        "value": "lg",
+        "value": "none",
         "type": "Select"
       },
       "separation_gap": {
         "__TYPE__": "FieldContent",
         "value": "md",
         "type": "Select"
+      },
+      "min_height": {
+        "__TYPE__": "FieldContent",
+        "value": "27",
+        "type": "Number"
       }
     },
     "items": [
@@ -38,13 +43,13 @@
             {
               "origin": {
                 "id": "main",
-                "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
-                "width": 3212,
-                "height": 3880
+                "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+                "width": 4160,
+                "height": 3120
               },
-              "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
-              "width": 3212,
-              "height": 3880,
+              "url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+              "width": 4160,
+              "height": 3120,
               "edit": {
                 "zoom": 1,
                 "crop": {
@@ -67,10 +72,18 @@
                 {
                   "type": "paragraph",
                   "content": {
-                    "text": "Consectetur laborum enim officia fugiat nisi laborum amet laborum quis non laboris nulla."
+                    "text": "Dolor laboris fugiat ipsum commodo magna aute dolor reprehenderit sunt non eiusmod."
                   }
                 }
               ]
+            }
+          ],
+          [
+            "position",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Left",
+              "type": "Select"
             }
           ],
           [
@@ -85,23 +98,23 @@
             "background_type",
             {
               "__TYPE__": "FieldContent",
-              "value": "gradient",
+              "value": "solid",
               "type": "Select"
             }
           ],
           [
-            "align_y",
+            "content_align_y",
             {
               "__TYPE__": "FieldContent",
-              "value": "Top",
+              "value": "Bottom",
               "type": "Select"
             }
           ],
           [
-            "align_x",
+            "content_align_x",
             {
               "__TYPE__": "FieldContent",
-              "value": "Right",
+              "value": "Center",
               "type": "Select"
             }
           ],
@@ -109,7 +122,15 @@
             "text_align",
             {
               "__TYPE__": "FieldContent",
-              "value": "Right",
+              "value": "Left",
+              "type": "Select"
+            }
+          ],
+          [
+            "image_align_y",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Top",
               "type": "Select"
             }
           ],
@@ -117,7 +138,7 @@
             "size",
             {
               "__TYPE__": "FieldContent",
-              "value": "sm",
+              "value": "xs",
               "type": "Select"
             }
           ],
@@ -125,7 +146,7 @@
             "content_width",
             {
               "__TYPE__": "FieldContent",
-              "value": "sm",
+              "value": "md",
               "type": "Select"
             }
           ],
@@ -133,8 +154,16 @@
             "image_height",
             {
               "__TYPE__": "FieldContent",
-              "value": "56",
+              "value": "4",
               "type": "Number"
+            }
+          ],
+          [
+            "gap",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "none",
+              "type": "Select"
             }
           ],
           [
@@ -150,14 +179,6 @@
             {
               "__TYPE__": "FieldContent",
               "value": "None",
-              "type": "Select"
-            }
-          ],
-          [
-            "position",
-            {
-              "__TYPE__": "FieldContent",
-              "value": "Left",
               "type": "Select"
             }
           ]

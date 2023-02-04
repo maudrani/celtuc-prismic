@@ -32,6 +32,11 @@
         "__TYPE__": "FieldContent",
         "value": "Top",
         "type": "Select"
+      },
+      "min_height": {
+        "__TYPE__": "FieldContent",
+        "value": "75",
+        "type": "Number"
       }
     },
     "items": [

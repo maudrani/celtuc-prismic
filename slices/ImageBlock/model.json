@@ -84,6 +84,13 @@
             ],
             "default_value": "Top"
           }
+        },
+        "min_height": {
+          "type": "Number",
+          "config": {
+            "label": "Min height",
+            "placeholder": "Minimum height in pixels"
+          }
         }
       },
       "items": {

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { fluid } from 'utils/styles/fluid';
 import DynamicPanel from '../Base/DynamicPanel';
 

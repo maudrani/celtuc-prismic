@@ -70,6 +70,13 @@
               "lg"
             ]
           }
+        },
+        "min_height": {
+          "type": "Number",
+          "config": {
+            "label": "Min height",
+            "placeholder": ""
+          }
         }
       },
       "items": {
@@ -131,10 +138,10 @@
             "default_value": "solid"
           }
         },
-        "align_y": {
+        "content_align_y": {
           "type": "Select",
           "config": {
-            "label": "Align Y",
+            "label": "Content Align Y",
             "placeholder": "",
             "options": [
               "Top",
@@ -144,10 +151,10 @@
             "default_value": "Top"
           }
         },
-        "align_x": {
+        "content_align_x": {
           "type": "Select",
           "config": {
-            "label": "Align X",
+            "label": "Content Align X",
             "placeholder": "",
             "options": [
               "Left",
@@ -168,6 +175,19 @@
               "Right"
             ],
             "default_value": "Left"
+          }
+        },
+        "image_align_y": {
+          "type": "Select",
+          "config": {
+            "label": "Image Align Y",
+            "placeholder": "",
+            "options": [
+              "Center",
+              "Top",
+              "Bottom"
+            ],
+            "default_value": "Center"
           }
         },
         "size": {
@@ -202,6 +222,20 @@
           "config": {
             "label": "Image Height",
             "placeholder": ""
+          }
+        },
+        "gap": {
+          "type": "Select",
+          "config": {
+            "label": "Separation Gap",
+            "placeholder": "",
+            "options": [
+              "none",
+              "sm",
+              "md",
+              "lg"
+            ],
+            "default_value": "none"
           }
         },
         "image_animation": {

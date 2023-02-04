@@ -66,6 +66,10 @@ const getTextBlockPaddingValue = (value, variant) => {
   }
 };
 
+const getPrismicMinHeight = (value) => {
+  return `${value || 0}`
+}
+
 export const getRepeatedContents = (contentsList = []) =>
   contentsList.map((item) => item);
 
@@ -77,7 +81,7 @@ export const getDataProps = (dataObj = {}) => ({
   content_outside_image: dataObj.data.content_outside_image,
   height: getContainerHeightValue(dataObj.data.height),
   get raw_height() {
-    return this.height.replace('vh', '').replace('%', '')
+    return this.height.replace('vh', '').replace('%', '');
   },
   width: getTextBlockWidthValue(dataObj.data.width, dataObj.variant),
   isFullWidth: dataObj.data.width === 'full',
@@ -97,4 +101,6 @@ export const getDataProps = (dataObj = {}) => ({
       (raw_gap * elements_amount - 1)
     );
   },
+  same_images_height: dataObj.data.same_images_height,
+  prismic_min_height: getPrismicMinHeight(dataObj.data.min_height)
 });

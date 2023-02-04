@@ -24,6 +24,8 @@ const ImageBlock2 = ({ data }) => {
     break_height_trigger,
     grid_responsive_trigger,
     raw_height,
+    prismic_min_height,
+    same_images_height, // Not developed
   } = getDataProps(data);
 
   const [elementsData, setElementsData] = useState({
@@ -97,7 +99,12 @@ const ImageBlock2 = ({ data }) => {
 
     if (!use_container_height) return '100%';
 
-    return min_height > prismic_height ? min_height : prismic_height;
+    const min_height_to_avoid_overflow =
+      min_height > prismic_height ? min_height : prismic_height;
+
+    return prismic_min_height > min_height_to_avoid_overflow
+      ? prismic_min_height
+      : min_height_to_avoid_overflow;
   };
 
   return (
@@ -118,6 +125,7 @@ const ImageBlock2 = ({ data }) => {
               gap={gap}
               data={{ theme, size, align_x, align_y }}
               grid_responsive_trigger={grid_responsive_trigger}
+              same_images_height={same_images_height}
             >
               {getRepeatedContents(items).map((item, idx) => (
                 <ImageWithInnerText

@@ -39,9 +39,16 @@ export const ImageWithInnerTextContainer = styled.div`
   position: relative;
   height: 100%;
 
-  ${({ position }) => Position(position)}
+  ${({ position }) => Position(position)};
+  gap: ${(gap) => gap};
+`;
+
+export const ImageDynamicPanel = styled(DynamicPanel)`
+  display: flex;
+  background: transparent;
 `;
 
 export const HeightLimiter = styled.div`
   height: ${({ height }) => height};
+  width: 100%;
 `;

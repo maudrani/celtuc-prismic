@@ -9,7 +9,23 @@ const getDefaultWidthValue = (sizeName = _sm.md) =>
     [_sm.sm]: 45,
   }[NormalizeValue(sizeName) || _sm.lg]);
 
+const getDefaultGapValue = (sizeName) =>
+  ({
+    none: '0',
+    [_sm.lg]: 5.5,
+    [_sm.md]: 3.2,
+    [_sm.sm]: 1.2,
+  }[NormalizeValue(sizeName) || 'none']);
+
 //PROPS ON VARIANTS
+const getTextBlockGapValue = (value, variant) => {
+  if (variant === 'free-width') {
+    return `${value * 0.3}em`;
+  }
+
+  return `${getDefaultGapValue(value)}em`;
+};
+
 const getTextBlockWidthValue = (value) => {
   return `${getDefaultWidthValue(value)}%`;
 };
@@ -35,8 +51,8 @@ export const getDataProps = (dataObj = {}) => ({
   background_type: dataObj.background_type,
   size: dataObj.size,
   text_align: dataObj.text_align,
-  align_x: dataObj.align_x,
-  align_y: dataObj.align_y,
+  content_align_x: dataObj.content_align_x,
+  content_align_y: dataObj.content_align_y,
   image_align_y: dataObj.image_align_y,
   image_align_x: dataObj.image_align_x,
   spacing: dataObj.spacing || 'none',
@@ -48,4 +64,5 @@ export const getDataProps = (dataObj = {}) => ({
   content_has_anim: dataObj.content_animation !== 'None',
   image_has_anim: dataObj.image_animation !== 'None',
   position: dataObj.position,
+  gap: getTextBlockGapValue(dataObj.gap, dataObj.variant),
 });
