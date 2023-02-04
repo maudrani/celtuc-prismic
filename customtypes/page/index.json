@@ -30,13 +30,7 @@
             "image_block": {
               "type": "SharedSlice"
             },
-            "image_with_text": {
-              "type": "SharedSlice"
-            },
-            "video_with_description": {
-              "type": "SharedSlice"
-            },
-            "hero_slice": {
+            "images_with_text": {
               "type": "SharedSlice"
             }
           }

@@ -1,7 +1,7 @@
 {
   "id": "image_with_text",
   "type": "SharedSlice",
-  "name": "ImageWithText",
+  "name": "ImageWithTextOld",
   "description": "ImageWithText",
   "variations": [
     {

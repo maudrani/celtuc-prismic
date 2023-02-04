@@ -1,0 +1,170 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "theme": {
+        "__TYPE__": "FieldContent",
+        "value": "Mid-Light",
+        "type": "Select"
+      },
+      "width": {
+        "__TYPE__": "FieldContent",
+        "value": "full",
+        "type": "Select"
+      },
+      "custom_height": {
+        "__TYPE__": "FieldContent",
+        "value": "71",
+        "type": "Number"
+      },
+      "spacing": {
+        "__TYPE__": "FieldContent",
+        "value": "lg",
+        "type": "Select"
+      },
+      "separation_gap": {
+        "__TYPE__": "FieldContent",
+        "value": "md",
+        "type": "Select"
+      },
+      "align_y": {
+        "__TYPE__": "FieldContent",
+        "value": "Top",
+        "type": "Select"
+      },
+      "position": {
+        "__TYPE__": "FieldContent",
+        "value": "Bottom",
+        "type": "Select"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "image",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+                "width": 3212,
+                "height": 3880
+              },
+              "url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+              "width": 3212,
+              "height": 3880,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "content",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Consectetur laborum enim officia fugiat nisi laborum amet laborum quis non laboris nulla."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "theme",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Light",
+              "type": "Select"
+            }
+          ],
+          [
+            "background_type",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "gradient",
+              "type": "Select"
+            }
+          ],
+          [
+            "align_y",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Top",
+              "type": "Select"
+            }
+          ],
+          [
+            "align_x",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Right",
+              "type": "Select"
+            }
+          ],
+          [
+            "text_align",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Right",
+              "type": "Select"
+            }
+          ],
+          [
+            "size",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "sm",
+              "type": "Select"
+            }
+          ],
+          [
+            "content_width",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "sm",
+              "type": "Select"
+            }
+          ],
+          [
+            "image_height",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "56",
+              "type": "Number"
+            }
+          ],
+          [
+            "image_animation",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "None",
+              "type": "Select"
+            }
+          ],
+          [
+            "content_animation",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "None",
+              "type": "Select"
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

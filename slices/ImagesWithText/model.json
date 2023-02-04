@@ -1,0 +1,249 @@
+{
+  "id": "images_with_text",
+  "type": "SharedSlice",
+  "name": "ImagesWithText",
+  "description": "ImagesWithText",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "ImagesWithText",
+      "primary": {
+        "theme": {
+          "type": "Select",
+          "config": {
+            "label": "Theme",
+            "placeholder": "",
+            "options": [
+              "Light",
+              "Mid-Light",
+              "Dark"
+            ],
+            "default_value": "Light"
+          }
+        },
+        "width": {
+          "type": "Select",
+          "config": {
+            "label": "Width",
+            "placeholder": "Default: md",
+            "options": [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "full"
+            ]
+          }
+        },
+        "custom_height": {
+          "type": "Number",
+          "config": {
+            "label": "Custom Height",
+            "placeholder": "% viewport height (0 for auto)"
+          }
+        },
+        "spacing": {
+          "type": "Select",
+          "config": {
+            "label": "Spacing",
+            "placeholder": "Default: md",
+            "options": [
+              "sm",
+              "md",
+              "lg",
+              "none"
+            ]
+          }
+        },
+        "separation_gap": {
+          "type": "Select",
+          "config": {
+            "label": "Separation Gap",
+            "placeholder": "Default: lg",
+            "options": [
+              "none",
+              "sm",
+              "md",
+              "lg"
+            ]
+          }
+        },
+        "align_y": {
+          "type": "Select",
+          "config": {
+            "label": "Align Y",
+            "placeholder": "",
+            "options": [
+              "Top",
+              "Center",
+              "Bottom"
+            ],
+            "default_value": "Top"
+          }
+        },
+        "position": {
+          "type": "Select",
+          "config": {
+            "label": "Position",
+            "placeholder": "",
+            "options": [
+              "Left",
+              "Right",
+              "Top",
+              "Bottom"
+            ],
+            "default_value": "Left"
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "preformatted"
+          }
+        },
+        "theme": {
+          "type": "Select",
+          "config": {
+            "label": "Theme",
+            "placeholder": "",
+            "options": [
+              "Light",
+              "Mid-Light",
+              "Dark"
+            ],
+            "default_value": "Light"
+          }
+        },
+        "background_type": {
+          "type": "Select",
+          "config": {
+            "label": "Background Type",
+            "placeholder": "",
+            "options": [
+              "solid",
+              "translucent",
+              "gradient",
+              "none"
+            ],
+            "default_value": "solid"
+          }
+        },
+        "align_y": {
+          "type": "Select",
+          "config": {
+            "label": "Align Y",
+            "placeholder": "",
+            "options": [
+              "Top",
+              "Center",
+              "Bottom"
+            ],
+            "default_value": "Top"
+          }
+        },
+        "align_x": {
+          "type": "Select",
+          "config": {
+            "label": "Align X",
+            "placeholder": "",
+            "options": [
+              "Left",
+              "Center",
+              "Right"
+            ],
+            "default_value": "Left"
+          }
+        },
+        "text_align": {
+          "type": "Select",
+          "config": {
+            "label": "Text Align",
+            "placeholder": "",
+            "options": [
+              "Left",
+              "Center",
+              "Right"
+            ],
+            "default_value": "Left"
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "Default: md",
+            "options": [
+              "xs",
+              "sm",
+              "md",
+              "lg",
+              "xl",
+              "xxl"
+            ]
+          }
+        },
+        "content_width": {
+          "type": "Select",
+          "config": {
+            "label": "Content width",
+            "placeholder": "Default: lg",
+            "options": [
+              "sm",
+              "md",
+              "lg"
+            ]
+          }
+        },
+        "image_height": {
+          "type": "Number",
+          "config": {
+            "label": "Image Height",
+            "placeholder": ""
+          }
+        },
+        "image_animation": {
+          "type": "Select",
+          "config": {
+            "label": "Image animation",
+            "placeholder": "",
+            "options": [
+              "None",
+              "Fade In"
+            ],
+            "default_value": "None"
+          }
+        },
+        "content_animation": {
+          "type": "Select",
+          "config": {
+            "label": "Content animation",
+            "placeholder": "",
+            "options": [
+              "None",
+              "Fade In",
+              "Typed"
+            ],
+            "default_value": "None"
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}
