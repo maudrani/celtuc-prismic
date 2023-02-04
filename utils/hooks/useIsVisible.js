@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export const useIsVisible = (
   ref,
-  options = { threshold: 0.25, timeout: 300 }
+  options = { threshold: 0, timeout: 300 }
 ) => {
   const [isVisible, setVisible] = useState(false);
 

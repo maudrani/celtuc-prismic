@@ -5,7 +5,7 @@ import { FadeContainer } from './styled';
 const FadeInSection = ({ children, onAnimEnd = () => {} }) => {
   const domRef = useRef();
 
-  const isVisible = useIsVisible(domRef);
+  const isVisible = useIsVisible(domRef, {threshold: 0.25});
 
   useEffect(() => {
     if (!domRef.current) return;

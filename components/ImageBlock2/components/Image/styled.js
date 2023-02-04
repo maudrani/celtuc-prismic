@@ -1,55 +1,32 @@
 import DynamicPanel from '@/components/Base/DynamicPanel';
-import styled, { css } from 'styled-components';
-
-const yAlign = (value) =>
-  ({
-    Top: css`
-      top: 0;
-      align-items: flex-start;
-    `,
-    Bottom: css`
-      bottom: 0;
-      align-items: flex-end;
-    `,
-    Center: css`
-      top: 0;
-      bottom: 0;
-      align-items: center;
-    `,
-  }[value]);
-
-const xAlign = (value) =>
-  ({
-    Left: css`
-      left: 0;
-      justify-content: start;
-    `,
-    Right: css`
-      right: 0;
-      justify-content: end;
-    `,
-    Center: css`
-      left: 0;
-      right: 0;
-      justify-content: center;
-    `,
-  }[value]);
+import styled from 'styled-components';
 
 export const TextBlockDynamicPanel = styled(DynamicPanel)`
+  height: 100%;
   z-index: 2;
-  position: absolute;
+  position: relative;
   display: flex;
-  padding: 1.2em;
-  ${({ align_y }) => yAlign(align_y)}
-  ${({ align_x }) => xAlign(align_x)}
+`;
+
+export const TextContainer = styled(DynamicPanel)`
+  display: flex;
 `;
 
 export const WidthLimiter = styled.div`
   display: flex;
   max-width: ${({ width }) => width} !important;
+  padding: 1.2em;
 `;
 
 export const ImageWithInnerTextContainer = styled.div`
   position: relative;
   height: ${({ height }) => height};
+`;
+
+export const ImageContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
 `;

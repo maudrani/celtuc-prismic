@@ -15,6 +15,7 @@ const yAlign = (value) =>
       top: 0;
       bottom: 0;
       align-items: center;
+      height: 100%;
     `,
   }[value]);
 
@@ -45,7 +46,7 @@ const THEME_CSS = css`
         Bottom: ['10%', '100%'],
         Center: ['10%', '150%'],
         Left: ['10%', '100%'],
-        Roght: ['10%', '100%'],
+        Right: ['10%', '100%'],
       }[content_direction];
 
       const gradient_opacity = {

@@ -67,7 +67,7 @@ const getTextBlockPaddingValue = (value, variant) => {
 };
 
 const getPrismicMinHeight = (value) => {
-  return `${value || 0}`
+  return value || 0
 }
 
 export const getRepeatedContents = (contentsList = []) =>
