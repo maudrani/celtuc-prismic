@@ -83,20 +83,6 @@
             ],
             "default_value": "Top"
           }
-        },
-        "position": {
-          "type": "Select",
-          "config": {
-            "label": "Position",
-            "placeholder": "",
-            "options": [
-              "Left",
-              "Right",
-              "Top",
-              "Bottom"
-            ],
-            "default_value": "Left"
-          }
         }
       },
       "items": {
@@ -115,6 +101,20 @@
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "preformatted"
+          }
+        },
+        "position": {
+          "type": "Select",
+          "config": {
+            "label": "Position",
+            "placeholder": "",
+            "options": [
+              "Left",
+              "Right",
+              "Top",
+              "Bottom"
+            ],
+            "default_value": "Left"
           }
         },
         "theme": {

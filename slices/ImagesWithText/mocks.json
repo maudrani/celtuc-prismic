@@ -32,11 +32,6 @@
         "__TYPE__": "FieldContent",
         "value": "Top",
         "type": "Select"
-      },
-      "position": {
-        "__TYPE__": "FieldContent",
-        "value": "Bottom",
-        "type": "Select"
       }
     },
     "items": [
@@ -160,6 +155,14 @@
             {
               "__TYPE__": "FieldContent",
               "value": "None",
+              "type": "Select"
+            }
+          ],
+          [
+            "position",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Left",
               "type": "Select"
             }
           ]

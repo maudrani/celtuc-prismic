@@ -1,36 +1,9 @@
-import React from 'react'
-import { PrismicRichText } from '@prismicio/react'
+import React from 'react';
+import Component from '@/components/ImageBlock3';
+import { ParseSliceData } from 'utils/adapters/prismic/slice';
 
-/**
- * @typedef {import("@prismicio/client").Content.ImagesWithTextSlice} ImagesWithTextSlice
- * @typedef {import("@prismicio/react").SliceComponentProps<ImagesWithTextSlice>} ImagesWithTextProps
- * @param { ImagesWithTextProps }
- */
 const ImagesWithText = ({ slice }) => (
-  <section>
-    <span className="title">
-      {
-        slice.primary.title ?
-        <PrismicRichText field={slice.primary.title}/>
-        : <h2>Template slice, update me!</h2>
-      }
-    </span>
-    {
-      slice.primary.description ?
-      <PrismicRichText field={slice.primary.description}/>
-      : <p>start by editing this slice from inside Slice Machine!</p>
-    }
-    <style jsx>{`
-        section {
-          max-width: 600px;
-          margin: 4em auto;
-          text-align: center;
-        }
-        .title {
-          color: #8592e0;
-        }
-    `}</style>
-  </section>
-)
+  <Component data={ParseSliceData(slice)} />
+);
 
-export default ImagesWithText
+export default ImagesWithText;

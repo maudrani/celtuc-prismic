@@ -26,6 +26,7 @@ const ImageWithInnerText = ({ data }) => {
     image_animation,
     content_animation,
     image_has_anim,
+    position
   } = getDataProps(data);
 
   const [minImageHeight, setMinImageHeight] = useState(0);
@@ -41,9 +42,9 @@ const ImageWithInnerText = ({ data }) => {
     const textHeight = hasContent
       ? imageBlockRef.current.querySelector(
           '[data-id="image-block_text-block-container"]'
-        ).offsetHeight
+        ).children[0].offsetHeight
       : 0;
-
+      
     if (textHeight > initialImageHeight) {
       setMinImageHeight(`${textHeight}px`);
     } else {
@@ -53,7 +54,7 @@ const ImageWithInnerText = ({ data }) => {
 
   return (
     <div ref={imageBlockRef} style={{ height: '100%' }}>
-      <ImageWithInnerTextContainer height={minImageHeight}>
+      <ImageWithInnerTextContainer height={minImageHeight} position={position}>
         {hasContent && (
           <TextBlockDynamicPanel
             data={{ theme, size }}

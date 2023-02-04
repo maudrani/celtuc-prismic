@@ -58,5 +58,6 @@ export const getDataProps = (dataObj = {}) => ({
   image_animation: getAnimation(dataObj.image_animation),
   content_animation: dataObj.content_animation,
   content_has_anim: dataObj.content_animation !== 'None',
-  image_has_anim: dataObj.image_animation !== 'None'
+  image_has_anim: dataObj.image_animation !== 'None',
+  position: dataObj.position,
 });

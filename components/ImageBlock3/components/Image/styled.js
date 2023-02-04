@@ -1,6 +1,31 @@
 import DynamicPanel from '@/components/Base/DynamicPanel';
 import styled, { css } from 'styled-components';
 
+const Position = (value) =>
+  ({
+    Top: css`
+      display: flex;
+      flex-direction: column;
+    `,
+    Bottom: css`
+      display: flex;
+      flex-direction: column-reverse;
+    `,
+    Left: css`
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    `,
+    Right: css`
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+      .imageblock-textblock {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    `,
+  }[value]);
+
 const yAlign = (value) =>
   ({
     Top: css`
@@ -36,10 +61,8 @@ const xAlign = (value) =>
   }[value]);
 
 export const TextBlockDynamicPanel = styled(DynamicPanel)`
-  z-index: 2;
-  position: absolute;
   display: flex;
-  padding: 1.2em;
+  padding: 20px;
   ${({ align_y }) => yAlign(align_y)}
   ${({ align_x }) => xAlign(align_x)}
 `;
@@ -52,4 +75,6 @@ export const WidthLimiter = styled.div`
 export const ImageWithInnerTextContainer = styled.div`
   position: relative;
   height: ${({ height }) => height};
+
+  ${({ position }) => Position(position)}
 `;
