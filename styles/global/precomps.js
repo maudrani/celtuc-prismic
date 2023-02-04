@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { fluid } from 'utils/styles/fluid';
 
 const Precomps = css`
   //Backgrounds
@@ -77,7 +78,7 @@ const Precomps = css`
   //Sections
   .uContainContent {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 5vw;
     max-width: ${({ theme }) => theme.limits.pageWidth};
     margin: 0 auto;
   }

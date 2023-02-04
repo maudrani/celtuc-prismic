@@ -70,19 +70,6 @@
               "lg"
             ]
           }
-        },
-        "align_y": {
-          "type": "Select",
-          "config": {
-            "label": "Align Y",
-            "placeholder": "",
-            "options": [
-              "Top",
-              "Center",
-              "Bottom"
-            ],
-            "default_value": "Top"
-          }
         }
       },
       "items": {

@@ -14,24 +14,10 @@ const getTextBlockWidthValue = (value) => {
   return `${getDefaultWidthValue(value)}%`;
 };
 
-const getImageHeight = (prismicHeight, containerHeight) => {
-  const prismicHeight_to_percentage = prismicHeight / 100;
-  const default_height = '100%';
+const getImageHeight = (prismicHeight) => {
+  const default_height = 100;
 
-  const return_height = {
-    prismicHeight_and_containerHeight:
-      `${prismicHeight_to_percentage * containerHeight}px` || default_height,
-    containerHeight: `${containerHeight}px` || default_height,
-  };
-
-  if (prismicHeight > 100) return return_height.containerHeight;
-
-  if (prismicHeight && containerHeight)
-    return return_height.prismicHeight_and_containerHeight;
-
-  if (containerHeight) return return_height.containerHeight;
-
-  return default_height;
+  return `${prismicHeight || default_height}%`;
 };
 
 const getAnimation = (value) =>
@@ -51,9 +37,11 @@ export const getDataProps = (dataObj = {}) => ({
   text_align: dataObj.text_align,
   align_x: dataObj.align_x,
   align_y: dataObj.align_y,
+  image_align_y: dataObj.image_align_y,
+  image_align_x: dataObj.image_align_x,
   spacing: dataObj.spacing || 'none',
   width: getTextBlockWidthValue(dataObj.width),
-  image_height: getImageHeight(dataObj.image_height, dataObj.containerHeight),
+  image_height: getImageHeight(dataObj.image_height),
   containerHeight: dataObj.containerHeight,
   image_animation: getAnimation(dataObj.image_animation),
   content_animation: dataObj.content_animation,

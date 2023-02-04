@@ -75,7 +75,7 @@ export const getDataProps = (dataObj = {}) => ({
   size: dataObj.data.size,
   variant: dataObj.variant,
   content_outside_image: dataObj.data.content_outside_image,
-  height: getContainerHeightValue(dataObj.data.height),
+  height: getContainerHeightValue(dataObj.data.custom_height),
   get raw_height() {
     return this.height.replace('vh', '').replace('%', '')
   },
@@ -83,8 +83,6 @@ export const getDataProps = (dataObj = {}) => ({
   isFullWidth: dataObj.data.width === 'full',
   gap: getTextBlockGapValue(dataObj.data.separation_gap, dataObj.variant),
   spacing: getTextBlockPaddingValue(dataObj.data.spacing, dataObj.variant),
-  align_y: dataObj.data.align_y,
-  align_x: dataObj.data.align_x,
   initial: { ...dataObj.data },
   grid_responsive_trigger: 320,
   get break_height_trigger() {

@@ -27,11 +27,6 @@
         "__TYPE__": "FieldContent",
         "value": "md",
         "type": "Select"
-      },
-      "align_y": {
-        "__TYPE__": "FieldContent",
-        "value": "Top",
-        "type": "Select"
       }
     },
     "items": [
