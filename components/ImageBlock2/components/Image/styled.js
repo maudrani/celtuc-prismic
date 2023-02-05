@@ -30,3 +30,8 @@ export const ImageContainer = styled.div`
   bottom: 0;
   z-index: 1;
 `;
+
+export const MainContainer = styled(DynamicPanel)`
+height: 100%;
+  display: grid;
+`

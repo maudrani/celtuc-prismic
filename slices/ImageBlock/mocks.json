@@ -135,7 +135,7 @@
             "align_x",
             {
               "__TYPE__": "FieldContent",
-              "value": "Center",
+              "value": "Left",
               "type": "Select"
             }
           ],
@@ -143,7 +143,7 @@
             "align_y",
             {
               "__TYPE__": "FieldContent",
-              "value": "Top",
+              "value": "Bottom",
               "type": "Select"
             }
           ],
@@ -168,6 +168,14 @@
             {
               "__TYPE__": "FieldContent",
               "value": "None",
+              "type": "Select"
+            }
+          ],
+          [
+            "image_align_y",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Center",
               "type": "Select"
             }
           ]

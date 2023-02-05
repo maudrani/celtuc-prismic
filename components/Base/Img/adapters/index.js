@@ -67,4 +67,11 @@ export const GetResizedData = (imgSizeObj, containerSizeObj) => ({
   blur: GetNewSizeByContainer(imgSizeObj, containerSizeObj, true),
 });
 
+export const GetImageWidthAndHeight = (imgDom) => {
+  return {
+    width: imgDom.offsetWidth,
+    height: imgDom.offsetHeight,
+  }
+}
+
 export const no_image_url = '/img/static/placeholders/image-not-found.webp';

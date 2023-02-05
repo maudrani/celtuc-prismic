@@ -1,7 +1,8 @@
 import Animation from '@/components/Base/Animation';
 import Img from '@/components/Base/Img';
 import { TextBlockRaw } from '@/components/TextBlock';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { ImageBlockContext } from '../..';
 import { getDataProps } from './adapters';
 import {
   ImageWithInnerTextContainer,
@@ -9,6 +10,7 @@ import {
   TextBlockDynamicPanel,
   ImageContainer,
   TextContainer,
+  MainContainer,
 } from './styled';
 
 const ImageWithInnerText = ({ data }) => {
@@ -21,8 +23,10 @@ const ImageWithInnerText = ({ data }) => {
     text_align,
     align_x,
     align_y,
+    image_align_y,
     spacing,
     width,
+    image_height,
     hasContent,
     image_animation,
     content_animation,
@@ -30,10 +34,25 @@ const ImageWithInnerText = ({ data }) => {
   } = getDataProps(data);
 
   const [imageAnimEnd, setImageAnimEnd] = useState(!image_has_anim);
+  const { setElementsData } = useContext(ImageBlockContext);
+  const getImageHeight = (imgData) => {
+    setElementsData((e) => {
+      const initialHeight = e.images?.max_height || 0;
+
+      return {
+        ...e,
+        images: {
+          max_height:
+            imgData.height > initialHeight ? imgData.height : initialHeight,
+        },
+      };
+    });
+  };
+  
 
   return (
-    <div style={{ height: '100%' }}>
-      <ImageWithInnerTextContainer height={'100%'}>
+    <MainContainer data={{ align_y: image_align_y }}>
+      <ImageWithInnerTextContainer height={image_height}>
         {hasContent && (
           <TextBlockDynamicPanel
             data={{ theme, size }}
@@ -66,11 +85,11 @@ const ImageWithInnerText = ({ data }) => {
             data={{ type: image_animation }}
             onAnimEnd={(e) => setImageAnimEnd(e)}
           >
-            <Img src={image.url} />
+            <Img src={image.url} getImgData={(data) => getImageHeight(data)} />
           </Animation>
         </ImageContainer>
       </ImageWithInnerTextContainer>
-    </div>
+    </MainContainer>
   );
 };
 

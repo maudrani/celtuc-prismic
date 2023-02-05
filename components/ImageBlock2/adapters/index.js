@@ -43,7 +43,7 @@ const getTextBlockWidthValue = (value, variant) => {
 const getContainerHeightValue = (value) => {
   if (value) return `${value}vh`;
 
-  return `100%`;
+  return ``;
 };
 
 const getTextBlockGapValue = (value, variant) => {
@@ -79,9 +79,9 @@ export const getDataProps = (dataObj = {}) => ({
   size: dataObj.data.size,
   variant: dataObj.variant,
   content_outside_image: dataObj.data.content_outside_image,
-  height: getContainerHeightValue(dataObj.data.height),
+  prismic_height_vh: getContainerHeightValue(dataObj.data.height),
   get raw_height() {
-    return this.height.replace('vh', '').replace('%', '');
+    return this.prismic_height_vh.replace('vh', '').replace('%', '');
   },
   width: getTextBlockWidthValue(dataObj.data.width, dataObj.variant),
   isFullWidth: dataObj.data.width === 'full',
@@ -102,5 +102,5 @@ export const getDataProps = (dataObj = {}) => ({
     );
   },
   same_images_height: dataObj.data.same_images_height,
-  prismic_min_height: getPrismicMinHeight(dataObj.data.min_height)
+  prismic_min_height: getPrismicMinHeight(dataObj.data.min_height),
 });

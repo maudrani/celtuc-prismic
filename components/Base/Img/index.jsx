@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { CustomDynamicPanel, ImageContainer } from './styled';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { GetImageMeta } from 'utils/images/data';
 import {
   GetBlurProps,
@@ -13,6 +13,7 @@ import {
 
 function Img(props) {
   const [imgData, setImgData] = useState(ParseImgProps(props));
+  const { getImgData = () => {} } = props;
 
   const imageContainerRef = useCallback((containerNode) => {
     if (containerNode !== null) {
@@ -32,12 +33,20 @@ function Img(props) {
         }
 
         const { img, blur } = GetResizedData(imgMeta, containerSize);
-        setImgData((prev) => ({ ...prev, ...img, ...GetBlurProps(blur) }));
+        setImgData((prev) => ({
+          ...prev,
+          ...img,
+          ...GetBlurProps(blur),
+        }));
       };
 
       GetImageData();
     }
   }, []);
+
+  useEffect(() => {
+    if (getImgData && imgData) getImgData(imgData);
+  }, [imgData]);
 
   return (
     <CustomDynamicPanel forwardedAs={'div'}>

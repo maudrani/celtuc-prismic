@@ -141,7 +141,7 @@
         "align_y": {
           "type": "Select",
           "config": {
-            "label": "Align Y",
+            "label": "Content Align Y",
             "placeholder": "Default: Top",
             "options": [
               "Top",
@@ -154,7 +154,7 @@
         "align_x": {
           "type": "Select",
           "config": {
-            "label": "Align X",
+            "label": "Content Align X",
             "placeholder": "Default: Left",
             "options": [
               "Left",
@@ -175,6 +175,19 @@
               "Right"
             ],
             "default_value": "Left"
+          }
+        },
+        "image_align_y": {
+          "type": "Select",
+          "config": {
+            "label": "Image Align Y",
+            "placeholder": "",
+            "options": [
+              "Top",
+              "Center",
+              "Bottom"
+            ],
+            "default_value": "Top"
           }
         },
         "size": {
