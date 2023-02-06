@@ -2,10 +2,11 @@ import { useEffect, useRef } from 'react';
 import { useIsVisible } from 'utils/hooks/useIsVisible';
 import { FadeContainer } from './styled';
 
-const FadeInSection = ({ children, onAnimEnd = () => {} }) => {
+const FadeInSection = (props) => {
+  const { children, onAnimEnd = () => {} } = props;
   const domRef = useRef();
 
-  const isVisible = useIsVisible(domRef, {threshold: 0.25});
+  const isVisible = useIsVisible(domRef, { threshold: 0.25 });
 
   useEffect(() => {
     if (!domRef.current) return;
@@ -25,7 +26,7 @@ const FadeInSection = ({ children, onAnimEnd = () => {} }) => {
   }, [isVisible]);
 
   return (
-    <FadeContainer ref={domRef} className={isVisible ? ' is-visible' : ''}>
+    <FadeContainer ref={domRef} className={isVisible ? ' is-visible' : ''} {...props}>
       {children}
     </FadeContainer>
   );

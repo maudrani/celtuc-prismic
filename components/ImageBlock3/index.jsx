@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import useWindowSize from 'utils/hooks/useWindowsSize';
+import React from 'react';
 
 import { getDataProps, getRepeatedContents } from './adapters';
 import ImageWithInnerText from './components/Image';

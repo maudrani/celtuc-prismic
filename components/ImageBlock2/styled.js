@@ -5,6 +5,7 @@ import DynamicPanel from '../Base/DynamicPanel';
 export const CustomDynamicPanel = styled(DynamicPanel)`
   display: grid;
   height: fit-content;
+  height: 60%;
   min-height: ${({ height }) => height};
 
   padding-top: ${({ spacing }) => spacing} !important;

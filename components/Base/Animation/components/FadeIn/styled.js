@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const FadeContainer = styled.section`
   height: 100%;
+  width: 100%;
   opacity: 0;
 
   @keyframes visible {
@@ -18,3 +19,5 @@ export const FadeContainer = styled.section`
     animation: visible 0.8s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
   }
 `;
+
+

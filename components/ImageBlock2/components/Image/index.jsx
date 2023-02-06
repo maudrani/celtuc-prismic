@@ -48,7 +48,6 @@ const ImageWithInnerText = ({ data }) => {
       };
     });
   };
-  
 
   return (
     <MainContainer data={{ align_y: image_align_y }}>

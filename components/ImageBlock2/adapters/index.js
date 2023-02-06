@@ -67,18 +67,39 @@ const getTextBlockPaddingValue = (value, variant) => {
 };
 
 const getPrismicMinHeight = (value) => {
-  return value || 0
-}
+  return value || 0;
+};
 
+// COMPONENT ADAPTERS
 export const getRepeatedContents = (contentsList = []) =>
   contentsList.map((item) => item);
 
+export const getMinHeight = (
+  elementsData,
+  prismic_min_height,
+  use_container_height
+) => {
+  const { prismic_height_px } = elementsData.container;
+  const max_images_height = elementsData.images.max_height;
+
+  if (!prismic_height_px && !prismic_min_height)
+    return `${max_images_height}px`;
+
+  if (!use_container_height && !prismic_min_height) return '100%';
+
+  const min_height =
+    prismic_min_height > prismic_height_px
+      ? prismic_min_height
+      : prismic_height_px;
+
+  return `${min_height}px`;
+};
+
 export const getDataProps = (dataObj = {}) => ({
+  variant: dataObj.variant,
   items: dataObj.items,
   theme: dataObj.data.theme,
   size: dataObj.data.size,
-  variant: dataObj.variant,
-  content_outside_image: dataObj.data.content_outside_image,
   prismic_height_vh: getContainerHeightValue(dataObj.data.height),
   get raw_height() {
     return this.prismic_height_vh.replace('vh', '').replace('%', '');

@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import useWindowSize from 'utils/hooks/useWindowsSize';
-
-import { getDataProps, getRepeatedContents } from './adapters';
+import { getDataProps, getMinHeight, getRepeatedContents } from './adapters';
 import ImageWithInnerText from './components/Image';
 import {
   CustomDynamicPanel,
@@ -51,28 +50,15 @@ const ImageBlock2 = ({ data }) => {
     }));
   }, [windowsWidth.width, windowsWidth.height]);
 
-  const minHeight = () => {
-    const { prismic_height_px } = elementsData.container;
-    const max_images_height = elementsData.images.max_height;
-
-    if (!prismic_height_px && !prismic_min_height)
-      return `${max_images_height}px`;
-
-    if (!use_container_height && !prismic_min_height) return '100%';
-
-    const min_height =
-      prismic_min_height > prismic_height_px
-        ? prismic_min_height
-        : prismic_height_px;
-
-    return `${min_height}px`;
-  };
-
   return (
     <ImageBlockContext.Provider value={{ setElementsData }}>
       <CustomDynamicPanel
         spacing={spacing}
-        height={minHeight()}
+        height={getMinHeight(
+          elementsData,
+          prismic_min_height,
+          use_container_height
+        )}
         data={{ theme, size, align_y, align_x }}
         elements_amount={items?.length}
         break_height_trigger={break_height_trigger}
