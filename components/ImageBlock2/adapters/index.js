@@ -82,7 +82,7 @@ export const getMinHeight = (
   const { prismic_height_px } = elementsData.container;
   const max_images_height = elementsData.images.max_height;
 
-  if (!prismic_height_px && !prismic_min_height)
+  if (!prismic_height_px && !prismic_min_height && max_images_height)
     return `${max_images_height}px`;
 
   if (!use_container_height && !prismic_min_height) return '100%';
@@ -92,7 +92,9 @@ export const getMinHeight = (
       ? prismic_min_height
       : prismic_height_px;
 
-  return `${min_height}px`;
+  if (min_height) return `${min_height}px`;
+
+  return `100%`;
 };
 
 export const getDataProps = (dataObj = {}) => ({

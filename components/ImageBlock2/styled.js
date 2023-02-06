@@ -5,7 +5,6 @@ import DynamicPanel from '../Base/DynamicPanel';
 export const CustomDynamicPanel = styled(DynamicPanel)`
   display: grid;
   height: fit-content;
-  height: 60%;
   min-height: ${({ height }) => height};
 
   padding-top: ${({ spacing }) => spacing} !important;
@@ -18,12 +17,13 @@ export const CustomDynamicPanel = styled(DynamicPanel)`
 `;
 
 export const WidthLimiter = styled.div`
-  overflow: hidden;
   width: 100%;
-  max-width: ${({ width }) => width} !important;
   height: 100%;
-
+  max-width: ${({ width }) => width} !important;
+  
   margin: 0 auto;
+  
+  overflow: hidden;
 `;
 
 export const ImageBlockContainer = styled(DynamicPanel)`
@@ -38,6 +38,7 @@ export const ImageBlockContainer = styled(DynamicPanel)`
     )
   );
   gap: ${({ gap }) => gap};
+
 
   // Mobile
   ${fluid('font-size', '%', [{ 1200: 70 }, { 768: 40 }])}
