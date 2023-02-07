@@ -6,7 +6,7 @@ import { HeaderWrapper, MenuPanel, HeaderBar, MenuPanelLink } from './styled';
 
 function Header(props) {
   const [openMenu, setOpenMenu] = useState(false);
-  const [isPageTop, setIsPageTop] = useState(true);
+  const [isPagetop, setIsPagetop] = useState(true);
 
   const handleOpenMenu = () => {
     setOpenMenu((val) => !val);
@@ -15,14 +15,14 @@ function Header(props) {
   useEffect(() => {
     if (!document || !window) return;
 
-    const handlePageTop = () => {
-      setIsPageTop(window.scrollY <= 700);
+    const handlePagetop = () => {
+      setIsPagetop(window.scrollY <= 700);
     };
 
-    window.addEventListener('scroll', handlePageTop);
+    window.addEventListener('scroll', handlePagetop);
 
     return () => {
-      window.removeEventListener('scroll', handlePageTop);
+      window.removeEventListener('scroll', handlePagetop);
     };
   }, []);
 
@@ -33,7 +33,7 @@ function Header(props) {
 
   return (
     <HeaderWrapper collapsed={!openMenu}>
-      <HeaderBar collapsed={!openMenu} isPageTop={isPageTop} id="header-bar">
+      <HeaderBar collapsed={!openMenu} isPagetop={isPagetop} id="header-bar">
         <div className="menu-btn" onClick={handleOpenMenu}>
           <svg viewBox="0 0 70 95" width="30" height="30">
             <rect y="30" width="70" height="5"></rect>

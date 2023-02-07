@@ -3,19 +3,19 @@ import styled, { css } from 'styled-components';
 
 const Position = (value) =>
   ({
-    Top: css`
+    top: css`
       display: flex;
       flex-direction: column;
     `,
-    Bottom: css`
+    bottom: css`
       display: flex;
       flex-direction: column-reverse;
     `,
-    Left: css`
+    left: css`
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     `,
-    Right: css`
+    right: css`
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 

@@ -1,6 +1,51 @@
 import styled from 'styled-components';
 import { css } from 'styled-components';
 
+// PRESETS
+const SizePresets = {
+  xs: css`
+    p,
+    li {
+      line-height: 1.333;
+      letter-spacing: normal;
+      font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    }
+  `,
+  sm: css`
+    p {
+      line-height: 1.4705882353;
+      letter-spacing: -0.022em;
+      font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    }
+  `,
+  md: css`
+    p {
+      line-height: 1.381002381;
+      letter-spacing: 0.011em;
+    }
+  `,
+  lg: css`
+    p {
+      line-height: 1.381002381;
+      letter-spacing: 0.011em;
+    }
+  `,
+  xl: css`
+    p {
+      line-height: 1.381002381;
+      letter-spacing: 0.011em;
+    }
+  `,
+  xxl: css`
+    p {
+      line-height: 1.381002381;
+      letter-spacing: 0.011em;
+    }
+  `,
+};
+
+// PRESETS END
+
 const PRINT = css`
   @media print {
     *,
@@ -74,8 +119,11 @@ const GENERAL = css`
 
     font-size: 1em;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.4705882353;
+    letter-spacing: -0.022em;
   }
+
+  ${({ size }) => SizePresets[size]}
 `;
 
 const PARAGRAPH = css`
@@ -89,7 +137,7 @@ const PARAGRAPH = css`
 const BOLD_ITALIC = css`
   * {
     strong {
-      font-weight: 700;
+      font-weight: 600;
     }
 
     em {
@@ -100,16 +148,14 @@ const BOLD_ITALIC = css`
 
 const ANCHOR = css`
   a {
-    color: ${({ theme }) => theme.colors.black}70;
-    filter: saturate(7);
-    border-bottom: 1px solid ${({ theme }) => theme.colors.black}10;
+    color: ${({ theme }) => theme.colors['link-font']};
   }
 `;
 
 const LISTS = css`
   ul {
     list-style-position: inside;
-    padding-left: 2em;
+    /* padding-left: 2em; */
 
     li {
       position: relative;
@@ -129,7 +175,7 @@ const LISTS = css`
   ol {
     list-style: decimal;
     counter-reset: cupcake;
-    padding-left: 2em;
+    /* padding-left: 2em; */
 
     li {
       counter-increment: cupcake;
@@ -171,14 +217,14 @@ const HEADINGS = css`
   }
 
   h1,
-  h2,
-  h3 {
-    border-bottom: 2px solid ${({ theme }) => theme.colors['mid-light']};
+  h2 {
     margin-bottom: 0.25em;
     padding-bottom: 0.3em;
-    line-height: 1.14;
+    line-height: 1.0834933333;
+    letter-spacing: -0.003em;
   }
 
+  h3,
   h4,
   h5,
   h6 {
@@ -209,7 +255,7 @@ const QUOTES = css`
 const CODE = css`
   pre,
   code {
-    font-family: 'Montserrat';
+    font-family: SF Pro Display;
   }
 
   pre {

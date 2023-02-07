@@ -9,8 +9,17 @@ export const GetThemeByName = (themeName, defaultTheme = _th.dark) =>
     'mid-light': _th['mid-light'],
   }[NormalizeValue(themeName)] || defaultTheme);
 
-export const GetThemeValue = (theme, themeName, backgroundType = 'solid') => ({
-  backgroundColor: {
+export const GetColorByNickname = ({ theme, nickname, opacity }) =>
+  hexToRgbA(
+    {
+      ...theme.colors,
+    }[nickname],
+    opacity
+  );
+
+// ADAPTERS
+const GetBackgroundByTheme = (theme, themeName, backgroundType) => {
+  return {
     [_th.dark]: {
       solid: theme.colors.black,
       translucent: hexToRgbA(theme.colors.black, 0.9),
@@ -23,20 +32,56 @@ export const GetThemeValue = (theme, themeName, backgroundType = 'solid') => ({
       solid: theme.colors['mid-light'],
       translucent: hexToRgbA(theme.colors['mid-light'], 0.7),
     }[backgroundType],
-  }[themeName],
-  fontColor: {
-    [_th.dark]: theme.colors.white,
-    [_th.light]: theme.colors.black,
-    [_th['mid-light']]: theme.colors.black,
-  }[themeName],
-  fontWeight: {
-    [_th.dark]: 300,
-    [_th.light]: 400,
-    [_th['mid-light']]: 400,
-  }[themeName],
-  borderColor: {
-    [_th.dark]: theme.colors.borders.white,
-    [_th.light]: theme.colors.borders.black,
-    [_th['mid-light']]: theme.colors.borders.black,
-  }[themeName],
+  }[themeName];
+};
+
+const GetBackgroundColor = ({ theme, color, themeName, opacity }) => {
+  if (color) return GetColorByNickname({ theme, nickname: color, opacity });
+
+  return {
+    [_th.dark]: theme.colors.black,
+    [_th.light]: theme.colors.white,
+    [_th['mid-light']]: theme.colors['mid-light'],
+  }[themeName];
+};
+
+// FInals
+const GetBackgroundStyle = ({ type, color, opacity, theme, themeName }) => {
+  if (color && opacity) return GetBackgroundColor({ theme, color, opacity });
+
+  return GetBackgroundByTheme(theme, themeName, type);
+};
+
+const GetFontColor = ({ theme, themeName, color, opacity }) => {
+  if (color && opacity)
+    return GetColorByNickname({ theme, nickname: color, opacity });
+
+  return {
+    [_th.dark]: theme.colors['light-font'],
+    [_th.light]: theme.colors['dark-font'],
+    [_th['mid-light']]: theme.colors['dark-font'],
+  }[themeName];
+};
+
+export const GetThemeValue = ({
+  theme,
+  themeName,
+  background = {
+    type: null,
+    color: null,
+    opacity: null,
+  },
+
+  font = { type: null, color: null, opacity: null },
+}) => ({
+  backgroundColor: GetBackgroundStyle({
+    theme,
+    themeName,
+    ...background,
+  }),
+  fontColor: GetFontColor({
+    theme,
+    themeName,
+    ...font,
+  }),
 });

@@ -14,10 +14,10 @@ export const GetSizeByName = (sizeName, defaultSize = _sn.sm) =>
 export const GetSizeValue = (sizeName = 'md') => ({
   font_size: {
     [_sn.xxl]: 38,
-    [_sn.xl]: 32,
+    [_sn.xl]: 31,
     [_sn.lg]: 26,
-    [_sn.md]: 20,
-    [_sn.sm]: 16,
-    [_sn.xs]: 10,
+    [_sn.md]: 21,
+    [_sn.sm]: 17,
+    [_sn.xs]: 12,
   }[sizeName || [_sn.md]],
 });

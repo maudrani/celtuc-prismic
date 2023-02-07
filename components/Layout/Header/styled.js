@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { css } from "styled-components";
+import styled from 'styled-components';
+import { css } from 'styled-components';
 
 const CloseBtn = css`
   transform: translateY(3%);
@@ -26,7 +26,7 @@ export const HeaderBar = styled.div`
   align-items: center;
 
   :before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
@@ -42,8 +42,8 @@ export const HeaderBar = styled.div`
 
     transition: 0.2s;
 
-    ${({ isPageTop }) =>
-      !isPageTop &&
+    ${({ isPagetop }) =>
+      !isPagetop &&
       css`
         background: linear-gradient(
           180deg,
@@ -103,8 +103,8 @@ export const HeaderBar = styled.div`
       font-weight: 700;
 
       transition: 0.2s ease-in-out opacity, 0.3s ease-in-out transform;
-      opacity: ${({ collapsed }) => (!collapsed ? "0" : "1")};
-      transform: translateY(${({ collapsed }) => (!collapsed ? "50px" : "0")});
+      opacity: ${({ collapsed }) => (!collapsed ? '0' : '1')};
+      transform: translateY(${({ collapsed }) => (!collapsed ? '50px' : '0')});
     }
 
     .brand-logo {
@@ -115,8 +115,8 @@ export const HeaderBar = styled.div`
       object-fit: contain;
       max-height: 40px;
 
-      opacity: ${({ collapsed }) => (collapsed ? "0" : "1")};
-      transform: translateY(${({ collapsed }) => (collapsed ? "-50px" : "0")});
+      opacity: ${({ collapsed }) => (collapsed ? '0' : '1')};
+      transform: translateY(${({ collapsed }) => (collapsed ? '-50px' : '0')});
     }
   }
 
@@ -228,9 +228,9 @@ export const MenuPanelLink = styled.li`
 
 export const HeaderWrapper = styled.header`
   width: 100%;
-  transition: ${({ collapsed }) => (collapsed ? "2.2s" : "0")} max-height
+  transition: ${({ collapsed }) => (collapsed ? '2.2s' : '0')} max-height
     ease-in;
-  max-height: ${({ collapsed }) => (collapsed ? "0" : "100vh")};
+  max-height: ${({ collapsed }) => (collapsed ? '0' : '100vh')};
   min-height: 300px;
   overflow: hidden;
 

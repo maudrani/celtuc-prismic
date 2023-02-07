@@ -30,7 +30,7 @@
       },
       "align_y": {
         "__TYPE__": "FieldContent",
-        "value": "Top",
+        "value": "top",
         "type": "Select"
       },
       "min_height": {
@@ -119,7 +119,7 @@
             "text_align",
             {
               "__TYPE__": "FieldContent",
-              "value": "Left",
+              "value": "left",
               "type": "Select"
             }
           ],
@@ -135,7 +135,7 @@
             "align_x",
             {
               "__TYPE__": "FieldContent",
-              "value": "Left",
+              "value": "left",
               "type": "Select"
             }
           ],
@@ -143,7 +143,7 @@
             "align_y",
             {
               "__TYPE__": "FieldContent",
-              "value": "Bottom",
+              "value": "bottom",
               "type": "Select"
             }
           ],

@@ -1,3 +1,5 @@
+import { GetGradientDirection } from './directions';
+
 export function hexToRgbA(hex, opacity = 1) {
   var c;
   if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
@@ -14,3 +16,16 @@ export function hexToRgbA(hex, opacity = 1) {
   }
   throw new Error('Bad Hex');
 }
+
+export const GetGradient = ({ colors = [], direction }) => {
+  const gradient_direction = GetGradientDirection(direction);
+  let colors_string = ''
+  
+  colors.forEach((color, idx) => {
+    const color_space_percentage = (100 / (colors.length - 1)) * idx 
+
+    colors_string += `, ${color}${color_space_percentage ? ` ${color_space_percentage}%` : ''}`
+  })
+
+  return `linear-gradient(${gradient_direction}${colors_string});`
+};

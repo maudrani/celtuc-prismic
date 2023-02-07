@@ -114,7 +114,7 @@
             },
             "align_y": {
               "__TYPE__": "FieldContent",
-              "value": "Top",
+              "value": "top",
               "type": "Select"
             }
           },
@@ -180,7 +180,7 @@
                   "align_y",
                   {
                     "__TYPE__": "FieldContent",
-                    "value": "Top",
+                    "value": "top",
                     "type": "Select"
                   }
                 ],
@@ -188,7 +188,7 @@
                   "align_x",
                   {
                     "__TYPE__": "FieldContent",
-                    "value": "Left",
+                    "value": "left",
                     "type": "Select"
                   }
                 ],
@@ -196,7 +196,7 @@
                   "text_align",
                   {
                     "__TYPE__": "FieldContent",
-                    "value": "Left",
+                    "value": "left",
                     "type": "Select"
                   }
                 ],
@@ -292,7 +292,7 @@
             },
             "position": {
               "__TYPE__": "FieldContent",
-              "value": "Left",
+              "value": "left",
               "type": "Select"
             }
           },
@@ -358,7 +358,7 @@
                   "align_y",
                   {
                     "__TYPE__": "FieldContent",
-                    "value": "Top",
+                    "value": "top",
                     "type": "Select"
                   }
                 ],
@@ -366,7 +366,7 @@
                   "align_x",
                   {
                     "__TYPE__": "FieldContent",
-                    "value": "Right",
+                    "value": "right",
                     "type": "Select"
                   }
                 ],
@@ -374,7 +374,7 @@
                   "text_align",
                   {
                     "__TYPE__": "FieldContent",
-                    "value": "Left",
+                    "value": "left",
                     "type": "Select"
                   }
                 ],

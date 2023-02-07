@@ -12,7 +12,7 @@ import { MarkdownComponentsToReplace } from './adapters/react-markdown';
 
 const RichText = ({ data, className }) => {
   return (
-    <RichTextContainer className={className}>
+    <RichTextContainer className={className} size={data.size}>
       <ReactMarkdown
         remarkPlugins={[gfm, remarkBreaks, remarkParse, remarkFrontmatter]}
         rehypePlugins={[rehypeRaw]}

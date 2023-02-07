@@ -1,18 +1,33 @@
 {
   "colors": {
-    "main": "#111821",
-    "second": "#fff",
-    "third": "#28ABC9",
-    "white": "#FFF",
-    "white50": "#FFFFFF99",
-    "mid-light": "#F7F7F4",
-    "mid-light50": "#F7F7F499",
-    "black": "#111821",
-    "black50": "#11182199",
-    "borders": {
-      "white": "rgba(255, 255, 255, 0.3)",
-      "black": "rgba(17, 24, 33, 0.3)"
-    }
+    "main": "#000",
+    "second": "#f5f5f7",
+    "third": "#d2d2d7",
+
+    "white": "#fff",
+    "white50": "#f5f5f799",
+    "mid-light": "#F5F5F7",
+    "mid-light50": "#F5F5F799",
+    "black": "#000",
+    "black50": "rgba(49,49,59, 1)",
+
+    "dark": "#161619",
+    "dark-font": "#1d1d1f",
+    "light": "#fff",
+    "light-font": "#f5f5f7",
+    "light-font-lighter": "#d2d2d7",
+
+    "link-font": "#0066cc",
+    "heliotrope": "#B344FF",
+    "lavender-rose": "#ffb6ff",
+    "eastern-blue": "#2CA2B4",
+    "havelock-blue": "#5598DE",
+    "malibu": "#7f87ff",
+    "brilliant-rose": "#f65aad",
+    "cinnabar": "#EC3D43",
+    "jacksons-purple": "#1E3791",
+    "cerulean-blue": "#2948B1",
+    "royal-blue": "#385FDA"
   },
   "sizes": {
     "core": 16,

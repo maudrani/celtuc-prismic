@@ -5,7 +5,7 @@
     "primary": {
       "align": {
         "__TYPE__": "FieldContent",
-        "value": "Left",
+        "value": "left",
         "type": "Select"
       },
       "theme": {
@@ -20,17 +20,17 @@
       },
       "width": {
         "__TYPE__": "FieldContent",
-        "value": "lg",
+        "value": "md",
         "type": "Select"
       },
       "separation_gap": {
         "__TYPE__": "FieldContent",
-        "value": "lg",
+        "value": "none",
         "type": "Select"
       },
       "spacing": {
         "__TYPE__": "FieldContent",
-        "value": "sm",
+        "value": "md",
         "type": "Select"
       }
     },

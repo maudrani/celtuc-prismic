@@ -18,3 +18,13 @@ export const GetAlignByName = (alignName, defaultAlign = ALIGN_NAMES.left) =>
     left: ALIGN_NAMES.left,
     center: ALIGN_NAMES.center,
   }[NormalizeValue(alignName)] || defaultAlign);
+
+export const GetGradientDirection = (value) =>
+  `${
+    {
+      top: 180,
+      bottom: 0,
+      left: 90,
+      right: 270,
+    }[value] || value
+  }deg`;

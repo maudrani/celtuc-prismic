@@ -5,11 +5,17 @@ import { DynamicPanelContainer } from './styled';
 const DynamicPanel = (props) => {
   const {
     theme,
+    background_type,
+    background_color,
+    background_opacity,
+    font_type,
+    font_color,
+    font_gradient_direction,
+    font_opacity,
     width,
     size,
     align,
     height,
-    background_type,
     content_direction,
     align_y,
     align_x,
@@ -22,10 +28,16 @@ const DynamicPanel = (props) => {
       height={height}
       size={size}
       align={align}
-      background_type={background_type}
-      content_direction={content_direction}
+      contentDirection={content_direction}
       align_y={align_y}
       align_x={align_x}
+      fontType={font_type}
+      fontColors={font_color}
+      fontOpacity={font_opacity}
+      fontDirection={font_gradient_direction}
+      backgroundType={background_type}
+      backgroundColor={background_color}
+      backgroundOpacity={background_opacity}
       {...props}
     >
       {props.children}

@@ -5,7 +5,7 @@ import { getDataProps, getRepeatedContents } from './adapters';
 import { CustomDynamicPanel, TextBlockContainer } from './styled';
 
 export const TextBlockRaw = (props) => {
-  const { items, align, width, gap, spacing } = getDataProps(props.data);
+  const { items, align, width, gap, spacing, size } = getDataProps(props.data);
 
   return (
     <TextBlockContainer
@@ -16,8 +16,8 @@ export const TextBlockRaw = (props) => {
       {...props}
     >
       {getRepeatedContents(items).map((item, idx) => (
-        <Animation data={{type: item.animation}} key={`rich-text-${idx}`}>
-          <RichText data={{ markdown: item.text }} />
+        <Animation data={{ type: item.animation }} key={`rich-text-${idx}`}>
+          <RichText data={{ markdown: item.text, size: size }} />
         </Animation>
       ))}
     </TextBlockContainer>

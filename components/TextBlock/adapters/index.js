@@ -9,15 +9,18 @@ const getDefaultWidthValue = (sizeName = _sm.md) =>
     [_sm.lg]: theme.limits.pageWidth_int,
     [_sm.md]: 970,
     [_sm.sm]: 540,
+    [_sm.xs]: 290,
   }[NormalizeValue(sizeName) || _sm.md]);
 
 const getDefaultGapValue = (sizeName = _sm.lg) =>
   ({
     none: '0',
+    [_sm.xl]: 7.8,
     [_sm.lg]: 5.5,
     [_sm.md]: 3.2,
     [_sm.sm]: 1.2,
-  }[NormalizeValue(sizeName) || _sm.lg]);
+    [_sm.xs]: 0.8,
+  }[NormalizeValue(sizeName) || _sm.sm]);
 
 const getDefaultPaddingValue = (sizeName = _sm.md) =>
   ({
@@ -25,6 +28,7 @@ const getDefaultPaddingValue = (sizeName = _sm.md) =>
     [_sm.lg]: 5.5,
     [_sm.md]: 3.2,
     [_sm.sm]: 1.2,
+    [_sm.xs]: 0.8,
   }[NormalizeValue(sizeName) || _sm.md]);
 
 //PROPS ON VARIANTS

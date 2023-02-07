@@ -17,5 +17,5 @@ export const TextBlockContainer = styled.div`
   padding-bottom: ${({ spacing }) => spacing} !important;
 
   // Mobile
-  ${fluid('font-size', '%', [{ 1200: 90 }, { 768: 80 }])};
+  ${fluid('font-size', '%', [{ 1200: 90 }, { 768: 80 }])}
 `;

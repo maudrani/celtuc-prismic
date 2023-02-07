@@ -21,6 +21,8 @@ export const ALIGN_NAMES = {
   right: 'right',
   left: 'left',
   center: 'center',
+  top: 'top',
+  bottom: 'bottom'
 };
 
 export const SIZE_NAMES = {

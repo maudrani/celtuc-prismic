@@ -16,11 +16,7 @@
           "config": {
             "label": "Theme",
             "placeholder": "Default: Light",
-            "options": [
-              "Light",
-              "Mid-Light",
-              "Dark"
-            ],
+            "options": ["Light", "Mid-Light", "Dark"],
             "default_value": "Light"
           }
         },
@@ -29,13 +25,7 @@
           "config": {
             "label": "Width",
             "placeholder": "Default: md",
-            "options": [
-              "xs",
-              "sm",
-              "md",
-              "lg",
-              "full"
-            ]
+            "options": ["xs", "sm", "md", "lg", "full"]
           }
         },
         "height": {
@@ -50,12 +40,7 @@
           "config": {
             "label": "Spacing",
             "placeholder": "Default: md",
-            "options": [
-              "sm",
-              "md",
-              "lg",
-              "none"
-            ]
+            "options": ["sm", "md", "lg", "none"]
           }
         },
         "separation_gap": {
@@ -63,12 +48,7 @@
           "config": {
             "label": "Separation Gap",
             "placeholder": "Default: lg",
-            "options": [
-              "none",
-              "sm",
-              "md",
-              "lg"
-            ],
+            "options": ["none", "sm", "md", "lg"],
             "default_value": "none"
           }
         },
@@ -77,12 +57,8 @@
           "config": {
             "label": "Align Y",
             "placeholder": "",
-            "options": [
-              "Top",
-              "Center",
-              "Bottom"
-            ],
-            "default_value": "Top"
+            "options": ["top", "Center", "bottom"],
+            "default_value": "top"
           }
         },
         "min_height": {
@@ -116,11 +92,7 @@
           "config": {
             "label": "Theme",
             "placeholder": "Default: Light",
-            "options": [
-              "Light",
-              "Mid-Light",
-              "Dark"
-            ],
+            "options": ["Light", "Mid-Light", "Dark"],
             "default_value": "Light"
           }
         },
@@ -129,12 +101,7 @@
           "config": {
             "label": "Background Type",
             "placeholder": "",
-            "options": [
-              "gradient",
-              "translucent",
-              "solid",
-              "none"
-            ],
+            "options": ["gradient", "translucent", "solid", "none"],
             "default_value": "gradient"
           }
         },
@@ -142,39 +109,27 @@
           "type": "Select",
           "config": {
             "label": "Content Align Y",
-            "placeholder": "Default: Top",
-            "options": [
-              "Top",
-              "Center",
-              "Bottom"
-            ],
-            "default_value": "Top"
+            "placeholder": "Default: top",
+            "options": ["top", "Center", "bottom"],
+            "default_value": "top"
           }
         },
         "align_x": {
           "type": "Select",
           "config": {
             "label": "Content Align X",
-            "placeholder": "Default: Left",
-            "options": [
-              "Left",
-              "Center",
-              "Right"
-            ],
-            "default_value": "Left"
+            "placeholder": "Default: left",
+            "options": ["left", "Center", "right"],
+            "default_value": "left"
           }
         },
         "text_align": {
           "type": "Select",
           "config": {
             "label": "Text Align",
-            "placeholder": "Default: Left",
-            "options": [
-              "Left",
-              "Center",
-              "Right"
-            ],
-            "default_value": "Left"
+            "placeholder": "Default: left",
+            "options": ["left", "Center", "right"],
+            "default_value": "left"
           }
         },
         "image_align_y": {
@@ -182,12 +137,8 @@
           "config": {
             "label": "Image Align Y",
             "placeholder": "",
-            "options": [
-              "Top",
-              "Center",
-              "Bottom"
-            ],
-            "default_value": "Top"
+            "options": ["top", "Center", "bottom"],
+            "default_value": "top"
           }
         },
         "size": {
@@ -195,14 +146,7 @@
           "config": {
             "label": "Size",
             "placeholder": "Default: md",
-            "options": [
-              "xs",
-              "sm",
-              "md",
-              "lg",
-              "xl",
-              "xxl"
-            ]
+            "options": ["xs", "sm", "md", "lg", "xl", "xxl"]
           }
         },
         "width": {
@@ -210,11 +154,7 @@
           "config": {
             "label": "Content width",
             "placeholder": "Default: lg",
-            "options": [
-              "sm",
-              "md",
-              "lg"
-            ]
+            "options": ["sm", "md", "lg"]
           }
         },
         "spacing": {
@@ -222,12 +162,7 @@
           "config": {
             "label": "Content Spacing",
             "placeholder": "Default: none",
-            "options": [
-              "sm",
-              "md",
-              "lg",
-              "none"
-            ]
+            "options": ["sm", "md", "lg", "none"]
           }
         },
         "image_height": {
@@ -242,10 +177,7 @@
           "config": {
             "label": "Image animation",
             "placeholder": "",
-            "options": [
-              "None",
-              "Fade In"
-            ],
+            "options": ["None", "Fade In"],
             "default_value": "None"
           }
         },
@@ -254,11 +186,7 @@
           "config": {
             "label": "Content animation",
             "placeholder": "",
-            "options": [
-              "None",
-              "Fade In",
-              "Typed"
-            ],
+            "options": ["None", "Fade In", "Typed"],
             "default_value": "None"
           }
         }
