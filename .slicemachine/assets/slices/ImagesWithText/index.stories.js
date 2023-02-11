@@ -28,7 +28,7 @@ export const _Default = () => (
           theme: 'Light',
           background_type: 'solid',
           content_align_y: 'bottom',
-          content_align_x: 'Center',
+          content_align_x: 'center',
           text_align: 'left',
           image_align_y: 'top',
           size: 'xs',

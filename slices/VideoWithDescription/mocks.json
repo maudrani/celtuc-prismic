@@ -132,7 +132,7 @@
       },
       "theme": {
         "__TYPE__": "FieldContent",
-        "value": "mid-light",
+        "value": "mid-dark-1",
         "type": "Select"
       },
       "size": {

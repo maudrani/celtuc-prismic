@@ -1,159 +1,225 @@
 import { css } from 'styled-components';
-import { GetGradient, GetThemeValue, hexToRgbA } from 'utils/adapters';
+import {
+  GetColorByNickname,
+  GetGradient,
+  GetThemeValue,
+  hexToRgbA,
+} from 'utils/adapters';
 
 export const yAlign = (value) =>
   ({
     top: css`
-      top: 0;
-      align-items: flex-start;
+      justify-content: flex-start;
+    `,
+    center: css`
+      justify-content: center;
     `,
     bottom: css`
-      bottom: 0;
-      align-items: flex-end;
-    `,
-    Center: css`
-      top: 0;
-      bottom: 0;
-      align-items: center;
-      height: 100%;
+      justify-content: flex-end;
     `,
   }[value]);
 
 export const xAlign = (value) =>
   ({
     left: css`
-      left: 0;
-      justify-content: start;
+      align-items: flex-start;
+    `,
+    center: css`
+      align-items: center;
     `,
     right: css`
-      right: 0;
-      justify-content: end;
-    `,
-    Center: css`
-      left: 0;
-      right: 0;
-      justify-content: center;
+      align-items: flex-end;
     `,
   }[value]);
 
-// Background
-const getGradientDirection = (value) =>
-  ({
-    top: ['0%', '100%'],
-    bottom: ['0%', '100%'],
-    Center: ['0%', '150%'],
-    left: ['0%', '100%'],
-    right: ['0%', '100%'],
-  }[value || 'top']);
+export const GetFontColor = ({ theme, type, direction, colors, opacity }) => {
+  const hasColors = () => {
+    if (Array.isArray(colors)) return !!colors?.length;
 
-const getGradientBackgroundOpacity = (value) =>
-  ({
-    top: [0, 0.8],
-    bottom: [0.8, 0],
-    Center: [0.9, 0.1],
-    left: [0.8, 0],
-    Roght: [0.8, 0],
-  }[value]);
+    if (!colors) return false;
 
-export const GetBackgroundByType = ({
-  theme,
-  themeName,
-  type,
-  direction,
-  color,
-  opacity,
-}) => {
-  if (type === 'none')
-    return css`
-      background: transparent;
-    `;
+    return true;
+  };
 
-  if (type === 'solid' || type === 'translucent')
-    if (color && opacity)
-      return css`
-        background: ${GetThemeValue({
-          theme,
-          themeName,
-          background: { color, opacity },
-        }).backgroundColor};
-      `;
+  if (!hasColors()) return;
 
-  if (type === 'gradient') {
-    const gradient_direction = getGradientDirection(direction);
+  const Gradient = {
+    isGradient: type === 'gradient',
+    get: () => {
+      const rgbaColors = [];
 
-    const gradient_opacity = getGradientBackgroundOpacity(direction);
+      if (Array.isArray(colors) && colors.length > 1) {
+        colors.forEach((colorName) => {
+          const fontGradient = GetColorByNickname({
+            colorsObj: theme.colors.font,
+            nickname: colorName,
+          });
+          const normalGradient = GetColorByNickname({
+            colorsObj: theme.colors,
+            nickname: colorName,
+          });
 
-    return css`
-      background: linear-gradient(
-        0deg,
-        ${hexToRgbA(
-            GetThemeValue({ theme, themeName }).backgroundColor,
-            gradient_opacity[0]
-          )}
-          ${gradient_direction[0]},
-        ${hexToRgbA(
-            GetThemeValue({ theme, themeName }).backgroundColor,
-            gradient_opacity[1]
-          )}
-          ${gradient_direction[1]}
-      );
-    `;
+          if (fontGradient || normalGradient)
+            rgbaColors.push(hexToRgbA(fontGradient || normalGradient, opacity));
+        });
+      } else {
+        const fontGradient = GetColorByNickname({
+          colorsObj: theme.colors.font,
+          nickname: colors,
+        });
+        const normalGradient = GetColorByNickname({
+          colorsObj: theme.colors,
+          nickname: colors,
+        });
+
+        colors = fontGradient || normalGradient;
+
+        if (fontGradient || normalGradient)
+          colors.forEach((color) => {
+            rgbaColors.push(hexToRgbA(color, opacity));
+          });
+      }
+
+      if (rgbaColors.length >= 1)
+        return css`
+          p,
+          li,
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            background-image: ${GetGradient({
+              colors: rgbaColors,
+              direction: direction,
+            })};
+          }
+        `;
+    },
+  };
+  const Solid = {
+    isSolid: type === 'solid',
+    get: () => {
+      const colorName = Array.isArray(colors) ? colors[0] : colors;
+
+      const fontColor = GetColorByNickname({
+        colorsObj: theme.colors.font,
+        nickname: colorName,
+      });
+      const normalColor = GetColorByNickname({
+        colorsObj: theme.colors,
+        nickname: colorName,
+      });
+
+      if (fontColor || normalColor)
+        return css`
+          color: ${hexToRgbA(fontColor || normalColor, opacity)};
+        `;
+    },
+  };
+
+  if (Gradient.isGradient) {
+    return Gradient.get();
   }
 
-  return css`
-    background: ${GetThemeValue({
-      theme,
-      themeName,
-      background: { type },
-    }).backgroundColor};
-  `;
+  if (Solid.isSolid) {
+    return Solid.get();
+  }
 };
 
-// Font
-export const GetFontColorByType = ({
+export const GetBackgroundColor = ({
   theme,
-  themeName,
   type,
   direction,
-  colors = [],
+  colors,
   opacity,
 }) => {
-  const hasColors = Array.isArray(colors) && !!colors?.length;
-  if (!hasColors)
-    return css`
-      color: ${GetThemeValue({
-        theme,
-        themeName,
-      }).fontColor};
-    `;
+  const hasColors = () => {
+    if (Array.isArray(colors)) return !!colors?.length;
 
-  if (type === 'solid')
-    if (colors && opacity)
-      return css`
-        color: ${GetThemeValue({
-          theme,
-          themeName,
-          font: { color: colors[0], opacity },
-        }).fontColor};
-      `;
+    if (!colors) return false;
 
-  if (type === 'gradient')
-    return css`
-      p,
-      li,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        color: transparent;
-        -webkit-background-clip: text;
-        background-clip: text;
-        background-image: ${GetGradient({
-          colors: colors,
-          direction: direction,
-        })};
+    return true;
+  };
+
+  if (!hasColors()) return;
+
+  const Gradient = {
+    isGradient: type === 'gradient',
+    get: () => {
+      const rgbaColors = [];
+
+      if (Array.isArray(colors) && colors.length > 1) {
+        colors.forEach((colorName) => {
+          const fontGradient = GetColorByNickname({
+            colorsObj: theme.colors.font,
+            nickname: colorName,
+          });
+          const normalGradient = GetColorByNickname({
+            colorsObj: theme.colors,
+            nickname: colorName,
+          });
+
+          if (fontGradient || normalGradient)
+            rgbaColors.push(hexToRgbA(fontGradient || normalGradient, opacity));
+        });
+      } else {
+        const fontGradient = GetColorByNickname({
+          colorsObj: theme.colors.font,
+          nickname: colors,
+        });
+        const normalGradient = GetColorByNickname({
+          colorsObj: theme.colors,
+          nickname: colors,
+        });
+
+        colors = fontGradient || normalGradient;
+
+        if (fontGradient || normalGradient)
+          colors.forEach((color) => {
+            rgbaColors.push(hexToRgbA(color, opacity));
+          });
       }
-    `;
+
+      if (rgbaColors.length >= 1)
+        return css`
+          background: ${GetGradient({
+            colors: rgbaColors,
+            direction: direction,
+          })};
+        `;
+    },
+  };
+  const Solid = {
+    isSolid: type === 'solid',
+    get: () => {
+      const colorName = Array.isArray(colors) ? colors[0] : colors;
+
+      const fontColor = GetColorByNickname({
+        colorsObj: theme.colors.background,
+        nickname: colorName,
+      });
+      const normalColor = GetColorByNickname({
+        colorsObj: theme.colors,
+        nickname: colorName,
+      });
+
+      if (fontColor || normalColor)
+        return css`
+          background: ${hexToRgbA(fontColor || normalColor, opacity)};
+        `;
+    },
+  };
+
+  if (Gradient.isGradient) {
+    return Gradient.get();
+  }
+
+  if (Solid.isSolid) {
+    return Solid.get();
+  }
 };

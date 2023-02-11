@@ -114,7 +114,7 @@ export const PlayerButton = styled.div`
     width: 100%;
     height: 100%;
 
-    fill: ${({ theme }) => theme.colors.main};
+    fill: ${({ theme }) => theme.colors.shark};
     opacity: 0.8;
 
     &.playButton {

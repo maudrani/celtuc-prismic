@@ -16,7 +16,7 @@
           "config": {
             "label": "Align",
             "placeholder": "Default: left",
-            "options": ["left", "Center", "right"],
+            "options": ["left", "center", "right"],
             "default_value": "left"
           }
         },
@@ -24,9 +24,9 @@
           "type": "Select",
           "config": {
             "label": "Theme",
-            "placeholder": "Default: Light",
-            "options": ["Light", "Mid-Light", "Dark"],
-            "default_value": "Light"
+            "placeholder": "Default: dark-1",
+            "options": ["dark-1"],
+            "default_value": "dark-1"
           }
         },
         "size": {

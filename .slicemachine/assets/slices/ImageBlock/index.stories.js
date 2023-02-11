@@ -29,7 +29,7 @@ export const _Default = () => (
           align_y: 'bottom',
           align_x: 'left',
           text_align: 'left',
-          image_align_y: 'Center',
+          image_align_y: 'center',
           size: 'xxl',
           width: 'md',
           spacing: 'sm',

@@ -1,3 +1,4 @@
+import { breakpoints } from '@/styles/theme/data/breakpoints';
 import styled, { css } from 'styled-components';
 
 export const fluid = (
@@ -12,7 +13,7 @@ export const fluid = (
       Object.values(value)[0],
     ];
     return (mediaQueries += `
-    @media screen and (${mediaQueryType}: ${screenBreakpoint}px) {
+    @media screen and (${mediaQueryType}: ${breakpoints[screenBreakpoint] || screenBreakpoint}px) {
       ${cssProp}: ${cssPropBreakpoint}${cssPropUnits};
     }
     `);

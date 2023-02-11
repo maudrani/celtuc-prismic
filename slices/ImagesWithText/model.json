@@ -16,8 +16,8 @@
           "config": {
             "label": "Theme",
             "placeholder": "",
-            "options": ["Light", "Mid-Light", "Dark"],
-            "default_value": "Light"
+            "options": ["dark-1"],
+            "default_value": "dark-1"
           }
         },
         "width": {
@@ -91,8 +91,8 @@
           "config": {
             "label": "Theme",
             "placeholder": "",
-            "options": ["Light", "Mid-Light", "Dark"],
-            "default_value": "Light"
+            "options": ["dark-1"],
+            "default_value": "dark-1"
           }
         },
         "background_type": {
@@ -109,7 +109,7 @@
           "config": {
             "label": "Content Align Y",
             "placeholder": "",
-            "options": ["top", "Center", "bottom"],
+            "options": ["top", "center", "bottom"],
             "default_value": "top"
           }
         },
@@ -118,7 +118,7 @@
           "config": {
             "label": "Content Align X",
             "placeholder": "",
-            "options": ["left", "Center", "right"],
+            "options": ["left", "center", "right"],
             "default_value": "left"
           }
         },
@@ -127,7 +127,7 @@
           "config": {
             "label": "Text Align",
             "placeholder": "",
-            "options": ["left", "Center", "right"],
+            "options": ["left", "center", "right"],
             "default_value": "left"
           }
         },
@@ -136,8 +136,8 @@
           "config": {
             "label": "Image Align Y",
             "placeholder": "",
-            "options": ["Center", "top", "bottom"],
-            "default_value": "Center"
+            "options": ["center", "top", "bottom"],
+            "default_value": "center"
           }
         },
         "size": {

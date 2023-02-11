@@ -22,7 +22,7 @@ export const _Default = () => (
         },
       ],
       primary: {
-        align: 'left',
+        align: 'right',
         theme: 'Light',
         size: 'xxl',
         width: 'md',

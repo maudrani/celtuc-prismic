@@ -1,4 +1,4 @@
-import CONFIG from '../config.json';
+import CONFIG from '../config.js';
 import { breakpoints, query } from './data/breakpoints';
 import { GenerateSizesTree } from './helpers';
 

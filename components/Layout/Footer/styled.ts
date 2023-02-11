@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const FooterWrapper = styled.footer`
   width: 100%;
   min-height: 150px;
-  background-color: ${({ theme }) => theme.colors.main};
+  background-color: ${({ theme }) => theme.colors.shark};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +34,7 @@ export const FooterWrapper = styled.footer`
 
       @media (max-width: 1000px) {
         gap: ${({ theme }) => theme.sizes.sm};
-    }
+      }
     }
 
     .logo {

@@ -5,7 +5,7 @@
     "primary": {
       "theme": {
         "__TYPE__": "FieldContent",
-        "value": "Light",
+        "value": "dark-1",
         "type": "Select"
       },
       "width": {
@@ -90,7 +90,7 @@
             "theme",
             {
               "__TYPE__": "FieldContent",
-              "value": "Light",
+              "value": "dark-1",
               "type": "Select"
             }
           ],
@@ -114,7 +114,7 @@
             "content_align_x",
             {
               "__TYPE__": "FieldContent",
-              "value": "Center",
+              "value": "center",
               "type": "Select"
             }
           ],

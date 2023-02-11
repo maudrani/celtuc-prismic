@@ -10,15 +10,15 @@ import remarkFrontmatter from 'remark-frontmatter';
 import { RichTextContainer } from './styled';
 import { MarkdownComponentsToReplace } from './adapters/react-markdown';
 
-const RichText = ({ data, className }) => {
+const RichText = ({ data, children, className }) => {
   return (
-    <RichTextContainer className={className} size={data.size}>
+    <RichTextContainer className={className} size={data?.size}>
       <ReactMarkdown
         remarkPlugins={[gfm, remarkBreaks, remarkParse, remarkFrontmatter]}
         rehypePlugins={[rehypeRaw]}
         components={MarkdownComponentsToReplace}
       >
-        {data?.markdown}
+        {children || data?.markdown}
       </ReactMarkdown>
     </RichTextContainer>
   );

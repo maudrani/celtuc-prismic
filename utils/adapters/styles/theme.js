@@ -1,48 +1,38 @@
 import { THEME_NAMES as _th } from 'constants/styles';
 import { NormalizeValue } from 'utils/helpers/values';
 import { hexToRgbA } from './colors';
+import theme from '@/styles/theme';
 
-export const GetThemeByName = (themeName, defaultTheme = _th.dark) =>
+export const GetThemeByName = (themeName) =>
   ({
-    dark: _th.dark,
-    light: _th.light,
-    'mid-light': _th['mid-light'],
-  }[NormalizeValue(themeName)] || defaultTheme);
+    ['dark-1']: theme.colors[_th['dark-1']],
+  }[NormalizeValue(themeName)]);
 
-export const GetColorByNickname = ({ theme, nickname, opacity }) =>
-  hexToRgbA(
-    {
-      ...theme.colors,
-    }[nickname],
-    opacity
-  );
+export const GetColorByNickname = ({ colorsObj, nickname }) =>
+colorsObj[nickname];
 
 // ADAPTERS
 const GetBackgroundByTheme = (theme, themeName, backgroundType) => {
+  const color = theme.themes[themeName].background;
+
   return {
-    [_th.dark]: {
-      solid: theme.colors.black,
-      translucent: hexToRgbA(theme.colors.black, 0.9),
+    [_th['dark-1']]: {
+      solid: color,
+      translucent: hexToRgbA(color, 0.9),
     }[backgroundType],
-    [_th.light]: {
+    /*     [_th.light]: {
       solid: theme.colors.white,
       translucent: hexToRgbA(theme.colors.white, 0.7),
     }[backgroundType],
     [_th['mid-light']]: {
       solid: theme.colors['mid-light'],
       translucent: hexToRgbA(theme.colors['mid-light'], 0.7),
-    }[backgroundType],
+    }[backgroundType], */
   }[themeName];
 };
 
-const GetBackgroundColor = ({ theme, color, themeName, opacity }) => {
+const GetBackgroundColor = ({ theme, color, opacity }) => {
   if (color) return GetColorByNickname({ theme, nickname: color, opacity });
-
-  return {
-    [_th.dark]: theme.colors.black,
-    [_th.light]: theme.colors.white,
-    [_th['mid-light']]: theme.colors['mid-light'],
-  }[themeName];
 };
 
 // FInals

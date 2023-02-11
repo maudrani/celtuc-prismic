@@ -72,7 +72,7 @@ export const HeaderBar = styled.div`
       transition: 0.3s;
     }
     :hover {
-      background-color: ${({ theme }) => theme.colors.third};
+      background-color: ${({ theme }) => theme.colors.mischka};
 
       svg {
         fill: rgba(255, 255, 255, 1);
@@ -123,7 +123,7 @@ export const HeaderBar = styled.div`
   .get-in-touch {
     z-index: 2;
     background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.main};
+    color: ${({ theme }) => theme.colors.shark};
     font-weight: 500;
     box-shadow: 0 0 9px 2px rgba(0, 0, 0, 0.2);
 

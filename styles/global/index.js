@@ -1,4 +1,4 @@
-import CONFIG from '../config.json';
+import CONFIG from '../config.js';
 import { createGlobalStyle, css } from 'styled-components';
 import CssReset from './css-reset';
 import FontStyles from './fonts';
@@ -27,7 +27,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     background: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.main};
+    color: ${({ theme }) => theme.colors['dark-font']};
 
     #__next {
       height: 100%;

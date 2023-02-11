@@ -1,14 +1,13 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ButtonWrapper = styled.button`
-    border: 1px solid ${({theme}) => theme.colors.second};
-    padding: ${({theme}) => theme.sizes.sm} ${({theme}) => theme.sizes.smx};
+  letter-spacing: .011em;
 
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+  cursor: pointer;
+  transition: filter 0.2s ease-out;
 
-    :hover {
-        background-color: ${({theme}) => theme.colors.third} !important;
-        border-color: ${({theme}) => theme.colors.third} !important;
-    }
+  &:hover {
+    transition: filter 0.6s ease-out;
+    filter: saturate(2);
+  }
 `;

@@ -5,12 +5,12 @@
     "primary": {
       "align": {
         "__TYPE__": "FieldContent",
-        "value": "left",
+        "value": "right",
         "type": "Select"
       },
       "theme": {
         "__TYPE__": "FieldContent",
-        "value": "Light",
+        "value": "dark-1",
         "type": "Select"
       },
       "size": {

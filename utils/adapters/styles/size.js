@@ -1,7 +1,7 @@
 import { SIZE_NAMES as _sn } from 'constants/styles';
 import { NormalizeValue } from 'utils/helpers/values';
 
-export const GetSizeByName = (sizeName, defaultSize = _sn.sm) =>
+export const GetSizeByName = (sizeName) =>
   ({
     xs: _sn.xs,
     sm: _sn.sm,
@@ -9,9 +9,9 @@ export const GetSizeByName = (sizeName, defaultSize = _sn.sm) =>
     lg: _sn.lg,
     xl: _sn.xl,
     xxl: _sn.xxl,
-  }[NormalizeValue(sizeName)] || defaultSize);
+  }[NormalizeValue(sizeName)]);
 
-export const GetSizeValue = (sizeName = 'md') => ({
+export const GetSizeValue = (sizeName ) => ({
   font_size: {
     [_sn.xxl]: 38,
     [_sn.xl]: 31,
@@ -19,5 +19,5 @@ export const GetSizeValue = (sizeName = 'md') => ({
     [_sn.md]: 21,
     [_sn.sm]: 17,
     [_sn.xs]: 12,
-  }[sizeName || [_sn.md]],
+  }[sizeName ],
 });

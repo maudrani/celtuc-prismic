@@ -4,12 +4,6 @@ export const THEME_SIZES = {
   EM: 'em',
 };
 
-export const THEME_NAMES = {
-  dark: 'dark',
-  light: 'light',
-  'mid-light': 'mid-light',
-};
-
 export const DIRECTION_NAMES = {
   right: 'right',
   left: 'left',
@@ -32,4 +26,16 @@ export const SIZE_NAMES = {
   lg: 'lg',
   xl: 'xl',
   xxl: 'xxl',
+};
+
+export const COLOR_TYPES = {
+  solid: 'solid',
+  translucent: 'translucent',
+  gradient: 'gradient'
+}
+
+export const THEME_NAMES = {
+  ['dark-1']: 'dark-1',
+  light: 'light',
+  'mid-light': 'mid-light',
 };

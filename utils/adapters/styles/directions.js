@@ -23,7 +23,7 @@ export const GetGradientDirection = (value) =>
   `${
     {
       top: 180,
-      bottom: 0,
+      bottom: '0',
       left: 90,
       right: 270,
     }[value] || value

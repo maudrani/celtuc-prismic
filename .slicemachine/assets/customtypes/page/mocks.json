@@ -20,7 +20,7 @@
           "primary": {
             "align": {
               "__TYPE__": "FieldContent",
-              "value": "Center",
+              "value": "center",
               "type": "Select"
             },
             "theme": {
@@ -287,7 +287,7 @@
             },
             "align_y": {
               "__TYPE__": "FieldContent",
-              "value": "Center",
+              "value": "center",
               "type": "Select"
             },
             "position": {
