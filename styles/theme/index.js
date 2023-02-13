@@ -9,7 +9,7 @@ const theme = {
   sizes: GenerateSizesTree(list, core, multiplier, defaultSize).EM(),
   coreSize: (size) => `font-size: ${size}px !important;`,
   limits: {
-    pageWidth: '1792px',
+    pageWidth: '1440px',
     get pageWidth_int() {
       return Number(this.pageWidth.replace('px', ''));
     },

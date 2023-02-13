@@ -13,10 +13,9 @@ const Link = (props) => {
 
           ...props.data,
         }}
-        chevron={props.chevron || true}
       >
         {props.children}
-        <Chevron />
+       {props.chevron && <Chevron />}
       </LinkWrapper>
     </NextLink>
   );

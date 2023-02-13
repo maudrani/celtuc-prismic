@@ -39,7 +39,7 @@ const DynamicPanel = (props) => {
   } = parseDataProp(props.data);
 
   const no_data_props = { ...props, data: null };
-
+  
   return (
     <DynamicPanelContainer
       size={size}

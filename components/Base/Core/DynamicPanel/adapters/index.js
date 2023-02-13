@@ -62,10 +62,13 @@ const GetResponsiveValues = (values, unit) => {
     if (unitConverter[extracted_unit]) return extracted_unit;
   };
 
+  const GetUnit = (value) =>
+    hasUnit(value) ? value : unitConverter[unit](value) || value;
+
   const NotObject = {
     isNotObject: typeof values !== 'object',
     get: () => {
-      return unitConverter[unit](values) || values;
+      return GetUnit(values);
     },
   };
 
@@ -77,9 +80,7 @@ const GetResponsiveValues = (values, unit) => {
       Object.keys(values).forEach((value_breakpoint) => {
         const value_name = values[value_breakpoint];
 
-        parsed_values[value_breakpoint] = hasUnit(value_name)
-          ? value_name
-          : unitConverter[unit](value_name) || value_name;
+        parsed_values[value_breakpoint] = GetUnit(value_name);
       });
 
       return parsed_values;
@@ -96,11 +97,17 @@ export const parseDataProp = (data = {}) => ({
   size: GetResponsiveValues(data.size || defaultData.size, 'size'),
 
   width: toPerc(data.width) || defaultData.width,
-  min_width: toPX(data.min_width) || defaultData.min_width,
+  min_width: GetResponsiveValues(data.min_width || defaultData.min_width, 'px'),
   max_width: GetResponsiveValues(data.max_width || defaultData.max_width, 'px'),
   height: toPerc(data.height) || defaultData.height,
-  min_height: toPX(data.min_height) || defaultData.min_height,
-  max_height: toPX(data.max_height) || defaultData.max_height,
+  min_height: GetResponsiveValues(
+    data.min_height || defaultData.min_height,
+    'px'
+  ),
+  max_height: GetResponsiveValues(
+    data.max_height || defaultData.max_height,
+    'px'
+  ),
 
   p_t: GetResponsiveValues(data.p_t || defaultData.p_t, 'em'),
   p_r: GetResponsiveValues(data.p_r || defaultData.p_r, 'em'),
@@ -122,7 +129,10 @@ export const parseDataProp = (data = {}) => ({
   background_direction:
     data.background_direction || defaultData.background_direction,
 
-  direction: GetResponsiveValues(data.direction || defaultData.direction, 'none'),
+  direction: GetResponsiveValues(
+    data.direction || defaultData.direction,
+    'none'
+  ),
   align_y: data.align_y,
   align_x: data.align_x,
   gap: GetResponsiveValues(data.gap || defaultData.gap, 'em'),

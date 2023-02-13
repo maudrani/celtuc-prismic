@@ -1,4 +1,4 @@
-import DynamicPanel from '@/components/Base/DynamicPanel';
+import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 import styled from 'styled-components';
 
 export const TextBlockDynamicPanel = styled(DynamicPanel)`

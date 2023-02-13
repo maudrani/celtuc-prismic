@@ -57,7 +57,7 @@ const FONT_COLORS = {
   'link-2': COLOR_PALETTE['science-blue'],
 
   'violet-pink-1': [COLOR_PALETTE.heliotrope, COLOR_PALETTE['lavender-rose']],
-  'multiclor-1': [
+  'multicolor-1': [
     COLOR_PALETTE['eastern-blue'],
     COLOR_PALETTE['havelock-blue'],
     COLOR_PALETTE.malibu,
@@ -78,6 +78,20 @@ const THEMES = {
     font: {
       main: FONT_COLORS['light-1'],
       second: FONT_COLORS['dark-5'],
+    },
+  },
+  'light-1': {
+    background: BACKGROUND_COLORS['light-4'],
+    font: {
+      main: FONT_COLORS['dark-1'],
+      second: FONT_COLORS['light-3'],
+    },
+  },
+  'light-2': {
+    background: BACKGROUND_COLORS['light-2'],
+    font: {
+      main: FONT_COLORS['dark-1'],
+      second: FONT_COLORS['light-3'],
     },
   },
 };

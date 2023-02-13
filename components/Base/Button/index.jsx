@@ -1,5 +1,5 @@
 import React from 'react';
-import DynamicPanel from '../DynamicPanel';
+import DynamicPanel from '@/components/Base/Core/DynamicPanel'
 import { ButtonWrapper } from './styled';
 
 const Button = (props) => {

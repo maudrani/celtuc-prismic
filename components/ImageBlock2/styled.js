@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { fluid } from 'utils/styles/fluid';
-import DynamicPanel from '../Base/DynamicPanel';
+import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 
 export const CustomDynamicPanel = styled(DynamicPanel)`
   display: grid;
@@ -20,9 +20,9 @@ export const WidthLimiter = styled.div`
   width: 100%;
   height: 100%;
   max-width: ${({ width }) => width} !important;
-  
+
   margin: 0 auto;
-  
+
   overflow: hidden;
 `;
 
@@ -38,7 +38,6 @@ export const ImageBlockContainer = styled(DynamicPanel)`
     )
   );
   gap: ${({ gap }) => gap};
-
 
   // Mobile
   ${fluid('font-size', '%', [{ 1200: 70 }, { 768: 40 }])}

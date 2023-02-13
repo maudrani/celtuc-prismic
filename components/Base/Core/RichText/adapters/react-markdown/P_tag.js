@@ -1,4 +1,4 @@
-import Img from '../../../Img';
+import Img from '@/components/Base/Core/Img';
 import { childExistsInReplaceObj, childrenNeedsToBeFiltered } from './utils';
 
 const elementsToReplace = { img: Img };

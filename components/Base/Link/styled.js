@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import DynamicPanel from '../DynamicPanel';
+import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 
 export const LinkWrapper = styled(DynamicPanel)`
   position: relative;
-  
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -38,14 +38,14 @@ export const LinkWrapper = styled(DynamicPanel)`
 `;
 
 export const Chevron = styled.span`
-    content: '';
-    position: relative;
-    height: 0.35em;
-    width: 0.35em;
-    top: 0.1em;
+  content: '';
+  position: relative;
+  height: 0.35em;
+  width: 0.35em;
+  top: 0.1em;
 
-    border-style: solid;
-    border-width: 0.08em 0.08em 0 0;
+  border-style: solid;
+  border-width: 0.08em 0.08em 0 0;
 
-    transform: rotate(45deg);
-`
+  transform: rotate(45deg);
+`;

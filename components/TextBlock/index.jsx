@@ -1,6 +1,6 @@
 import React from 'react';
-import Animation from '../Base/Animation';
-import RichText from '../Base/RichText';
+import Animation from '../Base/Core/Animation';
+import RichText from '@/components/Base/Core/RichText'
 import { getDataProps, getRepeatedContents } from './adapters';
 import { CustomDynamicPanel, TextBlockContainer } from './styled';
 

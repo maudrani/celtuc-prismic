@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { fluid } from 'utils/styles/fluid';
-import DynamicPanel from '../Base/DynamicPanel';
+import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 
 export const CustomDynamicPanel = styled(DynamicPanel)`
   display: grid;

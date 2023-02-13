@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import DynamicPanel from '../DynamicPanel';
+import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 
 export const CustomDynamicPanel = styled(DynamicPanel)`
   position: relative;

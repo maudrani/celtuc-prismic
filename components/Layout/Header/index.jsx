@@ -1,5 +1,5 @@
 import Button from '@/components/Base/Button';
-import Img from '@/components/Base/Img';
+import Img from '@/components/Base/Core/Img';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { HeaderWrapper, MenuPanel, HeaderBar, MenuPanelLink } from './styled';

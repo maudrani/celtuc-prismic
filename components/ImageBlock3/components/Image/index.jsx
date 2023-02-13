@@ -1,5 +1,5 @@
-import Animation from '@/components/Base/Animation';
-import Img from '@/components/Base/Img';
+import Animation from '@/components/Base/Core/Animation';
+import Img from '@/components/Base/Core/Img';
 import { TextBlockRaw } from '@/components/TextBlock';
 import React, { useState } from 'react';
 import { getDataProps } from './adapters';
@@ -39,7 +39,12 @@ const ImageWithInnerText = ({ data }) => {
     <ImageWithInnerTextContainer position={position} gap={gap}>
       {hasContent && (
         <TextBlockDynamicPanel
-          data={{ theme, size, align_y: content_align_y, align_x: content_align_x }}
+          data={{
+            theme,
+            size,
+            align_y: content_align_y,
+            align_x: content_align_x,
+          }}
           background_type={background_type}
           content_direction={content_align_y}
         >
