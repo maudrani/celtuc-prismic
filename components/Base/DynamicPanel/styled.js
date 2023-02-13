@@ -7,6 +7,7 @@ import {
   xAlign,
   yAlign,
 } from './adapters/styles';
+import { NormalizeValue } from 'utils/helpers/values';
 
 const GetValuewithResponsiveTree = (cssProp, values) => {
   if (!values || !cssProp) return;
@@ -16,15 +17,31 @@ const GetValuewithResponsiveTree = (cssProp, values) => {
       ${cssProp}: ${values};
     `;
 
-  return Object.keys(values).map((size_name) => {
-    if (size_name === 'main')
+  let sortedValues = [];
+
+  Object.keys(values).forEach((breakpoint) => {
+    const valueObtained = breakpoints[breakpoint] || NormalizeValue(breakpoint);
+
+    sortedValues.push({ breakpoint: valueObtained, value: values[breakpoint] });
+  });
+
+  sortedValues.sort((a, b) => {
+    if (!a.breakpoint || !b.breakpoint) return;
+
+    return a.breakpoint > b.breakpoint && -1;
+  });
+
+  return sortedValues.map((breakpointObj) => {
+    const { breakpoint, value } = breakpointObj;
+
+    if (breakpoint === 'main')
       return `
-        ${cssProp}: ${values[size_name]};
+        ${cssProp}: ${value};
       `;
 
     return fluid(cssProp, '', [
       {
-        [breakpoints[size_name]]: values[size_name],
+        [breakpoint]: value,
       },
     ]);
   });

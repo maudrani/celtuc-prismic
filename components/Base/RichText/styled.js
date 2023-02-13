@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { css } from 'styled-components';
+import { fluid } from 'utils/styles/fluid';
 
 // PRESETS
 const SizePresets = {
@@ -8,14 +9,16 @@ const SizePresets = {
     li {
       line-height: 1.333;
       letter-spacing: normal;
-      font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+      font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+        sans-serif;
     }
   `,
   sm: css`
     p {
       line-height: 1.4705882353;
       letter-spacing: -0.022em;
-      font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+      font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+        sans-serif;
     }
   `,
   md: css`
@@ -131,6 +134,12 @@ const PARAGRAPH = css`
     hyphens: auto;
 
     margin-bottom: 1.5em;
+
+    ${fluid('font-family', '', [
+      {
+        md: `SF Pro Text, sans-serif`,
+      },
+    ])};
   }
 `;
 
@@ -229,6 +238,12 @@ const HEADINGS = css`
   h5,
   h6 {
     line-height: 1.4;
+
+    ${fluid('line-height', '', [
+      { lg: '1.3' },
+      { md: '1.2' },
+      { sm: '1.0834933333' },
+    ])};
   }
 `;
 

@@ -38,7 +38,7 @@ const BACKGROUND_COLORS = {
   'dark-1': COLOR_PALETTE.black,
   'dark-2': COLOR_PALETTE.shark,
 
-  'accent-1': COLOR_PALETTE['science-blue']
+  'accent-1': COLOR_PALETTE['science-blue'],
 };
 
 const FONT_COLORS = {
@@ -87,8 +87,8 @@ export default {
     ...COLOR_PALETTE,
     background: BACKGROUND_COLORS,
     font: FONT_COLORS,
+    themes: THEMES,
   },
-  themes: THEMES,
   sizes: {
     core: 16,
     multiplier: 1.721,

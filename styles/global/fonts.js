@@ -74,7 +74,6 @@ const FontStyles = css`
   font-style: normal;
 }
 
-
   body {
     font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
     background-color: #fff;
@@ -92,8 +91,6 @@ const FontStyles = css`
   h6 {
     font-weight: 700;
     line-height: 1;
-    /* letter-spacing: -0.7pt; */
-    /* word-spacing: 0.1em; */
   }
 `;
 

@@ -5,6 +5,7 @@ import {
   toEm,
   toPerc,
   toPX,
+  toVw,
 } from 'utils/adapters';
 
 const defaultData = {
@@ -49,6 +50,8 @@ const GetResponsiveValues = (values, unit) => {
     ['px']: (val) => toPX(val),
     ['em']: (val) => toEm(val),
     ['%']: (val) => toPerc(val),
+    ['vw']: (val) => toVw(val),
+    ['vh']: (val) => toVw(val),
     ['size']: (val) => toPX(GetSizeValue(GetSizeByName(val)).font_size),
     ['none']: (val) => val,
   };

@@ -1,10 +1,5 @@
 import { css } from 'styled-components';
-import {
-  GetColorByNickname,
-  GetGradient,
-  GetThemeValue,
-  hexToRgbA,
-} from 'utils/adapters';
+import { GetColorByNickname, GetGradient, hexToRgbA } from 'utils/adapters';
 
 export const yAlign = (value) =>
   ({
@@ -101,6 +96,7 @@ export const GetFontColor = ({ theme, type, direction, colors, opacity }) => {
         `;
     },
   };
+
   const Solid = {
     isSolid: type === 'solid',
     get: () => {
@@ -115,9 +111,8 @@ export const GetFontColor = ({ theme, type, direction, colors, opacity }) => {
         nickname: colorName,
       });
 
-      if (fontColor || normalColor)
         return css`
-          color: ${hexToRgbA(fontColor || normalColor, opacity)};
+          color: ${hexToRgbA(fontColor || normalColor || colorName, opacity)};
         `;
     },
   };
@@ -199,7 +194,7 @@ export const GetBackgroundColor = ({
     get: () => {
       const colorName = Array.isArray(colors) ? colors[0] : colors;
 
-      const fontColor = GetColorByNickname({
+      const backgroundColor = GetColorByNickname({
         colorsObj: theme.colors.background,
         nickname: colorName,
       });
@@ -208,10 +203,12 @@ export const GetBackgroundColor = ({
         nickname: colorName,
       });
 
-      if (fontColor || normalColor)
-        return css`
-          background: ${hexToRgbA(fontColor || normalColor, opacity)};
-        `;
+      return css`
+        background: ${hexToRgbA(
+          backgroundColor || normalColor || colorName,
+          opacity
+        )};
+      `;
     },
   };
 
