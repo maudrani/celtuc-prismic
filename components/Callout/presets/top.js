@@ -3,7 +3,7 @@ export default {
     theme: 'dark-1',
   },
   wrapper: {
-    max_width: 'lg'
+    max_width: 'sm'
   },
   parent: {
     size: { main: 'xxl', lg: 'xl', md: 'sm' },
@@ -16,11 +16,12 @@ export default {
   },
   text_container: {
     p_t: { main: 1.8, lg: 1.4, md: 2.1 },
-    p_b: { main: 1, xs: 1.5 },
-    p_r: { main: 2, md: 0 },
-    p_l: { main: 2, md: 0 },
+    p_b: { main: 1.8, lg: 1.4, md: 2.1 },
+    p_r: { main: 2, md: 1 },
+    p_l: { main: 2, md: 1 },
 
-    height: 100,
+    /* height: 100, */
+    
 
     align_y: 'center',
     align_x: 'center',
@@ -28,11 +29,11 @@ export default {
   img_container: {
     size: 'sm',
 
-    height: 100,
-    min_height: 294,
-
     width: 100,
-    max_width: { main: 782, lg: 421, md: 277 },
+    /* height: 100, */
+   /*  min_height: 294, */
+    
+    max_width: { main: 782, /* lg: 421, md: 277 */ },
 
     align_y: 'bottom',
   },

@@ -53,17 +53,20 @@ const GetResponsiveValues = (values, unit) => {
     ['vw']: (val) => toVw(val),
     ['vh']: (val) => toVw(val),
     ['size']: (val) => toPX(GetSizeValue(GetSizeByName(val)).font_size),
-    ['none']: (val) => val,
+    ['none']: (val) => val.replace('none'),
   };
 
   const hasUnit = (val) => {
     const extracted_unit =
       typeof val === 'string' && val.replace(/\./g, '').replace(/[0-9]/g, '');
-    if (unitConverter[extracted_unit]) return extracted_unit;
+
+    if (unitConverter[extracted_unit]) return true;
   };
 
-  const GetUnit = (value) =>
-    hasUnit(value) ? value : unitConverter[unit](value) || value;
+  const GetUnit = (value) => {
+    if (hasUnit(value)) return value;
+    return unitConverter[unit](value) || value;
+  };
 
   const NotObject = {
     isNotObject: typeof values !== 'object',
@@ -96,10 +99,10 @@ const GetResponsiveValues = (values, unit) => {
 export const parseDataProp = (data = {}) => ({
   size: GetResponsiveValues(data.size || defaultData.size, 'size'),
 
-  width: toPerc(data.width) || defaultData.width,
+  width: GetResponsiveValues(data.width || defaultData.width, '%'),
   min_width: GetResponsiveValues(data.min_width || defaultData.min_width, 'px'),
   max_width: GetResponsiveValues(data.max_width || defaultData.max_width, 'px'),
-  height: toPerc(data.height) || defaultData.height,
+  height: GetResponsiveValues(data.height || defaultData.height, '%'),
   min_height: GetResponsiveValues(
     data.min_height || defaultData.min_height,
     'px'

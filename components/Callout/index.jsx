@@ -1,5 +1,5 @@
 import React from 'react';
-import { CalloutContainer } from './styled';
+import { CalloutContainer, CustomImg } from './styled';
 import preset from './presets/top';
 import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 import Img from '@/components/Base/Core/Img';
@@ -45,8 +45,12 @@ const Callout = (props) => {
         ...props.data.wrapper,
       }}
     >
-      <CalloutContainer data={{...preset.parent, ...props.data.parent}}>
-        <DynamicPanel data={{...preset.text_container, ...props.data?.text_container}}>
+      <CalloutContainer
+        data={{ ...preset.parent, ...props.data.parent }}
+      >
+        <DynamicPanel
+          data={{ ...preset.text_container, ...props.data?.text_container }}
+        >
           {tag?.text && (
             <DynamicPanel
               data={{
@@ -122,7 +126,7 @@ const Callout = (props) => {
 
         {hasImg && (
           <DynamicPanel data={{ ...preset.img_container, ...img?.data }}>
-            <Img src={img.src} />
+            <CustomImg src={img.src} />
           </DynamicPanel>
         )}
       </CalloutContainer>

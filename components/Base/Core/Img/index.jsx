@@ -49,12 +49,18 @@ function Img(props) {
   }, [imgData]);
 
   return (
+    <ImageContainer ref={imageContainerRef} {...props}>
+      <Image {...imgData} />
+    </ImageContainer>
+  );
+
+  /* return (
     <CustomDynamicPanel forwardedAs={'div'}>
       <ImageContainer ref={imageContainerRef}>
         <Image {...imgData} />
       </ImageContainer>
     </CustomDynamicPanel>
-  );
+  ); */
 }
 
 export default Img;

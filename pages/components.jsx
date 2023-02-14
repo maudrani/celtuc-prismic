@@ -1,11 +1,20 @@
 import Callout from '@/components/Callout';
+import TextOnImage from '@/components/TextOnImage';
 import React from 'react';
 
 const Components = () => {
   return (
     <div>
       <Callout
-        data={{ themeName: 'dark-1' }}
+        data={{
+          themeName: 'dark-1',
+          parent: {
+            direction: {
+              main: 'row',
+              lg: 'column',
+            },
+          },
+        }}
         content={{
           tag: { text: 'New', data: {} },
           subtitle: { text: 'iPhone 14 Pro', data: {} },
@@ -13,11 +22,9 @@ const Components = () => {
             text: '##### **Pro. Beyond.**',
             color: 'violet-pink-1',
             direction: 'bottom',
-            data: {},
           },
           description: {
             text: 'From $41.62/mo. for 24 mo. or $999 before trade‑in1',
-            data: {},
           },
         }}
         ctas={[
@@ -32,10 +39,10 @@ const Components = () => {
             href: '',
           },
         ]}
-        img={{ src: '/img/static/test/iphone-img-test.jpg', data: {} }}
+        img={{ src: '/img/static/test/iphone-img-test.jpg' }}
       />
 
-      <Callout
+      {/* <Callout
         data={{ themeName: 'light-1', wrapper: { p_t: { main: 3 } } }}
         content={{
           tag: { text: 'New', data: {} },
@@ -79,12 +86,12 @@ const Components = () => {
           parent: {
             align_y: 'center',
             direction: { main: 'row', lg: 'column' },
-            p_r: { main: 3 },
+            p_r: { main: 3, xl: 0 },
           },
           text_container: {
             p_l: 0,
-            p_r: { main: 4.5 },
-          }
+            p_r: { main: 4.5, xl: 0 },
+          },
         }}
         content={{
           subtitle: { text: '**iPhone SE**', data: {} },
@@ -117,9 +124,37 @@ const Components = () => {
         ]}
         img={{
           src: '/img/static/test/iphone-img-test-3.jpg',
-          data: { m_t: 1, max_width: { main: 494, md: 277 } },
+          data: { m_t: 1, max_width: { main: 494, lg: 277 } },
         }}
       />
+
+      <TextOnImage
+        content={{
+          subtitle: {
+            text: '**A Guided Tour of**',
+            data: { font_color: 'white' },
+          },
+          title: {
+            text: `##### **iPhone 14 &**
+            \n##### **iPhone 14 Pro**`,
+            data: { font_color: 'white', font_type: 'solid' },
+          },
+        }}
+        ctas={[
+          {
+            type: 'button',
+            text: 'Watch the film',
+            href: '',
+            data: {
+              font_color: 'dark-1',
+              background_color: 'light-1',
+            },
+          },
+        ]}
+        img={{
+          src: '/img/static/test/iphone-img-test-4.jpg',
+        }}
+      /> */}
     </div>
   );
 };

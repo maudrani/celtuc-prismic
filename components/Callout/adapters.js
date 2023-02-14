@@ -1,12 +1,5 @@
 import { GetThemeByName } from "utils/adapters";
 
-const GetPosition = (value) => ({
-    top: 'column',
-    bottom: 'column-reverse',
-    left: 'row',
-    right: 'row-reverse'
-}[value || 'top'])
-
 export const getDataProps = (props, preset) => ({
     theme:  GetThemeByName(props.data?.themeName || preset.general.theme),
     img: props.img,
@@ -20,5 +13,5 @@ export const getDataProps = (props, preset) => ({
    get title() {return this.content.title},
    get description() {return this.content.description},
 
-   direction: GetPosition(props.data?.position)
+   direction: props.data?.position
 })

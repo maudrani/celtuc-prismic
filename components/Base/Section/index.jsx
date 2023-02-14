@@ -6,8 +6,8 @@ import { SectionWrapper } from './styled';
 const parent_preset = {
   width: 100,
 
-  p_l: '5vw',
-  p_r: '5vw',
+  p_l: {main: '15px', md: '10px'},
+  p_r: {main: '15px', md: '10px'},
 
   m_l: 'auto',
   m_r: 'auto',

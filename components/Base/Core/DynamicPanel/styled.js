@@ -9,20 +9,24 @@ import {
 } from './adapters/styles';
 import { NormalizeValue } from 'utils/helpers/values';
 
-const GetValuewithResponsiveTree = (cssProp, values) => {
-  if (!values || !cssProp) return;
+const GetValuewithResponsiveTree = (cssProp, values, converter) => {
+  if (!values) return;
+
+  const CSS_STRING = (value) => (cssProp ? `${cssProp}: ${value};` : value);
 
   if (typeof values !== 'object')
-    return `
-      ${cssProp}: ${values};
-    `;
+    return CSS_STRING(converter? converter(values) : values);
 
   let sortedValues = [];
 
   Object.keys(values).forEach((breakpoint) => {
-    const valueObtained = breakpoints[breakpoint] || NormalizeValue(breakpoint);
+    const breakPointParsed =
+      breakpoints[breakpoint] || NormalizeValue(breakpoint);
+    const valueParsed = converter
+      ? converter(values[breakpoint])
+      : values[breakpoint];
 
-    sortedValues.push({ breakpoint: valueObtained, value: values[breakpoint] });
+    sortedValues.push({ breakpoint: breakPointParsed, value: valueParsed });
   });
 
   sortedValues.sort((a, b) => {
@@ -35,9 +39,8 @@ const GetValuewithResponsiveTree = (cssProp, values) => {
     const { breakpoint, value } = breakpointObj;
 
     if (breakpoint === 'main')
-      return `
-        ${cssProp}: ${value};
-      `;
+      return  CSS_STRING(value)
+
 
     return fluid(cssProp, '', [
       {
@@ -89,7 +92,7 @@ const ALIGNMENT = css`
 
   ${({ gap }) => GetValuewithResponsiveTree('gap', gap)};
 
-  ${({ align_x }) => xAlign(align_x)}
+  ${({ align_x }) => GetValuewithResponsiveTree('', align_x, xAlign)}
   ${({ align_y }) => yAlign(align_y)}
 `;
 

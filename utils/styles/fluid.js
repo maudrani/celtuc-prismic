@@ -12,9 +12,16 @@ export const fluid = (
       Object.keys(value)[0],
       Object.values(value)[0],
     ];
+
+    const CSS_STRING = cssProp
+      ? `${cssProp}: ${cssPropBreakpoint}${cssPropUnits}`
+      : `${cssPropBreakpoint}`;
+
     return (mediaQueries += `
-    @media screen and (${mediaQueryType}: ${breakpoints[screenBreakpoint] || screenBreakpoint}px) {
-      ${cssProp}: ${cssPropBreakpoint}${cssPropUnits};
+    @media screen and (${mediaQueryType}: ${
+      breakpoints[screenBreakpoint] || screenBreakpoint
+    }px) {
+      ${CSS_STRING};
     }
     `);
   }, '');

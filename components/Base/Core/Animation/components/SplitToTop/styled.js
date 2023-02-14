@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FadeContainer = styled.section`
+export const SplitContainer = styled.section`
   opacity: 0;
 
   @keyframes visible {
@@ -14,7 +14,7 @@ export const FadeContainer = styled.section`
   }
 
   &.is-visible {
-    animation: visible 0.8s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+    animation: visible 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
   }
 `;
 

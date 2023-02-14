@@ -22,14 +22,14 @@ const getDefaultWidthValue = (widthValue) => {
 export const getDataProps = (dataObj) => ({
   wrapperProps: {
     width: 100,
-    background_color: dataObj.background_color,
-    font_color: dataObj.font_color,
+    background_color: dataObj?.background_color,
+    font_color: dataObj?.font_color,
     align_y: 'center',
     align_x: 'center',
   },
   parentProps: {
-    max_width: getDefaultWidthValue(dataObj.max_width),
-    align_y: dataObj.align_y || 'center',
-    align_x: dataObj.align_x || 'center',
+    max_width: getDefaultWidthValue(dataObj?.max_width),
+    align_y: dataObj?.align_y || 'center',
+    align_x: dataObj?.align_x || 'center',
   },
 });
