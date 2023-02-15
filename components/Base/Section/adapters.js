@@ -48,6 +48,22 @@ const getSpacingWidthValue = (widthValue) => {
   return widthValue;
 };
 
+const getPaddingWidthValue = (widthValue) => {
+  const margins = {
+    [_sm.lg]: {main: 4.5, md: 3.2},
+    [_sm.md]: {main: 3.2, md: 2.1},
+    [_sm.sm]: {main: 2.1, md: 1},
+    [_sm.xs]: {main: 1, md: 0.7},
+  };
+
+  if (!widthValue) return;
+
+  const preset_width = margins[NormalizeValue(widthValue)];
+  if (preset_width) return preset_width;
+
+  return widthValue;
+};
+
 export const getDataProps = (dataObj) => ({
   wrapperProps: {
     width: dataObj?.width || default_values.width,
@@ -61,6 +77,8 @@ export const getDataProps = (dataObj) => ({
     mR: dataObj?.m_r || default_values.m_r,
     mB: GetResponsiveValues(getSpacingWidthValue(dataObj?.spacing_b || dataObj.spacing), 'em'),
     mT: GetResponsiveValues(getSpacingWidthValue(dataObj?.spacing_t || dataObj.spacing), 'em'),
+    pB: GetResponsiveValues(getSpacingWidthValue(dataObj?.padding_b || dataObj.padding), 'em'),
+    pT: GetResponsiveValues(getSpacingWidthValue(dataObj?.padding_t || dataObj.padding), 'em'),
     pL: GetResponsiveValues(dataObj?.p_l, 'em'),
     pR: GetResponsiveValues(dataObj?.p_r, 'em'),
   },

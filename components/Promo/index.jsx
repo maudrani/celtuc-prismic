@@ -1,5 +1,5 @@
 import React from 'react';
-import { CalloutContainer, TextContainer, CustomImg } from './styled';
+import { PromoContainer, TextContainer, CustomImg } from './styled';
 import PRESETS from './settings/direction';
 import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 import RichText from '@/components/Base/Core/RichText';
@@ -32,7 +32,7 @@ const Cta = ({ cta, theme }) =>
     </Link>
   );
 
-const Callout = (props) => {
+const Promo = (props) => {
   const {
     //data from prismic
     theme,
@@ -70,7 +70,7 @@ const Callout = (props) => {
         spacing_b,
       }}
     >
-      <CalloutContainer data={styles.parent}>
+      <PromoContainer data={styles.parent}>
         {hasContent && (
           <TextContainer data={styles.text_container}>
             {tag?.text && (
@@ -154,9 +154,9 @@ const Callout = (props) => {
             </Animation>
           </DynamicPanel>
         )}
-      </CalloutContainer>
+      </PromoContainer>
     </Section>
   );
 };
 
-export default Callout;
+export default Promo;

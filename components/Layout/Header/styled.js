@@ -1,16 +1,18 @@
-import { BACKGROUND_COLOR } from '@/components/Base/Core/CSS_ENGINE/Dynamic';
+import {
+  BACKGROUND_COLOR,
+  padding,
+  width,
+} from '@/components/Base/Core/CSS_ENGINE/Dynamic';
 import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 import styled from 'styled-components';
 import { css } from 'styled-components';
 
 export const HeaderWrapper = styled.header`
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  transition: ${({ collapsed }) => (collapsed ? '2.2s' : '0')} max-height
-    ease-in;
 
   ${BACKGROUND_COLOR}
 `;
@@ -29,12 +31,12 @@ export const HeaderBar = styled(DynamicPanel)`
 
     svg {
       fill: ${({ theme }) => theme.colors.shark};
-      transform: scale(0.7);
+      transform: scale(0.8);
 
       ${({ collapsed }) =>
         !collapsed &&
         css`
-          transform: scale(0.7) translateY(3%);
+          transform: scale(0.8) translateY(3%);
 
           rect {
             :nth-child(1) {
@@ -46,25 +48,32 @@ export const HeaderBar = styled(DynamicPanel)`
           }
         `};
     }
+
+    @media (min-width: 831px) {
+      display: none;
+    }
+  }
+
+  .hide-on-830 {
+    @media (max-width: 830px) {
+      display: none;
+    }
   }
 `;
 
-export const MenuPanel = styled(DynamicPanel)`
-  min-height: 100vh;
-  opacity: 1;
+export const BarLink = styled.div`
+  z-index: 11;
+  padding: 1.1em;
+`;
 
-  gap: 4em;
-
+export const HiddenPanel = styled.div`
+  width: 100%;
   position: absolute;
   z-index: 10;
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    gap: 0.7em;
-  }
+  opacity: 0;
+
+  transition: 2s;
 
   @keyframes showPanel {
     0% {
@@ -94,21 +103,46 @@ export const MenuPanel = styled(DynamicPanel)`
     }
   }
 
-  &.collapsed {
-    animation: hidePanel 0.75s cubic-bezier(0.785, 0.135, 0.35, 0.86) forwards;
-
-    ul {
-      animation: hidePanel 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
-    }
+  &.hidden_panel_collapsed {
+    animation: hidePanel 1.75s cubic-bezier(0.785, 0.135, 0.35, 0.86) forwards;
   }
 
-  &.not-collapsed {
+  &.hidden_panel_not-collapsed {
     animation: showPanel 0.5s cubic-bezier(0.785, 0.135, 0.35, 0.86) forwards;
+  }
+`;
+
+export const MenuPanel = styled(DynamicPanel)`
+  z-index: 1;
+  height: fit-content !important;
+
+  &.menu_panel_collapsed {
+    animation: hidePanel 0.7s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
 
     ul {
-      animation: showPanel 1.1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+      animation: hidePanel 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
     }
   }
+
+  &.menu_panel_collapsed_not-collapsed {
+    box-shadow: 0 20px 65px 0 rgba(255, 255, 255, 0.5);
+    animation: showPanel 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+    ul {
+      animation: showPanel 0.7s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+  }
+`;
+
+export const MenuLinkList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 0.7em;
+
+  ${padding}
+  ${width}
 `;
 
 export const MenuPanelLink = styled.li`
@@ -118,5 +152,29 @@ export const MenuPanelLink = styled.li`
 
   :hover {
     opacity: 1;
+  }
+`;
+
+export const Courtain = styled.div`
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  background: inherit;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+
+  transition: 0.5s;
+  backdrop-filter: blur(20px);
+
+  ${BACKGROUND_COLOR}
+
+  &.courtain_collapsed {
+    opacity: 0;
+  }
+
+  &.courtain_not-collapsed {
+    opacity: 1;
+    pointer-events: all;
   }
 `;

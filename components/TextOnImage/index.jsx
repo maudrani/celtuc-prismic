@@ -9,14 +9,24 @@ import Link from '../Base/Link';
 import { getDataProps } from './adapters';
 import Section from '../Base/Section';
 
-const Cta = (cta) =>
+const Cta = ({ cta, theme }) =>
   cta.type === 'button' ? (
-    <Button data={{ ...cta.data }}>{cta.text}</Button>
+    <Button
+      data={{
+        background_color: theme.background.accent,
+        font_color: theme.font.button,
+      }}
+    >
+      {cta.text}
+    </Button>
   ) : (
     <Link
       chevron={'true'}
       href={cta.href}
-      data={{ size: { main: 'md', md: '1.15em' }, ...cta.data }}
+      data={{
+        size: { main: 'md', md: '1.15em' },
+        font_color: theme.font.accent,
+      }}
     >
       {cta.text}
     </Link>
@@ -25,6 +35,16 @@ const Cta = (cta) =>
 const TextOnImage = (props) => {
   const {
     theme,
+    backgroundColor,
+    max_width,
+    spacing,
+    spacing_t,
+    spacing_b,
+    padding,
+    padding_t,
+    padding_b,
+    img_animation,
+
     img,
     hasContent,
     ctas,
@@ -40,10 +60,16 @@ const TextOnImage = (props) => {
   return (
     <Section
       data={{
-        background_color: background,
-        font_color: font.main,
         ...preset.wrapper,
-        ...props.data?.wrapper,
+        background_color: backgroundColor || background.main,
+        font_color: font.main,
+        max_width,
+        spacing,
+        spacing_t,
+        spacing_b,
+        padding,
+        padding_t,
+        padding_b,
       }}
     >
       <TextOnImageContainer data={{ ...preset.parent, ...props.data?.parent }}>
@@ -67,7 +93,7 @@ const TextOnImage = (props) => {
               <DynamicPanel
                 data={{
                   size: { main: '0.6em', md: 'sm' },
-                  m_b: .5,
+                  m_b: 0.5,
                   ...subtitle?.data,
                 }}
               >
@@ -117,7 +143,7 @@ const TextOnImage = (props) => {
                 }}
               >
                 {ctas.map((cta, idx) => (
-                  <Cta key={`cta-${idx}`} {...cta} />
+                  <Cta key={`cta-${idx}`} cta={cta} theme={theme} />
                 ))}
               </DynamicPanel>
             )}

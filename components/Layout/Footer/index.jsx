@@ -6,7 +6,7 @@ function Footer() {
       <div className="content">
         <div className="rights">
           <img src="/img/logo/logo-negative.svg" className="logo" />
-          <p>All rights reserved to Natural Anglers 2022.</p>
+          <p>All rights reserved to Celtuc 2023.</p>
         </div>
         <ul className="social-list">
           <li>Instagram</li>

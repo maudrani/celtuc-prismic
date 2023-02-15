@@ -119,12 +119,38 @@ const Components = () => {
         }}
       />
 
+      <TextOnImage
+        data={{
+          themeName: 'content-white-1',
+          background_color: 'light-4',
+          padding: 'xs',
+        }}
+        content={{
+          subtitle: {
+            text: '**A Guided Tour of**',
+          },
+          title: {
+            text: `##### **iPhone 14 &**
+            \n##### **iPhone 14 Pro**`,
+          },
+        }}
+        ctas={[
+          {
+            type: 'button',
+            text: 'Watch the film',
+            href: '',
+          },
+        ]}
+        img={{
+          src: '/img/static/test/iphone-img-test-4.jpg',
+        }}
+      />
+
       <Promo
         data={{
           themeName: 'content-white-1',
           direction: 'top',
           title_animation: 'typed_text',
-          spacing_t: 'xs',
         }}
         content={{
           title: {
@@ -141,7 +167,6 @@ const Components = () => {
           },
         ]}
       />
-
     </Section>
   );
 };
