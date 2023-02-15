@@ -13,7 +13,6 @@ const TypedTextSection = ({ children }) => {
 
     setTypedTextChildren({
       children: Array.from(domRef.current?.children[0]?.children),
-      el: domRef.current.querySelector('.typed-text'),
     });
   }, []);
 
@@ -22,7 +21,7 @@ const TypedTextSection = ({ children }) => {
 
     const TypeEngine = () => {
       const AnimateText = (domEl) => {
-        domEl.style.minHeight = `${domEl.offsetHeight}px`; //Gives the height of the main parent
+        domEl.style.minHeight = `${domEl.offsetHeight + 3}px`; //Gives the height of the main parent
 
         //Checking if children
         // ONLY ACCEPTED ONE, IN A FUTURE MAY ACCEPT ALL
@@ -73,23 +72,16 @@ const TypedTextSection = ({ children }) => {
 
       const GetChildren = (el_collection = []) => {
         el_collection.forEach((element) => {
-          isVisible && AnimateText(element);
-
-          /* const ChildrenArray = Array.from(element.children);
-
-          if (ChildrenArray.length) {
-            isVisible && AnimateText(element);
-            GetChildren(ChildrenArray);
-          } else {
-            isVisible && AnimateText(element);
-          } */
+          AnimateText(element);
         });
       };
 
       GetChildren(typedTextEl?.children);
     };
 
-    TypeEngine();
+    setTimeout(() => {
+     isVisible && TypeEngine();
+    }, 10);
 
     return () => {
       TypeEngine();

@@ -1,12 +1,9 @@
 import { ALIGN_NAMES, COLOR_TYPES } from '@/constants/styles';
 import {
-  GetSizeByName,
   GetSizeValue,
-  toEm,
-  toPerc,
   toPX,
-  toVw,
 } from 'utils/adapters';
+import { GetResponsiveValues } from '../../CSS_ENGINE/utils/responsive';
 
 const defaultData = {
   size: 'inherit',
@@ -38,63 +35,13 @@ const defaultData = {
   direction: 'column',
   align_y: ALIGN_NAMES.top,
   align_x: ALIGN_NAMES.left,
+  self_align: 'inherit',
   gap: 0,
 
-  border_radius: toPX(0),
+  border_radius: 0,
 };
 
-const GetResponsiveValues = (values, unit) => {
-  if ((values !== 0 && !values) || !unit) return;
 
-  const unitConverter = {
-    ['px']: (val) => toPX(val),
-    ['em']: (val) => toEm(val),
-    ['%']: (val) => toPerc(val),
-    ['vw']: (val) => toVw(val),
-    ['vh']: (val) => toVw(val),
-    ['size']: (val) => toPX(GetSizeValue(GetSizeByName(val)).font_size),
-    ['none']: (val) => val.replace('none'),
-  };
-
-  const hasUnit = (val) => {
-    const extracted_unit =
-      typeof val === 'string' && val.replace(/\./g, '').replace(/[0-9]/g, '');
-
-    if (unitConverter[extracted_unit]) return true;
-  };
-
-  const GetUnit = (value) => {
-    if (hasUnit(value)) return value;
-    return unitConverter[unit](value) || value;
-  };
-
-  const NotObject = {
-    isNotObject: typeof values !== 'object',
-    get: () => {
-      return GetUnit(values);
-    },
-  };
-
-  const isObject = {
-    isObject: typeof values === 'object',
-    get: () => {
-      const parsed_values = {};
-
-      Object.keys(values).forEach((value_breakpoint) => {
-        const value_name = values[value_breakpoint];
-
-        parsed_values[value_breakpoint] = GetUnit(value_name);
-      });
-
-      return parsed_values;
-    },
-  };
-
-  if (NotObject.isNotObject) return NotObject.get();
-  if (isObject.isObject) return isObject.get();
-
-  return values;
-};
 
 export const parseDataProp = (data = {}) => ({
   size: GetResponsiveValues(data.size || defaultData.size, 'size'),
@@ -136,8 +83,9 @@ export const parseDataProp = (data = {}) => ({
     data.direction || defaultData.direction,
     'none'
   ),
-  align_y: data.align_y,
-  align_x: data.align_x,
+  align_y: data.align_y || defaultData.align_y,
+  align_x: data.align_x || defaultData.align_x,
+  sefl_align: data.self_align || defaultData.self_align,
   gap: GetResponsiveValues(data.gap || defaultData.gap, 'em'),
 
   border_radius: data.border_radius

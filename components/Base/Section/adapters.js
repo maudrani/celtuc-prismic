@@ -1,8 +1,21 @@
 import { SIZE_NAMES as _sm } from '@/constants/styles';
 import theme from '@/styles/theme';
 import { NormalizeValue } from 'utils/helpers/values';
+import { GetResponsiveValues } from '../Core/CSS_ENGINE/utils/responsive';
 
-const getDefaultWidthValue = (widthValue) => {
+const default_values = {
+  width: '100%',
+  background_type: 'solid',
+  font_type: 'solid',
+  align_y: 'center',
+  align_x: 'center',
+  m_l: 'auto',
+  m_r: 'auto',
+  pL: { main: '15px', md: '10px' },
+  pR: { main: '15px', md: '10px' },
+};
+
+const getMaxWidthValue = (widthValue) => {
   const widths = {
     full: '100%',
     [_sm.lg]: theme.limits.pageWidth_int,
@@ -19,16 +32,41 @@ const getDefaultWidthValue = (widthValue) => {
   return widthValue;
 };
 
+const getSpacingWidthValue = (widthValue) => {
+  const margins = {
+    [_sm.lg]: {main: 4.5, md: 3.2},
+    [_sm.md]: {main: 3.2, md: 2.1},
+    [_sm.sm]: {main: 2.1, md: 1},
+    [_sm.xs]: {main: 1, md: 0.7},
+  };
+
+  if (!widthValue) return;
+
+  const preset_width = margins[NormalizeValue(widthValue)];
+  if (preset_width) return preset_width;
+
+  return widthValue;
+};
+
 export const getDataProps = (dataObj) => ({
   wrapperProps: {
-    width: 100,
-    background_color: dataObj?.background_color,
-    font_color: dataObj?.font_color,
-    align_y: 'center',
-    align_x: 'center',
+    width: dataObj?.width || default_values.width,
+    backgroundType: dataObj?.background_type || default_values.background_type,
+    backgroundColors: dataObj?.background_color,
+    fontType: dataObj?.font_type || default_values.font_type,
+    fontColors: dataObj?.font_color,
+    align_y: dataObj?.align_y || default_values.align_y,
+    align_x: dataObj?.align_x || default_values.align_x,
+    mL: dataObj?.m_l || default_values.m_l,
+    mR: dataObj?.m_r || default_values.m_r,
+    mB: GetResponsiveValues(getSpacingWidthValue(dataObj?.spacing_b || dataObj.spacing), 'em'),
+    mT: GetResponsiveValues(getSpacingWidthValue(dataObj?.spacing_t || dataObj.spacing), 'em'),
+    pL: GetResponsiveValues(dataObj?.p_l, 'em'),
+    pR: GetResponsiveValues(dataObj?.p_r, 'em'),
   },
   parentProps: {
-    max_width: getDefaultWidthValue(dataObj?.max_width),
+    width: 100,
+    max_width: getMaxWidthValue(dataObj?.max_width),
     align_y: dataObj?.align_y || 'center',
     align_x: dataObj?.align_x || 'center',
   },

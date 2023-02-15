@@ -7,7 +7,7 @@ const SplitToTop = (props) => {
   const { children } = props;
   const domRef = useRef();
 
-  const isVisible = useIsVisible(domRef, { threshold: 0.25 });
+  const isVisible = useIsVisible(domRef, { threshold: 0.01 });
   const [elements, setElements] = useState(null);
 
   useEffect(() => {
@@ -15,22 +15,28 @@ const SplitToTop = (props) => {
 
     const parent = domRef?.current?.children[0];
 
-    setElements({ parent });
+    setElements({ parent, main: domRef.current });
   }, []);
 
   useEffect(() => {
+    if (!elements || !isVisible) return;
+
     const textrev = gsap.timeline();
+    const { parent, main } = elements;
 
-    if (!elements) return;
-    const { parent } = elements;
+    setTimeout(() => {
+      main.style.opacity = 1;
+      parent.style.overflow = 'hidden';
 
-    parent.style.height = `${parent.offsetHeight}px`;
-    parent.style.overflow = 'hidden';
+      for (let i = 0; i < parent.children.length; i++) {
+        const textEl = parent.children[i];
+        const minHeight = textEl.offsetHeight + 3
+        textEl.style.minHeight = `${minHeight}px`;
+      }
 
-    Array.of(parent.children).forEach((textEl) => {
-      isVisible &&
+      Array.of(parent.children).forEach((textEl) => {
         textrev.from(textEl, 1.8, {
-          y: 200,
+          y: 150,
           ease: 'power4.out',
           delay: 0,
           skewY: 15,
@@ -38,15 +44,12 @@ const SplitToTop = (props) => {
             amount: 0.4,
           },
         });
-    });
-  }, [isVisible, elements]);
+      });
+    }, 1);
+  }, [isVisible]);
 
   return (
-    <SplitContainer
-      ref={domRef}
-      className={isVisible ? ' is-visible' : ''}
-      {...props}
-    >
+    <SplitContainer ref={domRef} {...props}>
       {children}
     </SplitContainer>
   );

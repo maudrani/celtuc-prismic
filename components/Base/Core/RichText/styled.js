@@ -229,21 +229,16 @@ const HEADINGS = css`
   h2 {
     margin-bottom: 0.25em;
     padding-bottom: 0.3em;
-    line-height: 1.0834933333;
     letter-spacing: -0.003em;
   }
 
+  h1,
+  h2,
   h3,
   h4,
   h5,
   h6 {
-    line-height: 1.4;
-
-    ${fluid('line-height', '', [
-      { lg: '1.3' },
-      { md: '1.2' },
-      { sm: '1.0834933333' },
-    ])};
+    line-height: calc(100% + 4px);
   }
 `;
 

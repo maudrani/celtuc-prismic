@@ -1,30 +1,15 @@
-import Button from '@/components/Base/Button';
-import Img from '@/components/Base/Core/Img';
+import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { HeaderWrapper, MenuPanel, HeaderBar, MenuPanelLink } from './styled';
 
-function Header(props) {
+function Header() {
   const [openMenu, setOpenMenu] = useState(false);
-  const [isPagetop, setIsPagetop] = useState(true);
+  const [domReady, setDomReady] = useState(false)
 
   const handleOpenMenu = () => {
     setOpenMenu((val) => !val);
   };
-
-  useEffect(() => {
-    if (!document || !window) return;
-
-    const handlePagetop = () => {
-      setIsPagetop(window.scrollY <= 700);
-    };
-
-    window.addEventListener('scroll', handlePagetop);
-
-    return () => {
-      window.removeEventListener('scroll', handlePagetop);
-    };
-  }, []);
 
   useEffect(() => {
     if (!document) return;
@@ -32,72 +17,68 @@ function Header(props) {
   }, [openMenu]);
 
   return (
-    <HeaderWrapper collapsed={!openMenu}>
-      <HeaderBar collapsed={!openMenu} isPagetop={isPagetop} id="header-bar">
-        <div className="menu-btn" onClick={handleOpenMenu}>
-          <svg viewBox="0 0 70 95" width="30" height="30">
-            <rect y="30" width="70" height="5"></rect>
-            <rect y="60" width="70" height="5"></rect>
-          </svg>
-        </div>
-        <div className="brand-container">
-          <p className="brand-name">NATURAL ANGLERS</p>
-          <img className="brand-logo" src="/img/logo/logo-negative.svg" />
-        </div>
-        <Link href="/">
-          <Button className="get-in-touch">Get in touch</Button>
-        </Link>
-      </HeaderBar>
+    <HeaderWrapper
+      collapsed={!openMenu}
+      backgroundColors={'light-1'}
+      backgroundType={'solid'}
+    >
+      <DynamicPanel
+        data={{
+          size: 'xs',
+          max_width: '1000',
+          width: '100',
+          p_t: 0.7,
+          p_b: 0.7,
+          p_l: 1.4,
+          p_r: 0.8,
+        }}
+      >
+        <HeaderBar
+          collapsed={!openMenu}
+          data={{
+            width: 100,
+            direction: 'row',
+            align_x: 'center',
+            align_y: 'center',
+          }}
+        >
+          <div className="brand-container">CELTUC</div>
+          <div className="menu-btn" onClick={handleOpenMenu}>
+            <svg viewBox="0 0 70 95" width="30" height="30">
+              <rect y="30" width="70" height="7"></rect>
+              <rect y="60" width="70" height="7"></rect>
+            </svg>
+          </div>
+        </HeaderBar>
+      </DynamicPanel>
 
-      <MenuPanel collapsed={!openMenu}>
+      <MenuPanel
+        collapsed={!openMenu}
+        data={{
+          size: 'xxl',
+          width: 100,
+          background_color: 'light-1',
+          p_l: { main: 5, md: 1.2 },
+          p_t: { main: 3, md: 2 },
+          font_color: 'dark-1',
+        }}
+        className={!openMenu ? 'collapsed' : 'not-collapsed'}
+        style={{ display: !domReady ? 'none': 'flex' }}
+      >
         <ul className="link-list">
           <MenuPanelLink selected>
             <Link href="/">Home</Link>
           </MenuPanelLink>
           <MenuPanelLink>
-            <Link href="/trips">Trips</Link>
+            <Link href="/trips">Link</Link>
           </MenuPanelLink>
           <MenuPanelLink>
-            <Link href="/gallery">Gallery</Link>
+            <Link href="/gallery">Link 2</Link>
           </MenuPanelLink>
           <MenuPanelLink>
             <Link href="/about-us">About us</Link>
           </MenuPanelLink>
         </ul>
-
-        <ul className="link-list-minor">
-          <li>
-            <a
-              href="https://www.whatsapp.com/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Whatsapp
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.instagram.com/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Instagram
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://www.facebook.com/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Facebook
-            </a>
-          </li>
-        </ul>
-
-        <div className="bg-img gradient-left">
-          <Img src={'/img/img (5).webp'} objectFit="cover" />
-        </div>
       </MenuPanel>
     </HeaderWrapper>
   );

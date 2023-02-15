@@ -10,6 +10,7 @@ const FadeInSection = (props) => {
 
   useEffect(() => {
     if (!domRef.current) return;
+    if (!isVisible) return;
 
     const AnimationEnds = () => {
       let trigger = false;
@@ -26,7 +27,11 @@ const FadeInSection = (props) => {
   }, [isVisible]);
 
   return (
-    <FadeContainer ref={domRef} className={isVisible ? ' is-visible' : ''} {...props}>
+    <FadeContainer
+      ref={domRef}
+      className={isVisible ? ' is-visible' : ''}
+      {...props}
+    >
       {children}
     </FadeContainer>
   );

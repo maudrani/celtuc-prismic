@@ -1,29 +1,18 @@
 import React from 'react';
 import DynamicPanel from '../Core/DynamicPanel';
 import { getDataProps } from './adapters';
+import settings from './settings';
 import { SectionWrapper } from './styled';
 
-const parent_preset = {
-  width: 100,
-
-  p_l: {main: '15px', md: '10px'},
-  p_r: {main: '15px', md: '10px'},
-
-  m_l: 'auto',
-  m_r: 'auto',
-};
-
 const Section = (props) => {
-  const {wrapperProps, parentProps } = getDataProps(props.data);
-  const no_data_props = { ...props, data: '' };
+  const parsedData = { ...settings[props.type || 'section'], ...props.data };
+
+  const { wrapperProps, parentProps } = getDataProps(parsedData);
+  const no_data_props = { ...props, data: {} };
 
   return (
-    <SectionWrapper {...no_data_props}>
-      <DynamicPanel data={wrapperProps}>
-        <DynamicPanel data={{ ...parent_preset, ...props.data, ...parentProps }}>
-          {props.children}
-        </DynamicPanel>
-      </DynamicPanel>
+    <SectionWrapper {...no_data_props} {...wrapperProps}>
+      <DynamicPanel data={{ ...parentProps }}>{props.children}</DynamicPanel>
     </SectionWrapper>
   );
 };

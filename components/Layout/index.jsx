@@ -5,9 +5,9 @@ import { LayoutWrapper } from './styled';
 function Layout(props) {
   return (
     <LayoutWrapper>
-      {/* <Header /> */}
+      <Header />
       {props.children}
-      {/* <Footer /> */}
+      <Footer />
     </LayoutWrapper>
   );
 }

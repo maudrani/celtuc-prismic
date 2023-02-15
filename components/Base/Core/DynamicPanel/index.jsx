@@ -15,6 +15,7 @@ const DynamicPanel = (props) => {
     direction,
     align_y,
     align_x,
+    sefl_align,
     gap,
 
     p_t,
@@ -39,7 +40,7 @@ const DynamicPanel = (props) => {
   } = parseDataProp(props.data);
 
   const no_data_props = { ...props, data: null };
-  
+
   return (
     <DynamicPanelContainer
       size={size}
@@ -52,6 +53,7 @@ const DynamicPanel = (props) => {
       direction={direction}
       align_y={align_y}
       align_x={align_x}
+      seflAlign={sefl_align}
       gap={gap}
       pT={p_t}
       pR={p_r}

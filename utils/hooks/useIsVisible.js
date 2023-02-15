@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useIsVisible = (
-  ref,
-  options = { threshold: 0, timeout: 300 }
-) => {
+export const useIsVisible = (ref, options = { threshold: 0, timeout: 300 }) => {
   const [isVisible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -26,7 +23,9 @@ export const useIsVisible = (
       { threshold: options.threshold }
     );
 
-    observer.observe(ref.current);
+    setTimeout(() => {
+      observer.observe(ref.current);
+    }, 10);
 
     return () => observer.disconnect();
   }, []);

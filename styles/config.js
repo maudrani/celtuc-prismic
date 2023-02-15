@@ -73,25 +73,52 @@ const FONT_COLORS = {
 
 // 3 - GENERATE THEMES
 const THEMES = {
+  'content-white-1': {
+    background: {
+      main: BACKGROUND_COLORS['dark-1'],
+      accent: BACKGROUND_COLORS['light-1'],
+    },
+    font: {
+      main: FONT_COLORS['light-1'],
+      second: FONT_COLORS['light-3'],
+      accent: FONT_COLORS['light-2'],
+      button: BACKGROUND_COLORS['dark-1'],
+    },
+  },
   'dark-1': {
-    background: BACKGROUND_COLORS['dark-1'],
+    background: {
+      main: BACKGROUND_COLORS['dark-1'],
+      accent: BACKGROUND_COLORS['accent-1'],
+    },
     font: {
       main: FONT_COLORS['light-1'],
       second: FONT_COLORS['dark-5'],
+      accent: FONT_COLORS['link-1'],
+      button: BACKGROUND_COLORS['light-1'],
     },
   },
   'light-1': {
-    background: BACKGROUND_COLORS['light-4'],
+    background: {
+      main: BACKGROUND_COLORS['light-4'],
+      accent: BACKGROUND_COLORS['accent-1'],
+    },
     font: {
       main: FONT_COLORS['dark-1'],
       second: FONT_COLORS['light-3'],
+      accent: FONT_COLORS['link-2'],
+      button: BACKGROUND_COLORS['light-1'],
     },
   },
   'light-2': {
-    background: BACKGROUND_COLORS['light-2'],
+    background: {
+      main: BACKGROUND_COLORS['light-2'],
+      accent: BACKGROUND_COLORS['accent-1'],
+    },
     font: {
       main: FONT_COLORS['dark-1'],
       second: FONT_COLORS['light-3'],
+      accent: FONT_COLORS['link-2'],
+      button: BACKGROUND_COLORS['light-1'],
     },
   },
 };
