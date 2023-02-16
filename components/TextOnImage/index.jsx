@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextOnImageContainer, ImgContainer, TextContainer } from './styled';
-import preset from './presets/top';
+import PRESETS from './settings';
 import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 import Img from '@/components/Base/Core/Img';
 import RichText from '@/components/Base/Core/RichText';
@@ -8,6 +8,8 @@ import Button from '../Base/Button';
 import Link from '../Base/Link';
 import { getDataProps } from './adapters';
 import Section from '../Base/Section';
+import { merge } from 'lodash';
+import { GetCompountPreset } from '../Base/Core/CSS_ENGINE/utils/presets';
 
 const Cta = ({ cta, theme }) =>
   cta.type === 'button' ? (
@@ -35,7 +37,11 @@ const Cta = ({ cta, theme }) =>
 const TextOnImage = (props) => {
   const {
     theme,
+    size,
+    direction,
+    text_direction,
     backgroundColor,
+    fontColor,
     max_width,
     spacing,
     spacing_t,
@@ -44,6 +50,8 @@ const TextOnImage = (props) => {
     padding_t,
     padding_b,
     img_animation,
+    round,
+    text_size,
 
     img,
     hasContent,
@@ -54,15 +62,18 @@ const TextOnImage = (props) => {
     subtitle,
     title,
     description,
-  } = getDataProps(props, preset);
+  } = getDataProps(props);
   const { background, font } = theme;
+
+  const styles = GetCompountPreset([size, direction], PRESETS);
 
   return (
     <Section
       data={{
-        ...preset.wrapper,
+        ...styles.wrapper,
         background_color: backgroundColor || background.main,
-        font_color: font.main,
+        font_color: fontColor || font.main,
+
         max_width,
         spacing,
         spacing_t,
@@ -72,10 +83,11 @@ const TextOnImage = (props) => {
         padding_b,
       }}
     >
-      <TextOnImageContainer data={{ ...preset.parent, ...props.data?.parent }}>
+      <TextOnImageContainer data={{ ...styles.parent, ...props.data?.parent }}>
         {hasContent && (
           <TextContainer
-            data={{ ...preset.text_container, ...props.data?.text_container }}
+            data={{ ...styles.text_container }}
+            textAlign={text_direction}
           >
             {tag?.text && (
               <DynamicPanel
@@ -152,7 +164,11 @@ const TextOnImage = (props) => {
 
         {hasImg && (
           <ImgContainer
-            data={{ ...preset.img_container, ...img?.data }}
+            data={{
+              ...styles.img_container,
+              ...img?.data,
+              border_radius: round,
+            }}
             style={{ overflow: 'hidden' }}
           >
             <Img src={img.src} />

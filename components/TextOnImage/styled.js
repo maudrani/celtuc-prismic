@@ -8,6 +8,10 @@ export const TextOnImageContainer = styled(DynamicPanel)`
 
 export const TextContainer = styled(DynamicPanel)`
   z-index: 1;
+  
+  *{
+    text-align: ${({textAlign}) => textAlign};
+  }
 
   h5 {
     line-height: 1;

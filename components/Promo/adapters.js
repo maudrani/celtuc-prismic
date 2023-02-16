@@ -9,6 +9,9 @@ export const getDataProps = (props) => ({
   spacing: props.data?.spacing,
   spacing_t: props.data?.spacing_t,
   spacing_b: props.data?.spacing_b,
+  padding: props.data?.padding,
+  padding_t: props.data?.padding_t,
+  padding_b: props.data?.padding_b,
 
   img: props.img,
   hasImg: !!props.img?.src,

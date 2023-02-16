@@ -1,17 +1,21 @@
 import { GetThemeByName } from 'utils/adapters';
 
-const GetPosition = (value) =>
+const GetTextDirection = (value) =>
   ({
-    top: 'column',
-    bottom: 'column-reverse',
-    left: 'row',
-    right: 'row-reverse',
-  }[value || 'top']);
+    center: 'center',
+    left: 'left',
+    right: 'end',
+  }[value || 'center']);
 
-export const getDataProps = (props, preset) => ({
-  theme: GetThemeByName(props.data?.themeName || preset.general.theme),
+export const getDataProps = (props) => ({
+  theme: GetThemeByName(props.data?.themeName),
+  size: props.data?.size || 'lg', //CHANGE TO DEFAULT VALUES
+  direction: props.data?.direction,
+  text_direction: GetTextDirection(
+    props.data?.text_direction || props.data?.direction
+  ),
   backgroundColor: props.data?.background_color,
-  img_animation: props.data?.img_animation,
+  fontColor: props.data?.font_color,
   max_width: props.data?.max_width,
   spacing: props.data?.spacing,
   spacing_t: props.data?.spacing_t,
@@ -19,6 +23,9 @@ export const getDataProps = (props, preset) => ({
   padding: props.data?.padding,
   padding_t: props.data?.padding_t,
   padding_b: props.data?.padding_b,
+  img_animation: props.data?.img_animation,
+  round: props.data?.round,
+  text_size: props.data?.text_size,
 
   img: props.img,
   hasImg: !!props.img?.src,
@@ -39,6 +46,4 @@ export const getDataProps = (props, preset) => ({
   get description() {
     return this.content?.description;
   },
-
-  direction: GetPosition(props.data?.position),
 });

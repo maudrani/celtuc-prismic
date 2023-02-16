@@ -43,6 +43,9 @@ const Promo = (props) => {
     spacing,
     spacing_t,
     spacing_b,
+    padding,
+    padding_t,
+    padding_b,
     //normal data
     img,
     ctas,
@@ -68,6 +71,9 @@ const Promo = (props) => {
         spacing,
         spacing_t,
         spacing_b,
+        padding,
+        padding_t,
+        padding_b,
       }}
     >
       <PromoContainer data={styles.parent}>

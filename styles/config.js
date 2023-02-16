@@ -25,6 +25,8 @@ const COLOR_PALETTE = {
   'jacksons-purple': '#1E3791',
   'cerulean-blue': '#2948B1',
   'royal-blue': '#385FDA',
+  pomegranate: '#EC3127',
+  'whiskey': '#D18D65'
 };
 
 // 2 - SEPARATE BETWEEN CATEGORIES
@@ -37,6 +39,9 @@ const BACKGROUND_COLORS = {
 
   'dark-1': COLOR_PALETTE.black,
   'dark-2': COLOR_PALETTE.shark,
+  'dark-3': COLOR_PALETTE.woodsmoke,
+  'dark-4': COLOR_PALETTE['black-russian'],
+  'dark-5': COLOR_PALETTE.jumbo,
 
   'accent-1': COLOR_PALETTE['science-blue'],
 };
@@ -55,6 +60,8 @@ const FONT_COLORS = {
 
   'link-1': COLOR_PALETTE['dodger-blue'],
   'link-2': COLOR_PALETTE['science-blue'],
+
+  'red-1': COLOR_PALETTE.pomegranate,
 
   'violet-pink-1': [COLOR_PALETTE.heliotrope, COLOR_PALETTE['lavender-rose']],
   'multicolor-1': [
@@ -83,6 +90,18 @@ const THEMES = {
       second: FONT_COLORS['light-3'],
       accent: FONT_COLORS['light-2'],
       button: BACKGROUND_COLORS['dark-1'],
+    },
+  },
+  'content-gray-1': {
+    background: {
+      main: BACKGROUND_COLORS['light-1'],
+      accent: BACKGROUND_COLORS['dark-1'],
+    },
+    font: {
+      main: FONT_COLORS['dark-5'],
+      second: FONT_COLORS['dark-1'],
+      accent: FONT_COLORS['dark-5'],
+      button: BACKGROUND_COLORS['light-3'],
     },
   },
   'dark-1': {
@@ -118,6 +137,30 @@ const THEMES = {
       main: FONT_COLORS['dark-1'],
       second: FONT_COLORS['light-3'],
       accent: FONT_COLORS['link-2'],
+      button: BACKGROUND_COLORS['light-1'],
+    },
+  },
+  'light-3': {
+    background: {
+      main: BACKGROUND_COLORS['light-2'],
+      accent: BACKGROUND_COLORS['accent-1'],
+    },
+    font: {
+      main: FONT_COLORS['dark-1'],
+      second: FONT_COLORS['light-3'],
+      accent: FONT_COLORS['light-3'],
+      button: BACKGROUND_COLORS['light-1'],
+    },
+  },
+  'red-1': {
+    background: {
+      main: BACKGROUND_COLORS['light-1'],
+      accent: BACKGROUND_COLORS['red-1'],
+    },
+    font: {
+      main: FONT_COLORS['red-1'],
+      second: FONT_COLORS['red-1'],
+      accent: FONT_COLORS['dark-1'],
       button: BACKGROUND_COLORS['light-1'],
     },
   },

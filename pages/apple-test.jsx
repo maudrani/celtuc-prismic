@@ -17,6 +17,7 @@ const Components = () => {
           title_animation: 'split_to_top',
           max_width: 'lg',
           spacing: 'none',
+          padding_t: 1,
         }}
         content={{
           tag: { text: 'New' },
@@ -52,6 +53,7 @@ const Components = () => {
           img_animation: 'fade_in',
           title_animation: 'split_to_top',
           spacing: 'xs',
+          padding_t: 2,
         }}
         content={{
           tag: { text: 'New' },
@@ -123,7 +125,10 @@ const Components = () => {
         data={{
           themeName: 'content-white-1',
           background_color: 'light-4',
+          direction: 'left',
+
           padding: 'xs',
+          round: 'xl',
         }}
         content={{
           subtitle: {
@@ -146,11 +151,40 @@ const Components = () => {
         }}
       />
 
+      <TextOnImage
+        data={{
+          themeName: 'red-1',
+          padding: 'sm',
+          direction: 'center',
+          size: 'md',
+          text_size: 'md',
+        }}
+        content={{
+          subtitle: {
+            text: '**Valentine’s Day**',
+          },
+          title: {
+            text: `#### **Sealed with a gift.**`,
+          },
+        }}
+        ctas={[
+          {
+            type: 'link',
+            text: 'Shop now',
+            href: '',
+          },
+        ]}
+        img={{
+          src: '/img/static/test/iphone-img-test-5.jpg',
+        }}
+      />
+
       <Promo
         data={{
           themeName: 'content-white-1',
           direction: 'top',
           title_animation: 'typed_text',
+          padding: '2'
         }}
         content={{
           title: {
