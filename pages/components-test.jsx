@@ -206,7 +206,7 @@ const Components = () => {
           padding_b: '6',
           direction: 'right',
           size: 'lg',
-          text_size: 'md',
+          text_size: 'lg',
           max_width: 'full',
           padding: 'xs',
           title_animation: 'split_to_top',

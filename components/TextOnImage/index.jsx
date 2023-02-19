@@ -8,13 +8,13 @@ import Button from '../Base/Button';
 import Link from '../Base/Link';
 import { getDataProps } from './adapters';
 import Section from '../Base/Section';
-import { merge } from 'lodash';
 import { GetCompountPreset } from '../Base/Core/CSS_ENGINE/utils/presets';
 
 const Cta = ({ cta, theme }) =>
   cta.type === 'button' ? (
     <Button
       data={{
+        size: { main: '1em', md: 'md' },
         background_color: theme.background.accent,
         font_color: theme.font.button,
       }}
@@ -26,7 +26,7 @@ const Cta = ({ cta, theme }) =>
       chevron={'true'}
       href={cta.href}
       data={{
-        size: { main: 'md', md: '1.15em' },
+        size: { main: '1em', md: 'md' },
         font_color: theme.font.accent,
       }}
     >
@@ -85,81 +85,83 @@ const TextOnImage = (props) => {
     >
       <TextOnImageContainer data={{ ...styles.parent, ...props.data?.parent }}>
         {hasContent && (
-          <TextContainer
-            data={{ ...styles.text_container }}
-            textAlign={text_direction}
-          >
-            {tag?.text && (
-              <DynamicPanel
-                data={{
-                  size: { main: '0.45em', md: 'xs' },
-                  m_b: { main: '0.3', md: 0.6 },
-                  font_color: font.second,
-                  ...tag?.data,
-                }}
-              >
-                <RichText data={{ size: 'xs' }}>{tag?.text}</RichText>
-              </DynamicPanel>
-            )}
-            {subtitle?.text && (
-              <DynamicPanel
-                data={{
-                  size: { main: '0.6em', md: 'sm' },
-                  m_b: 0.5,
-                  ...subtitle?.data,
-                }}
-              >
-                <RichText data={{ size: 'lg' }}>{subtitle?.text}</RichText>
-              </DynamicPanel>
-            )}
-            {title?.text && (
-              <DynamicPanel
-                data={{
-                  size: { main: '1em', lg: '1.1em', md: 'xl' },
-                  font_color: title?.color,
-                  font_type: 'gradient',
-                  font_gradient_direction: title?.direction,
+          <DynamicPanel data={{ ...styles.text_padding }}>
+            <TextContainer
+              data={{
+                ...styles.text_container,
+                [text_size && 'size']: text_size,
+              }}
+              textAlign={text_direction}
+            >
+              {tag?.text && (
+                <DynamicPanel
+                  data={{
+                    size: { main: '0.45em', md: 'xs' },
+                    m_b: { main: '0.3', md: 0.6 },
+                    font_color: font.second,
+                    ...tag?.data,
+                  }}
+                >
+                  <RichText data={{ size: 'xs' }}>{tag?.text}</RichText>
+                </DynamicPanel>
+              )}
+              {subtitle?.text && (
+                <DynamicPanel
+                  data={{
+                    size: { main: '0.98em', md: 'sm' },
+                    m_b: 0.25,
+                    ...subtitle?.data,
+                  }}
+                >
+                  <RichText data={{ size: 'lg' }}>{subtitle?.text}</RichText>
+                </DynamicPanel>
+              )}
+              {title?.text && (
+                <DynamicPanel
+                  data={{
+                    size: { main: '0.85em', lg: '1.1em', md: 'xl' },
+                    font_color: title?.color,
+                    font_type: 'gradient',
+                    font_gradient_direction: title?.direction,
 
-                  m_b: {
-                    md: '.25',
-                  },
-                  ...title?.data,
-                }}
-              >
-                <RichText data={{ size: 'xxl' }}>{title.text}</RichText>
-              </DynamicPanel>
-            )}
-            {description?.text && (
-              <DynamicPanel
-                data={{
-                  size: { main: '0.55em', lg: '0.7em', md: 'sm' },
-                  m_t: 0.8,
-                  max_width: {
-                    md: 230,
-                  },
-                  ...description?.data,
-                }}
-              >
-                <RichText data={{ size: 'md' }}>{description.text}</RichText>
-              </DynamicPanel>
-            )}
-            {hasCtas && (
-              <DynamicPanel
-                data={{
-                  size: 'sm',
-                  m_t: { main: 1.5, md: 1 },
-                  direction: { main: 'row', md: 'column' },
-                  align_x: 'center',
-                  align_y: 'center',
-                  gap: { main: 1.4, md: 0.95 },
-                }}
-              >
-                {ctas.map((cta, idx) => (
-                  <Cta key={`cta-${idx}`} cta={cta} theme={theme} />
-                ))}
-              </DynamicPanel>
-            )}
-          </TextContainer>
+                    m_b: { main: 0.7, md: 0.7 },
+                    ...title?.data,
+                  }}
+                >
+                  <RichText data={{ size: 'xxl' }}>{title.text}</RichText>
+                </DynamicPanel>
+              )}
+              {description?.text && (
+                <DynamicPanel
+                  data={{
+                    size: { main: '0.55em', lg: '0.7em', md: 'sm' },
+                    m_t: 0.8,
+                    max_width: {
+                      md: 230,
+                    },
+                    ...description?.data,
+                  }}
+                >
+                  <RichText data={{ size: 'md' }}>{description.text}</RichText>
+                </DynamicPanel>
+              )}
+              {hasCtas && (
+                <DynamicPanel
+                  data={{
+                    size: 'md',
+                    direction: { main: 'row', md: 'column' },
+                    align_x: 'center',
+                    align_y: 'center',
+                    gap: { main: 1.4, md: 0.95 },
+                  }}
+                >
+                  {ctas.map((cta, idx) => (
+                    <Cta key={`cta-${idx}`} cta={cta} theme={theme} />
+                  ))}
+                </DynamicPanel>
+              )}
+            </TextContainer>
+          </DynamicPanel>
         )}
 
         {hasImg && (

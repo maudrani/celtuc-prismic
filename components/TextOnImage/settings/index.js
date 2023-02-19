@@ -5,10 +5,12 @@ const MAIN = {
     width: 100,
     align_y: 'center',
   },
-  text_container: {
-    width: 100,
+  text_padding: {
     p_t: { main: 1 },
     p_b: { main: 1 },
+  },
+  text_container: {
+    width: 100,
     align_y: 'center',
   },
   img_container: {
@@ -36,6 +38,15 @@ const MD = {
   },
 };
 
+const SM = {
+  parent: {
+    min_height: { main: 384, lg: 290 },
+  },
+  text_container: {
+    size: '0.8em',
+  },
+};
+
 //Text size
 
 //DIRECTION
@@ -43,9 +54,11 @@ const CENTER = {
   parent: {
     align_x: 'center',
   },
+  text_padding: {
+    p_b: { main: 2 },
+  },
   text_container: {
     align_x: 'center',
-    p_b: { main: 2 },
   },
 };
 
@@ -53,10 +66,11 @@ const LEFT = {
   parent: {
     align_x: 'left',
   },
-  text_container: {
+  text_padding: {
     p_r: { main: 1, md: 0.5 },
-    p_l: { main: 3, md: 1.5},
-
+    p_l: { main: 3, md: 1.5 },
+  },
+  text_container: {
     align_x: 'left',
   },
 };
@@ -65,23 +79,23 @@ const RIGHT = {
   parent: {
     align_x: 'right',
   },
-  text_container: {
+  text_padding: {
     p_r: { main: 3, md: 1.5 },
     p_l: { main: 1, md: 0.5 },
-
+  },
+  text_container: {
     align_x: 'right',
   },
 };
-
-
 
 const SETTINGS = {
   MAIN,
   LG,
   MD,
+  SM,
   CENTER,
   LEFT,
-  RIGHT
+  RIGHT,
 };
 
 export default SETTINGS;
