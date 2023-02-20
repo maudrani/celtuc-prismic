@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import DynamicPanel from '@/components/Base/Core/DynamicPanel';
-import Img from '../Base/Core/Img';
+import Img from '@/components/Base/Core/Img';
 
 export const PromoContainer = styled(DynamicPanel)`
   text-align: center;

@@ -15,6 +15,8 @@ const Animation = (props) => {
     none: ({ children }) => <>{children}</>,
   }[type];
 
+  if (!type) return children;
+
   return <AnimationSelector {...props}>{children}</AnimationSelector>;
 };
 

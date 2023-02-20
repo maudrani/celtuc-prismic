@@ -1,15 +1,15 @@
 import Section from '@/components/Base/Section';
-import Promo from '@/components/Promo';
-import TextOnImage from '@/components/TextOnImage';
+import Promo from '@/components/Sections/Promo';
+import TextOnImage from '@/components/Sections/TextOnImage';
 import React from 'react';
 
 const Components = () => {
   return (
     <Section
       type="page"
-      data={{ background_color: 'light-1', max_width: 'full' }}
+      data={{ background_color: 'light-1', max_width: 'full', size: 'sm' }}
     >
-      <Promo
+      {/* <Promo
         data={{
           themeName: 'light-1',
           direction: 'top',
@@ -44,7 +44,7 @@ const Components = () => {
         ]}
         img={{
           src: '/img/static/test/cases-1.png',
-        }}
+        }}z
       />
 
       <Promo
@@ -82,24 +82,32 @@ const Components = () => {
         img={{
           src: '/img/static/test/walden-4.png',
         }}
-      />
+      /> */}
 
       <TextOnImage
         data={{
           themeName: 'content-white-1',
           background_color: 'light-1',
           direction: 'right',
+          text_direction: 'right',
           size: 'md',
+          text_size: 'sm',
           padding: 'xs',
           round: 'xl',
+          align_y: 'center',
         }}
         content={{
+          tag: { text: 'New' },
           subtitle: {
-            text: '**Fundas WALDEN para**',
+            text: '**iPhone 14**',
           },
           title: {
-            text: `##### **iPhone 14 &**
-            \n##### **iPhone 14 Pro**`,
+            text: `**THIS IS IT. 
+            FOR NO ONE ELSE. 
+            JUST FOR YOU.**`,
+          },
+          description: {
+            text: `From $33.29/mo. for 24 mo. or $799 before trade‑in1`,
           },
         }}
         ctas={[
@@ -114,7 +122,7 @@ const Components = () => {
         }}
       />
 
-      <Promo
+      {/*  <Promo
         data={{
           themeName: 'light-1',
           direction: 'top',
@@ -144,25 +152,38 @@ const Components = () => {
       <TextOnImage
         data={{
           themeName: 'red-1',
-          background_color: 'white',
-          direction: 'center',
-          size: 'md',
+          size: 'lg',
           text_size: 'md',
           max_width: 'full',
+          direction: 'center',
+          background_color: 'white',
           padding: 'xs',
+          title_animation: 'split_to_top',
+          img_animation: 'fade_in'
         }}
         content={{
-          subtitle: {
+          tag: {
+            text: 'New'
+          }
+,          subtitle: {
             text: '**Ofertas de**',
           },
           title: {
-            text: `#### **San Valentin**`,
+            text: `**San Valentin**`,
           },
+          description: {
+            text: 'From $33.29/mo. for 24 mo. or $799 before trade‑in1'
+          }
         }}
         ctas={[
           {
+            type: 'button',
+            text: 'Comprar',
+            href: '',
+          },
+          {
             type: 'link',
-            text: 'Ver ahora',
+            text: 'Ver mas',
             href: '',
           },
         ]}
@@ -176,7 +197,7 @@ const Components = () => {
           background_color: 'white',
           direction: 'left',
           size: 'lg',
-          text_size: 'md',
+          text_size: 'lg',
           max_width: 'full',
           padding: 'xs',
         }}
@@ -185,7 +206,7 @@ const Components = () => {
             text: '**Descuento 15%**',
           },
           title: {
-            text: `#### **Equipos usados**`,
+            text: ` **Equipos usados**`,
           },
         }}
         ctas={[
@@ -206,7 +227,7 @@ const Components = () => {
           padding_b: '6',
           direction: 'right',
           size: 'lg',
-          text_size: 'lg',
+          text_size: 'xl',
           max_width: 'full',
           padding: 'xs',
           title_animation: 'split_to_top',
@@ -216,7 +237,8 @@ const Components = () => {
             text: '**Nuevo**',
           },
           title: {
-            text: `### **S23 Ultra**`,
+            text: `#### **S23 Ultra**`,
+            type: 'gradient',
             color: ['white', 'jumbo'],
             direction: 'top',
           },
@@ -265,7 +287,7 @@ const Components = () => {
           },
         ]}
         img={{ src: '/img/static/test/service-1.png' }}
-      />
+      /> */}
     </Section>
   );
 };

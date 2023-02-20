@@ -8,6 +8,6 @@ export const ButtonWrapper = styled.button`
 
   &:hover {
     transition: filter 0.6s ease-out;
-    filter: saturate(2);
+    filter: brightness(1.4);
   }
 `;

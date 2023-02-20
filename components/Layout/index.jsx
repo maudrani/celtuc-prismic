@@ -7,7 +7,7 @@ function Layout(props) {
     <LayoutWrapper>
       <Header />
       {props.children}
-      <Footer />
+      {/* <Footer /> */}
     </LayoutWrapper>
   );
 }

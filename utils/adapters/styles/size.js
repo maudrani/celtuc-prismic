@@ -13,8 +13,8 @@ export const GetSizeByName = (sizeName) =>
 
 export const GetSizeValue = (sizeName ) => ({
   font_size: {
-    [_sn.xxl]: 38,
-    [_sn.xl]: 31,
+    [_sn.xxl]: 40,
+    [_sn.xl]: 33,
     [_sn.lg]: 26,
     [_sn.md]: 21,
     [_sn.sm]: 17,

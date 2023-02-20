@@ -7,6 +7,7 @@ import { SectionWrapper } from './styled';
 const Section = (props) => {
   const parsedData = { ...settings[props.type || 'section'], ...props.data };
 
+  
   const { wrapperProps, parentProps } = getDataProps(parsedData);
   const no_data_props = { ...props, data: {} };
 

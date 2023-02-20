@@ -6,7 +6,7 @@ import {
 import { GetResponsiveValues } from '../../CSS_ENGINE/utils/responsive';
 
 const defaultData = {
-  size: 'inherit',
+  size: '1em',
 
   width: 'fit-content',
   min_width: null,

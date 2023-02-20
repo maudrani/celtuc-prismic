@@ -3,11 +3,11 @@ import { PromoContainer, TextContainer, CustomImg } from './styled';
 import PRESETS from './settings/direction';
 import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 import RichText from '@/components/Base/Core/RichText';
-import Button from '../Base/Button';
-import Link from '../Base/Link';
+import Button from '@/components/Base/Button';
+import Link from '@/components/Base/Link';
 import { getDataProps } from './adapters';
-import Section from '../Base/Section';
-import Animation from '../Base/Core/Animation';
+import Section from '@/components/Base/Section';
+import Animation from '@/components/Base/Core/Animation';
 
 const Cta = ({ cta, theme }) =>
   cta.type === 'button' ? (

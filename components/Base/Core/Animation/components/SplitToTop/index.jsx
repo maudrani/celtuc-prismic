@@ -28,12 +28,6 @@ const SplitToTop = (props) => {
       main.style.opacity = 1;
       parent.style.overflow = 'hidden';
 
-      for (let i = 0; i < parent.children.length; i++) {
-        const textEl = parent.children[i];
-        const minHeight = textEl.offsetHeight + 3
-        textEl.style.minHeight = `${minHeight}px`;
-      }
-
       Array.of(parent.children).forEach((textEl) => {
         textrev.from(textEl, 1.8, {
           y: 150,

@@ -4,6 +4,8 @@ import { NormalizeValue } from 'utils/helpers/values';
 import { GetResponsiveValues } from '../Core/CSS_ENGINE/utils/responsive';
 
 const default_values = {
+  size: '1em',
+
   width: '100%',
   background_type: 'solid',
   font_type: 'solid',
@@ -34,10 +36,10 @@ const getMaxWidthValue = (widthValue) => {
 
 const getSpacingWidthValue = (widthValue) => {
   const margins = {
-    [_sm.lg]: {main: 4.5, md: 3.2},
-    [_sm.md]: {main: 3.2, md: 2.1},
-    [_sm.sm]: {main: 2.1, md: 1},
-    [_sm.xs]: {main: 1, md: 0.7},
+    [_sm.lg]: { main: 4.5, md: 3.2 },
+    [_sm.md]: { main: 3.2, md: 2.1 },
+    [_sm.sm]: { main: 2.1, md: 1 },
+    [_sm.xs]: { main: 1, md: 0.7 },
   };
 
   if (!widthValue) return;
@@ -50,10 +52,10 @@ const getSpacingWidthValue = (widthValue) => {
 
 const getPaddingWidthValue = (widthValue) => {
   const margins = {
-    [_sm.lg]: {main: 4.5, md: 3.2},
-    [_sm.md]: {main: 3.2, md: 2.1},
-    [_sm.sm]: {main: 2.1, md: 1},
-    [_sm.xs]: {main: 1, md: 0.7},
+    [_sm.lg]: { main: 4.5, md: 3.2 },
+    [_sm.md]: { main: 3.2, md: 2.1 },
+    [_sm.sm]: { main: 2.1, md: 1 },
+    [_sm.xs]: { main: 1, md: 0.7 },
   };
 
   if (!widthValue) return;
@@ -66,6 +68,7 @@ const getPaddingWidthValue = (widthValue) => {
 
 export const getDataProps = (dataObj) => ({
   wrapperProps: {
+    size: GetResponsiveValues(dataObj?.size  || default_values.size, 'size'),
     width: dataObj?.width || default_values.width,
     backgroundType: dataObj?.background_type || default_values.background_type,
     backgroundColors: dataObj?.background_color,
@@ -75,17 +78,27 @@ export const getDataProps = (dataObj) => ({
     align_x: dataObj?.align_x || default_values.align_x,
     mL: dataObj?.m_l || default_values.m_l,
     mR: dataObj?.m_r || default_values.m_r,
-    mB: GetResponsiveValues(getSpacingWidthValue(dataObj?.spacing_b || dataObj.spacing), 'em'),
-    mT: GetResponsiveValues(getSpacingWidthValue(dataObj?.spacing_t || dataObj.spacing), 'em'),
-    pB: GetResponsiveValues(getSpacingWidthValue(dataObj?.padding_b || dataObj.padding), 'em'),
-    pT: GetResponsiveValues(getSpacingWidthValue(dataObj?.padding_t || dataObj.padding), 'em'),
+    mB: GetResponsiveValues(
+      getSpacingWidthValue(dataObj?.spacing_b || dataObj.spacing),
+      'em'
+    ),
+    mT: GetResponsiveValues(
+      getSpacingWidthValue(dataObj?.spacing_t || dataObj.spacing),
+      'em'
+    ),
+    pB: GetResponsiveValues(
+      getPaddingWidthValue(dataObj?.padding_b || dataObj.padding),
+      'em'
+    ),
+    pT: GetResponsiveValues(
+      getPaddingWidthValue(dataObj?.padding_t || dataObj.padding),
+      'em'
+    ),
     pL: GetResponsiveValues(dataObj?.p_l, 'em'),
     pR: GetResponsiveValues(dataObj?.p_r, 'em'),
   },
   parentProps: {
     width: 100,
     max_width: getMaxWidthValue(dataObj?.max_width),
-    align_y: dataObj?.align_y || 'center',
-    align_x: dataObj?.align_x || 'center',
   },
 });

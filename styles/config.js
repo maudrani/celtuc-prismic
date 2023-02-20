@@ -43,6 +43,8 @@ const BACKGROUND_COLORS = {
   'dark-4': COLOR_PALETTE['black-russian'],
   'dark-5': COLOR_PALETTE.jumbo,
 
+  'red-1': COLOR_PALETTE.pomegranate,
+
   'accent-1': COLOR_PALETTE['science-blue'],
 };
 
@@ -87,7 +89,7 @@ const THEMES = {
     },
     font: {
       main: FONT_COLORS['light-1'],
-      second: FONT_COLORS['light-3'],
+      second: FONT_COLORS['light-5'],
       accent: FONT_COLORS['light-2'],
       button: BACKGROUND_COLORS['dark-1'],
     },
