@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 import { css } from 'styled-components';
 import { fluid } from 'utils/styles/fluid';
+import { breakpoints as _b } from '@/styles/theme/data/breakpoints';
 
 // PRESETS
 const SizePresets = {
   xs: css`
+    * {
+      ${fluid('font-size', '%', [{ [_b.lg]: 90 }, { [_b.sm]: 92 }])};
+    }
+
     p,
     li {
       line-height: 1.333;
@@ -112,20 +117,19 @@ const PRINT = css`
 `;
 
 const GENERAL = css`
-  * {
-    word-break: break-word;
-  }
-
   p,
   li {
     position: relative;
 
-    font-size: 1em;
     font-weight: 400;
     line-height: 1.4705882353;
     letter-spacing: -0.022em;
   }
 
+  * {
+    word-break: break-word;
+    ${fluid('font-size', '%', [{ [_b.lg]: 90 }, { [_b.sm]: 83 }])};
+  }
   ${({ size }) => SizePresets[size]}
 `;
 
@@ -230,6 +234,9 @@ const HEADINGS = css`
     margin-bottom: 0.25em;
     padding-bottom: 0.3em;
     letter-spacing: -0.003em;
+
+    ${fluid('margin-bottom', 'em', [{ [_b.lg]: 0.2 }, { [_b.sm]: 0.2 }])};
+    ${fluid('padding-bottom', 'em', [{ [_b.lg]: 0.23 }, { [_b.sm]: 0.18 }])};
   }
 
   h1,
@@ -354,7 +361,6 @@ const TABLE = css`
 
 export const RichTextContainer = styled.div`
   ${PRINT}
-  ${GENERAL}
   ${PARAGRAPH}
   ${BOLD_ITALIC}
   ${ANCHOR}
@@ -363,4 +369,5 @@ export const RichTextContainer = styled.div`
   ${QUOTES}
   ${CODE}
   ${TABLE}
+  ${GENERAL}
 `;

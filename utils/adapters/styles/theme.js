@@ -1,4 +1,3 @@
-import { THEME_NAMES as _th } from 'constants/styles';
 import { NormalizeValue } from 'utils/helpers/values';
 import theme from '@/styles/theme';
 

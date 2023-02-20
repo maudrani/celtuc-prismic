@@ -12,10 +12,6 @@ export const TextContainer = styled(DynamicPanel)`
   *{
     text-align: ${({textAlign}) => textAlign};
   }
-
-  h5 {
-    line-height: 1;
-  }
 `;
 
 export const ImgContainer = styled(DynamicPanel)`

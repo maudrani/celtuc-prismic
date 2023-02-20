@@ -9,7 +9,7 @@ const Components = () => {
       type="page"
       data={{ background_color: 'light-1', max_width: 'full', size: 'sm' }}
     >
-      {/* <Promo
+      <Promo
         data={{
           themeName: 'light-1',
           direction: 'top',
@@ -23,6 +23,7 @@ const Components = () => {
           title: {
             text: '#### **Fundas y Cases**',
             color: 'purple-blue-1',
+            type: 'gradient',
             direction: 'left',
           },
           description: {
@@ -44,7 +45,8 @@ const Components = () => {
         ]}
         img={{
           src: '/img/static/test/cases-1.png',
-        }}z
+        }}
+        z
       />
 
       <Promo
@@ -53,6 +55,7 @@ const Components = () => {
           direction: 'left',
           img_animation: 'fade_in',
           title_animation: 'split_to_top',
+          text_direction: 'center',
           spacing: 'md',
         }}
         content={{
@@ -60,6 +63,7 @@ const Components = () => {
           title: {
             text: `#### **Walden**`,
             color: ['mine-shaft', 'jumbo'],
+            type: 'gradient',
             direction: 'left',
           },
           description: {
@@ -82,7 +86,7 @@ const Components = () => {
         img={{
           src: '/img/static/test/walden-4.png',
         }}
-      /> */}
+      />
 
       <TextOnImage
         data={{
@@ -122,7 +126,7 @@ const Components = () => {
         }}
       />
 
-      {/*  <Promo
+      <Promo
         data={{
           themeName: 'light-1',
           direction: 'top',
@@ -159,21 +163,21 @@ const Components = () => {
           background_color: 'white',
           padding: 'xs',
           title_animation: 'split_to_top',
-          img_animation: 'fade_in'
+          img_animation: 'fade_in',
         }}
         content={{
           tag: {
-            text: 'New'
-          }
-,          subtitle: {
+            text: 'New',
+          },
+          subtitle: {
             text: '**Ofertas de**',
           },
           title: {
             text: `**San Valentin**`,
           },
           description: {
-            text: 'From $33.29/mo. for 24 mo. or $799 before trade‑in1'
-          }
+            text: 'From $33.29/mo. for 24 mo. or $799 before trade‑in1',
+          },
         }}
         ctas={[
           {
@@ -259,6 +263,7 @@ const Components = () => {
         data={{
           themeName: 'content-white-1',
           direction: 'right',
+          text_direction: 'center',
           img_animation: 'fade_in',
           title_animation: 'typed_text',
           max_width: 'lg',
@@ -287,7 +292,7 @@ const Components = () => {
           },
         ]}
         img={{ src: '/img/static/test/service-1.png' }}
-      /> */}
+      />
     </Section>
   );
 };

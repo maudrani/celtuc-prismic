@@ -91,7 +91,7 @@ const TextOnImage = (props) => {
                     align_x: 'center',
                     align_y: 'center',
                     m_t: 0.2,
-                    gap: { main: 1.4, md: 0.95 },
+                    gap: { main: '1.4em', md: '0.95em' },
                   }}
                 >
                   {ctas.map((cta, idx) => (
@@ -146,6 +146,7 @@ TextOnImage.propTypes = {
   round: PropTypes.string,
   text_size: PropTypes.string,
   cta_size: PropTypes.string,
+  align_y: PropTypes.string,
 
   img: PropTypes.object,
   ctas: PropTypes.array,

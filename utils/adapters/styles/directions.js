@@ -28,3 +28,10 @@ export const GetGradientDirection = (value) =>
       right: 270,
     }[value] || value
   }deg`;
+
+export const GetTextDirection = (value) =>
+  ({
+    center: 'center',
+    left: 'left',
+    right: 'right',
+  }[value]);

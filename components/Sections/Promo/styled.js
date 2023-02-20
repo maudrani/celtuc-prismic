@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import DynamicPanel from '@/components/Base/Core/DynamicPanel';
-import Img from '@/components/Base/Core/Img';
 
 export const PromoContainer = styled(DynamicPanel)`
   text-align: center;
@@ -10,12 +9,12 @@ export const PromoContainer = styled(DynamicPanel)`
   align-items: stretch;
 `;
 
-export const TextContainer = styled(DynamicPanel)``;
+export const TextContainer = styled(DynamicPanel)`
+  z-index: 1;
 
-export const CustomImg = styled(Img)`
-  height: fit-content !important;
-
-  img {
-    object-fit: contain;
+  * {
+    text-align: ${({ textAlign }) => textAlign};
   }
 `;
+
+export const ImgContainer = styled(DynamicPanel)``;

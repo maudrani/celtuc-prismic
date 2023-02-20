@@ -39,14 +39,14 @@ export const LinkWrapper = styled(DynamicPanel)`
 
 export const Chevron = styled.span`
   content: '';
-  position: absolute;
+  position: relative;
   height: 0.39em;
   width: 0.39em;
-  top: 42%;
+  bottom: -0.09em;
 
   font-weight: 900;
 
-  right: -15%;
+  right: -0%;
 
   border-style: solid;
   border-width: 0.095em 0.095em 0 0;

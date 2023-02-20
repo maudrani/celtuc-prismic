@@ -9,7 +9,7 @@ const Link = (props) => {
         data={{
           size: 'md',
           font_color: 'link-1',
-          gap: 0.2,
+          gap: '0.2em',
 
           ...props.data,
         }}

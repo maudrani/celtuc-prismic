@@ -1,44 +1,27 @@
+import PropTypes from 'prop-types';
+
 import React from 'react';
-import { PromoContainer, TextContainer, CustomImg } from './styled';
-import PRESETS from './settings/direction';
+import { PromoContainer, ImgContainer, TextContainer } from './styled';
+import PRESETS from './settings';
 import DynamicPanel from '@/components/Base/Core/DynamicPanel';
-import RichText from '@/components/Base/Core/RichText';
-import Button from '@/components/Base/Button';
-import Link from '@/components/Base/Link';
+import Img from '@/components/Base/Core/Img';
+
 import { getDataProps } from './adapters';
 import Section from '@/components/Base/Section';
-import Animation from '@/components/Base/Core/Animation';
-
-const Cta = ({ cta, theme }) =>
-  cta.type === 'button' ? (
-    <Button
-      data={{
-        background_color: theme.background.accent,
-        font_color: theme.font.button,
-      }}
-    >
-      {cta.text}
-    </Button>
-  ) : (
-    <Link
-      chevron={'true'}
-      href={cta.href}
-      data={{
-        size: { main: 'md', md: '1.15em' },
-        font_color: theme.font.accent,
-      }}
-    >
-      {cta.text}
-    </Link>
-  );
+import { GetCompountPreset } from '@/components/Base/Core/CSS_ENGINE/utils/presets';
+import CTA from '@/components/Compounds/CTA';
+import PromoTexts from '@/components/Compounds/Promo-Texts';
+import config from '@/styles/config';
 
 const Promo = (props) => {
   const {
-    //data from prismic
     theme,
+    size,
     direction,
-    title_animation,
-    img_animation,
+    align_y,
+    text_direction,
+    backgroundColor,
+    fontColor,
     max_width,
     spacing,
     spacing_t,
@@ -46,10 +29,14 @@ const Promo = (props) => {
     padding,
     padding_t,
     padding_b,
-    //normal data
+    title_animation,
+    round,
+    text_size,
+    cta_size,
+
     img,
-    ctas,
     hasContent,
+    ctas,
     hasCtas,
     hasImg,
     tag,
@@ -59,14 +46,15 @@ const Promo = (props) => {
   } = getDataProps(props);
   const { background, font } = theme;
 
-  const styles = PRESETS[direction];
+  const styles = GetCompountPreset([size, direction], PRESETS);
 
   return (
     <Section
       data={{
         ...styles.wrapper,
-        background_color: background.main,
-        font_color: font.main,
+        background_color: backgroundColor || background.main,
+        font_color: fontColor || font.main,
+
         max_width,
         spacing,
         spacing_t,
@@ -76,89 +64,58 @@ const Promo = (props) => {
         padding_b,
       }}
     >
-      <PromoContainer data={styles.parent}>
+      <PromoContainer data={{ ...styles.parent, align_y }}>
         {hasContent && (
-          <TextContainer data={styles.text_container}>
-            {tag?.text && (
-              <DynamicPanel
-                data={{
-                  size: { main: '0.45em', md: 'xs' },
-                  m_b: { main: '0.3', md: 0.6 },
-                  font_color: font.second,
-                }}
-              >
-                <RichText data={{ size: 'xs' }}>{tag?.text}</RichText>
-              </DynamicPanel>
-            )}
-            {subtitle?.text && (
-              <DynamicPanel
-                data={{
-                  size: { main: '0.6em', md: 'sm' },
-                  m_b: 0.5,
-                }}
-              >
-                <RichText data={{ size: 'lg' }}>{subtitle?.text}</RichText>
-              </DynamicPanel>
-            )}
-            {title?.text && (
-              <DynamicPanel
-                data={{
-                  size: { main: '1em', lg: '1.1em', md: 'xl' },
-                  font_color: title?.color || font.main,
-                  font_type: title?.type || 'gradient',
-                  font_gradient_direction: title?.direction,
-                  m_b: {
-                    main: 0.15,
-                    md: '.25',
-                  },
-                }}
-              >
-                <Animation
-                  data={{ type: title_animation }}
-                  style={{ width: '100%' }}
+          <DynamicPanel
+            data={{ ...styles.text_padding }}
+          >
+            <TextContainer
+              data={{
+                ...styles.text_container,
+                [text_size && 'size']: text_size,
+                align_x: text_direction || direction,
+              }}
+              textAlign={text_direction}
+            >
+              <PromoTexts
+                tag={tag}
+                subtitle={subtitle}
+                title={title}
+                description={description}
+                fontColors={font}
+                titleAnimation={title_animation}
+              />
+              {hasCtas && (
+                <DynamicPanel
+                  data={{
+                    size: { main: cta_size, md: 'sm' },
+                    direction: { main: 'row', md: 'column' },
+                    align_x: 'center',
+                    align_y: 'center',
+                    m_t: 0.2,
+                    gap: { main: '1.4em', md: '0.95em' },
+                  }}
                 >
-                  <RichText data={{ size: 'xxl' }}>{title.text}</RichText>
-                </Animation>
-              </DynamicPanel>
-            )}
-            {description?.text && (
-              <DynamicPanel
-                data={{
-                  size: { main: '0.55em', lg: '0.7em', md: 'sm' },
-                  m_t: 0.8,
-                  max_width: {
-                    md: 230,
-                  },
-                }}
-              >
-                <RichText data={{ size: 'md' }}>{description.text}</RichText>
-              </DynamicPanel>
-            )}
-            {hasCtas && (
-              <DynamicPanel
-                data={{
-                  size: 'sm',
-                  m_t: { main: 1.5, md: 1 },
-                  direction: { main: 'row', md: 'column' },
-                  align_x: 'center',
-                  align_y: 'center',
-                  gap: { main: 1.4, md: 0.95 },
-                }}
-              >
-                {ctas.map((cta, idx) => (
-                  <Cta key={`cta-${idx}`} cta={cta} theme={theme} />
-                ))}
-              </DynamicPanel>
-            )}
-          </TextContainer>
+                  {ctas.map((cta, idx) => (
+                    <CTA key={`cta-${idx}`} cta={cta} theme={theme} />
+                  ))}
+                </DynamicPanel>
+              )}
+            </TextContainer>
+          </DynamicPanel>
         )}
 
         {hasImg && (
-          <DynamicPanel data={styles.img_container}>
-            <Animation data={{ type: img_animation }} style={{ width: '100%' }}>
-              <CustomImg src={img.src} />
-            </Animation>
-          </DynamicPanel>
+          <ImgContainer
+            data={{
+              ...styles.img_container,
+              ...img?.data,
+              border_radius: round,
+            }}
+            style={{ overflow: 'hidden' }}
+          >
+            <Img src={img.src} />
+          </ImgContainer>
         )}
       </PromoContainer>
     </Section>
@@ -166,3 +123,37 @@ const Promo = (props) => {
 };
 
 export default Promo;
+
+Promo.propTypes = {
+  theme: PropTypes.oneOf(Object.keys(config.colors.themes)),
+  size: PropTypes.string,
+  direction: PropTypes.oneOf(['left', 'right', 'center']),
+  text_direction: PropTypes.oneOf(['left', 'right', 'center']),
+  backgroundColor: PropTypes.oneOf([
+    ...Object.keys(config.colors.background),
+    ...Object.keys(config.colors),
+  ]),
+  fontColor: PropTypes.oneOf([
+    ...Object.keys(config.colors.font),
+    ...Object.keys(config.colors),
+  ]),
+  max_width: PropTypes.number,
+  spacing: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  spacing_t: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  spacing_b: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  padding: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  padding_t: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  padding_b: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  title_animation: PropTypes.string,
+  round: PropTypes.string,
+  text_size: PropTypes.string,
+  cta_size: PropTypes.string,
+  align_y: PropTypes.string,
+
+  img: PropTypes.object,
+  ctas: PropTypes.array,
+  tag: PropTypes.string,
+  subtitle: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+};

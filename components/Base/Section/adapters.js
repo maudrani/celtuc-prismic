@@ -52,6 +52,7 @@ const getSpacingWidthValue = (widthValue) => {
 
 const getPaddingWidthValue = (widthValue) => {
   const margins = {
+    [_sm.xl]: { main: 7.5, md: 5 },
     [_sm.lg]: { main: 4.5, md: 3.2 },
     [_sm.md]: { main: 3.2, md: 2.1 },
     [_sm.sm]: { main: 2.1, md: 1 },

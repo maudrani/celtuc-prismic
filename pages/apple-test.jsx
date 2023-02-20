@@ -1,6 +1,7 @@
 import Section from '@/components/Base/Section';
-import Promo from '@/components/Promo';
-import TextOnImage from '@/components/TextOnImage';
+import Promo from '@/components/Sections/Promo';
+import Text from '@/components/Sections/Text';
+import TextOnImage from '@/components/Sections/TextOnImage';
 import React from 'react';
 
 const Components = () => {
@@ -25,6 +26,7 @@ const Components = () => {
           title: {
             text: '##### **Pro. Beyond.**',
             color: 'violet-pink-1',
+            type: 'gradient',
             direction: 'bottom',
           },
           description: {
@@ -61,6 +63,7 @@ const Components = () => {
           title: {
             text: '##### **Big and bigger.**',
             color: 'multicolor-1',
+            type: 'gradient',
             direction: 'left',
           },
           description: {
@@ -98,6 +101,7 @@ const Components = () => {
             \n##### **Love the price.**
             `,
             color: 'purple-blue-1',
+            type: 'gradient',
             direction: 'left',
           },
           description: {
@@ -126,8 +130,9 @@ const Components = () => {
           themeName: 'content-white-1',
           background_color: 'light-4',
           direction: 'left',
-
+          size: 'lg',
           padding: 'xs',
+          text_size: 'md',
           round: 'xl',
         }}
         content={{
@@ -135,8 +140,8 @@ const Components = () => {
             text: '**A Guided Tour of**',
           },
           title: {
-            text: `##### **iPhone 14 &**
-            \n##### **iPhone 14 Pro**`,
+            text: `**iPhone 14 &**
+            \n**iPhone 14 Pro**`,
           },
         }}
         ctas={[
@@ -151,53 +156,50 @@ const Components = () => {
         }}
       />
 
-      <TextOnImage
-        data={{
-          themeName: 'red-1',
-          padding: 'sm',
-          direction: 'center',
-          size: 'md',
-          text_size: 'md',
-        }}
-        content={{
-          subtitle: {
-            text: '**Valentine’s Day**',
-          },
-          title: {
-            text: `#### **Sealed with a gift.**`,
-          },
-        }}
-        ctas={[
-          {
-            type: 'link',
-            text: 'Shop now',
-            href: '',
-          },
-        ]}
-        img={{
-          src: '/img/static/test/iphone-img-test-5.jpg',
-        }}
-      />
-
-      <Promo
+      <Text
         data={{
           themeName: 'content-white-1',
-          direction: 'top',
-          title_animation: 'typed_text',
-          padding: '2'
+          direction: 'left',
+          size: 'sm',
+          padding: 'xl',
+          max_width: 'lg',
+
+          round: 'xl',
+          text_direction: 'center',
+          text_size: 'sm',
+          gap: 6
         }}
-        content={{
-          title: {
-            text: `#### **Introducing the new** \n #### **MacBook Pro and Mac mini.**`,
-            color: 'light-1',
-            type: 'solid',
-          },
-        }}
-        ctas={[
+        items={[
           {
-            type: 'button',
-            text: 'Watch the announcement',
-            href: '',
+            text: `# **Hey!** \n Deserunt ea ad nisi ullamco incididunt sint eiusmod dolore dolor nostrud. Exercitation veniam aliqua aute est aliquip ipsum sunt est sunt. Nisi consectetur Lorem tempor ut qui ea ut nostrud exercitation non est cupidatat. Nisi pariatur consequat id labore fugiat ullamco aute fugiat. Consequat magna sint fugiat excepteur. Qui minim officia ex aliquip aliquip id sint.`,
+            direction: 'left',
+            size: 'xs', 
+            animation: 'fade_in'
+          },
+          {
+            text: `# **Hey!** \n Deserunt ea ad nisi ullamco incididunt sint eiusmod dolore dolor nostrud. Exercitation veniam aliqua aute est aliquip ipsum sunt est sunt. Nisi consectetur Lorem tempor ut qui ea ut nostrud exercitation non est cupidatat. Nisi pariatur consequat id labore fugiat ullamco aute fugiat. Consequat magna sint fugiat excepteur. Qui minim officia ex aliquip aliquip id sint.`,
+            direction: 'left',
+            size: 'sm',
+          },
+          {
+            text: `# **Hey!** \n Deserunt ea ad nisi ullamco incididunt sint eiusmod dolore dolor nostrud. Exercitation veniam aliqua aute est aliquip ipsum sunt est sunt. Nisi consectetur Lorem tempor ut qui ea ut nostrud exercitation non est cupidatat. Nisi pariatur consequat id labore fugiat ullamco aute fugiat. Consequat magna sint fugiat excepteur. Qui minim officia ex aliquip aliquip id sint.`,
+            direction: 'left',
+            size: 'md',
+          },
+          {
+            text: `# **Hey!** \n Deserunt ea ad nisi ullamco incididunt sint eiusmod dolore dolor nostrud. Exercitation veniam aliqua aute est aliquip ipsum sunt est sunt. Nisi consectetur Lorem tempor ut qui ea ut nostrud exercitation non est cupidatat. Nisi pariatur consequat id labore fugiat ullamco aute fugiat. Consequat magna sint fugiat excepteur. Qui minim officia ex aliquip aliquip id sint.`,
+            direction: 'left',
+            size: 'lg',
+          },
+          {
+            text: `# **Hey!** \n Deserunt ea ad nisi ullamco incididunt sint eiusmod dolore dolor nostrud. Exercitation veniam aliqua aute est aliquip ipsum sunt est sunt. Nisi consectetur Lorem tempor ut qui ea ut nostrud exercitation non est cupidatat. Nisi pariatur consequat id labore fugiat ullamco aute fugiat. Consequat magna sint fugiat excepteur. Qui minim officia ex aliquip aliquip id sint.`,
+            direction: 'left',
+            size: 'xl',
+          },
+          {
+            text: `# **Hey!** \n Deserunt ea ad nisi ullamco incididunt sint eiusmod dolore dolor nostrud. Exercitation veniam aliqua aute est aliquip ipsum sunt est sunt. Nisi consectetur Lorem tempor ut qui ea ut nostrud exercitation non est cupidatat. Nisi pariatur consequat id labore fugiat ullamco aute fugiat. Consequat magna sint fugiat excepteur. Qui minim officia ex aliquip aliquip id sint.`,
+            direction: 'left',
+            size: 'xxl',
           },
         ]}
       />
