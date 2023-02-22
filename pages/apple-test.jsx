@@ -1,4 +1,5 @@
 import Section from '@/components/Base/Section';
+import Grid from '@/components/Compounds/Grid';
 import Promo from '@/components/Sections/Promo';
 import Text from '@/components/Sections/Text';
 import TextOnImage from '@/components/Sections/TextOnImage';
@@ -156,6 +157,8 @@ const Components = () => {
         }}
       />
 
+      <Grid data={{ themeName: 'content-gray-1',}} />
+
       <Text
         data={{
           themeName: 'content-white-1',
@@ -167,14 +170,14 @@ const Components = () => {
           round: 'xl',
           text_direction: 'center',
           text_size: 'sm',
-          gap: 6
+          gap: 6,
         }}
         items={[
           {
             text: `# **Hey!** \n Deserunt ea ad nisi ullamco incididunt sint eiusmod dolore dolor nostrud. Exercitation veniam aliqua aute est aliquip ipsum sunt est sunt. Nisi consectetur Lorem tempor ut qui ea ut nostrud exercitation non est cupidatat. Nisi pariatur consequat id labore fugiat ullamco aute fugiat. Consequat magna sint fugiat excepteur. Qui minim officia ex aliquip aliquip id sint.`,
             direction: 'left',
-            size: 'xs', 
-            animation: 'fade_in'
+            size: 'xs',
+            animation: 'fade_in',
           },
           {
             text: `# **Hey!** \n Deserunt ea ad nisi ullamco incididunt sint eiusmod dolore dolor nostrud. Exercitation veniam aliqua aute est aliquip ipsum sunt est sunt. Nisi consectetur Lorem tempor ut qui ea ut nostrud exercitation non est cupidatat. Nisi pariatur consequat id labore fugiat ullamco aute fugiat. Consequat magna sint fugiat excepteur. Qui minim officia ex aliquip aliquip id sint.`,

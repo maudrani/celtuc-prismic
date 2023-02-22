@@ -13,7 +13,7 @@ import {
 
 function Img(props) {
   const [imgData, setImgData] = useState(ParseImgProps(props));
-  const { getImgData = () => {} } = props;
+  const { getImgData = () => {}, objectFit = 'cover' } = props;
 
   const imageContainerRef = useCallback((containerNode) => {
     if (containerNode !== null) {
@@ -50,7 +50,7 @@ function Img(props) {
 
   return (
     <CustomDynamicPanel forwardedAs={'div'} {...props}>
-      <ImageContainer ref={imageContainerRef}>
+      <ImageContainer ref={imageContainerRef} objectFit={objectFit}>
         <Image {...imgData} />
       </ImageContainer>
     </CustomDynamicPanel>

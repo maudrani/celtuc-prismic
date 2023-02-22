@@ -5,7 +5,6 @@ import { GetResponsiveValues } from '../Core/CSS_ENGINE/utils/responsive';
 
 const default_values = {
   size: '1em',
-
   width: '100%',
   background_type: 'solid',
   font_type: 'solid',
@@ -69,8 +68,9 @@ const getPaddingWidthValue = (widthValue) => {
 
 export const getDataProps = (dataObj) => ({
   wrapperProps: {
-    size: GetResponsiveValues(dataObj?.size  || default_values.size, 'size'),
+    size: GetResponsiveValues(dataObj?.size || default_values.size, 'size'),
     width: dataObj?.width || default_values.width,
+    height: dataObj?.height || default_values.height,
     backgroundType: dataObj?.background_type || default_values.background_type,
     backgroundColors: dataObj?.background_color,
     fontType: dataObj?.font_type || default_values.font_type,

@@ -3,7 +3,7 @@ import DynamicPanel from '@/components/Base/Core/DynamicPanel';
 
 export const CustomDynamicPanel = styled(DynamicPanel)`
   position: relative;
-  width: 100%;
+  width: 100%;  
   height: 100%;
 `;
 
@@ -15,6 +15,6 @@ export const ImageContainer = styled.div`
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: ${({objectFit}) => objectFit};
   }
 `;

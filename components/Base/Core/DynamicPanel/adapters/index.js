@@ -11,7 +11,7 @@ const defaultData = {
   width: 'fit-content',
   min_width: null,
   max_width: null,
-  height: 'fit-content',
+  height: '100%',
   min_height: null,
   max_height: null,
 

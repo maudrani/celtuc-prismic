@@ -21,7 +21,6 @@ const Text = (props) => {
     padding,
     padding_t,
     padding_b,
-    round,
 
     items,
     text_direction,

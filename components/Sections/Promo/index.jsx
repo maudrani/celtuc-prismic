@@ -34,6 +34,7 @@ const Promo = (props) => {
     text_size,
     cta_size,
 
+    raw,
     img,
     hasContent,
     ctas,
@@ -51,7 +52,6 @@ const Promo = (props) => {
   return (
     <Section
       data={{
-        ...styles.wrapper,
         background_color: backgroundColor || background.main,
         font_color: fontColor || font.main,
 
@@ -62,13 +62,12 @@ const Promo = (props) => {
         padding,
         padding_t,
         padding_b,
+        height: raw && '100%',
       }}
     >
       <PromoContainer data={{ ...styles.parent, align_y }}>
         {hasContent && (
-          <DynamicPanel
-            data={{ ...styles.text_padding }}
-          >
+          <DynamicPanel data={{ ...styles.text_padding }}>
             <TextContainer
               data={{
                 ...styles.text_container,
@@ -112,9 +111,8 @@ const Promo = (props) => {
               ...img?.data,
               border_radius: round,
             }}
-            style={{ overflow: 'hidden' }}
           >
-            <Img src={img.src} />
+            <Img src={img.src} objectFit='contain' />
           </ImgContainer>
         )}
       </PromoContainer>

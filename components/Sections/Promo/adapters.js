@@ -27,6 +27,7 @@ export const getDataProps = (props) => ({
   cta_size: props.data?.cta_size || defailt_values.cta_size,
   align_y: props.data?.align_y || defailt_values.align_y,
 
+  raw: props.raw,
   img: props.img,
   hasImg: !!props.img?.src,
   content: props.content,
